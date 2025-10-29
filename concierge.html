@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concierge | Veliq Club</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+    <div class="brand">Veliq Club</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="patrons.html">Patrons</a>
+      <a class="active" href="concierge.html">Concierge</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <h1 class="title">Concierge</h1>
+    <div class="sub">White-glove proposals for private & corporate</div>
+    <p class="lead">最小入力で確度の高いご提案を差し上げます。高額案件は銀行振込・契約書締結にて対応します。</p>
+  </section>
+
+  <section class="container section">
+    <form class="form" onsubmit="event.preventDefault();alert('送信モック：担当よりご連絡します');">
+      <label>ご氏名</label>
+      <input class="input" type="text" required placeholder="姓 名">
+      <label>ご連絡先</label>
+      <input class="input" type="email" required placeholder="メールアドレス">
+      <label>ご希望（複数可）</label>
+      <select class="input" multiple size="4">
+        <option>サロン公演（四重奏）</option>
+        <option>ガラ（室内オケ）</option>
+        <option>法人イベント／表彰式</option>
+        <option>録音・委嘱制作</option>
+      </select>
+      <div class="cols">
+        <div>
+          <label>想定日程</label>
+          <input class="input" type="date">
+        </div>
+        <div>
+          <label>ご予算レンジ</label>
+          <select class="input">
+            <option>未定</option>
+            <option>〜300万円</option>
+            <option>300〜800万円</option>
+            <option>800万円〜</option>
+          </select>
+        </div>
+      </div>
+      <label>ご要望・会場・編成など</label>
+      <textarea rows="5" placeholder="例：○○ホテルボールルーム／来賓100名／上品で華やかに"></textarea>
+      <button class="btn" type="submit">送信（モック）</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">© Veliq Holdings · Eigo Sato</footer>
+</body>
+</html>
