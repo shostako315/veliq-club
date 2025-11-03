@@ -1,177 +1,193 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veliq Club | 音楽コンサルティング＆演奏提供</title>
-  <meta name="description" content="企業・団体・個人イベント向けに、目的から音楽の使い方を設計し、最適な編成で演奏まで提供。作曲はオプション。無料面談から一貫対応。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Noto Serif JP', serif;
+      color: #fff;
+      background: #000;
+      margin: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(212, 169, 85, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: bold;
+      color: #d4a955;
+      text-decoration: none;
+      font-size: 24px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    nav a.btn {
+      border: 1px solid #d4a955;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    h1, h2, h3 {
+      color: #fff;
+      font-weight: 600;
+    }
+    .btn.primary {
+      background: #d4a955;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .btn.ghost {
+      border: 1px solid #d4a955;
+      padding: 10px 16px;
+      color: #d4a955;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 8px;
+      text-align: left;
+    }
+    .note {
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/">
-        <span class="brand-mark">V</span>
-        <span class="brand-text">Veliq Club</span>
-      </a>
-      <nav class="nav">
-        <a href="#service">サービス</a>
-        <a href="#cases">導入例</a>
-        <a href="#pricing">料金</a>
-        <a href="#process">流れ</a>
-        <a href="#contact" class="cta">無料面談</a>
-      </nav>
-    </div>
-  </header>
+<header class="nav">
+  <a href="#hero" class="logo">V</a>
+  <nav>
+    <a href="#service">サービス</a>
+    <a href="#usecases">導入例</a>
+    <a href="#pricing">料金</a>
+    <a href="#process">流れ</a>
+    <a href="#contact" class="btn">無料面談</a>
+  </nav>
+</header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <h1>音楽を、<span class="accent">目的から</span>設計する。<br>演奏まで一貫提供。</h1>
-        <p class="lead">
-          Veliq Clubは、<strong>「音楽の使い方を設計」</strong>し、<strong>最適な編成で演奏まで提供</strong>するサービスです。  
-          式典・発表会・レセプション・セミナー等に、過不足ない規模と内容で。
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">無料面談を申し込む</a>
-          <a class="btn ghost" href="#service">サービスを見る</a>
-        </div>
-      </div>
-    </section>
+<section id="hero" class="container">
+  <h1>音楽を、目的から設計。<br>演奏まで一貫提供。</h1>
+  <p>式典・発表会・レセプション・セミナーなどで、「どの場面で、どんな音が最適か」を設計し、必要な編成で演奏まで提供します。</p>
+  <div class="cta">
+    <a class="btn primary" href="#contact">無料面談を申し込む</a>
+    <a class="btn ghost" href="#service">サービス概要を見る</a>
+  </div>
+</section>
 
-    <!-- SERVICE -->
-    <section id="service" class="section">
-      <div class="container">
-        <h2>Service｜サービス内容</h2>
+<section id="service" class="container">
+  <h2>Service｜サービス内容</h2>
+  <div class="card">
+    <h3>① 設計・提案（コンサルティング） <span class="badge">基本に含む</span></h3>
+    <ul>
+      <li>目的／会場条件／来場者層をヒアリング</li>
+      <li>編成・曲目・進行（入退場・区切り・間）の提案</li>
+      <li>概算費用と当日の運営上の注意点をPDFで提示</li>
+    </ul>
+  </div>
 
-        <article class="card">
-          <h3>① 設計・提案（コンサルティング）<small class="inc">基本に含む</small></h3>
-          <p>目的／会場条件／来場者層／プログラム案をヒアリングし、<strong>編成・曲目・進行</strong>を提案。必要な所要時間・概算費用まで可視化します。</p>
-          <ul class="bullets">
-            <li>「どの場面で、どの音が適切か」を目的から決定</li>
-            <li>小編成〜オーケストラの妥当規模を提示</li>
-            <li>MCの有無・曲間の「間」など運びも定義</li>
-          </ul>
-          <p class="note">※音響や会場手配は含みません（事前相談で前提をすり合わせ）。</p>
-        </article>
+  <div class="card">
+    <h3>② 音楽提供（演奏） <span class="badge">基本に含む</span></h3>
+    <ul>
+      <li>小編成（3–8名）／室内楽（9–18名）／オーケストラ（20名〜）</li>
+      <li>既存曲の用途調整・必要な編曲にも対応</li>
+      <li>式典・発表会・レセプション・セミナーのBGM/挿入 など</li>
+    </ul>
+  </div>
 
-        <article class="card">
-          <h3>② 音楽提供（演奏）<small class="inc">基本に含む</small></h3>
-          <p>決定したプランに基づき、<strong>VariOrchestra</strong>（常設約50名）から適切な人数で演奏を提供します。</p>
-          <ul class="bullets">
-            <li>小編成（3–8名）／室内楽（9–18名）／オーケストラ（20名〜）</li>
-            <li>編曲者在籍。既存曲の用途調整（長さ・構成）も対応</li>
-            <li>式典・発表会・レセプション・セミナーのBGM・挿入など</li>
-          </ul>
-        </article>
+  <div class="card">
+    <h3>③ 作曲（オプション）</h3>
+    <p>企業理念やイベント趣旨に沿う短尺オリジナル曲。式典テーマ、入退場ジングル、動画用BGMなど。</p>
+  </div>
+</section>
 
-        <article class="card">
-          <h3>③ 作曲（オプション）</h3>
-          <p>企業理念やイベント趣旨に沿う<strong>オリジナル曲</strong>を制作。式典テーマ、短尺の入退場曲、動画用BGMなど。</p>
-        </article>
+<section id="usecases" class="container">
+  <h2>Use Cases｜導入例</h2>
+  <div class="card"><strong>上場企業・創業記念式典</strong><br>入場／表彰／退場を音で区切り、式次第に沿って過不足なく運営。<br><b>20–30名編成・60分想定。</b></div>
+  <div class="card"><strong>ブランド発表・レセプション</strong><br>滞在時間に合わせ、要所は存在感のある曲で。<br><b>小〜中編成・45–90分。</b></div>
+  <div class="card"><strong>経営者向けセミナー</strong><br>トークの合間に短い楽曲で切替を作る。<br><b>弦楽四重奏・短尺2–3曲。</b></div>
+</section>
 
-        <div class="dos-donts">
-          <div>
-            <h4>含まれるもの</h4>
-            <ul>
-              <li>ヒアリング／設計提案（PDF）</li>
-              <li>編成・曲目の決定と必要な編曲</li>
-              <li>当日の演奏提供（リハ含む）</li>
-            </ul>
-          </div>
-          <div>
-            <h4>含まれないもの</h4>
-            <ul>
-              <li>会場・音響の手配や常設運用</li>
-              <li>録音納品（必要時は別途相談）</li>
-              <li>ティンパニ等の大型打楽器基本不使用</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="pricing" class="container pricing">
+  <h2>Pricing｜料金目安（税別）</h2>
+  <table>
+    <tr><th>内容</th><th>概要</th><th>目安価格</th></tr>
+    <tr><td>オーケストラ（20名〜）</td><td>式典・発表会・企業イベント向け</td><td>200万円〜</td></tr>
+    <tr><td>室内楽・小編成</td><td>弦楽四重奏〜少人数イベント向け</td><td>40万円〜</td></tr>
+    <tr><td>セミナー伴奏</td><td>開閉会＋合間の短尺曲</td><td>30万円〜</td></tr>
+    <tr><td>作曲（オプション）</td><td>式典テーマ・短尺BGMなど</td><td>50万円〜</td></tr>
+  </table>
+  <p class="note">※すべて「設計（コンサル）＋演奏」が基本セットです。</p>
+</section>
 
-    <!-- CASES -->
-    <section id="cases" class="section">
-      <div class="container">
-        <h2>Use Cases｜導入例</h2>
-        <div class="grid">
-          <article class="mini">
-            <h3>上場企業・創業記念式典</h3>
-            <p>入場／表彰／退場を音で区切り、式次第に沿って過不足なく運営。<strong>20–30名編成</strong>・60分想定。</p>
-          </article>
-          <article class="mini">
-            <h3>ブランド発表・レセプション</h3>
-            <p>来場者の滞在時間に合わせ、開始前は控えめ、要所は存在感のある曲に。<strong>小〜中編成</strong>・45–90分。</p>
-          </article>
-          <article class="mini">
-            <h3>経営者向けセミナー</h3>
-            <p>トークの合間に短い楽曲で切り替えを作成。開閉会に1曲ずつ、合間に短尺を2–3曲。<strong>弦楽四重奏</strong>。</p>
-          </article>
-        </div>
-      </div>
-    </section>
+<section id="process" class="container">
+  <h2>Process｜ご依頼の流れ</h2>
+  <ol>
+    <li>無料面談：目的・会場条件・来場者層をヒアリング</li>
+    <li>設計・提案：編成／曲目／進行案・概算費用をPDFで提示</li>
+    <li>確定・準備：編成確定・簡易リハ計画</li>
+    <li>実施：演奏提供（現場調整は主催と連携）</li>
+    <li>フォロー：次回に向けた改善メモ共有</li>
+  </ol>
+</section>
 
-    <!-- PRICING -->
-    <section id="pricing" class="section">
-      <div class="container">
-        <h2>Pricing｜料金目安（税別）</h2>
-        <div class="table">
-          <div class="row head"><div>内容</div><div>概要</div><div>目安価格</div></div>
-          <div class="row"><div>オーケストラ編成</div><div>式典・発表会・企業イベント向け（20名〜）</div><div>200万円〜</div></div>
-          <div class="row"><div>室内楽・小編成</div><div>弦楽四重奏〜少人数イベント向け</div><div>40万円〜</div></div>
-          <div class="row"><div>セミナー伴奏</div><div>開閉会＋合間の短尺曲（解説なし）</div><div>30万円〜</div></div>
-          <div class="row"><div>作曲（オプション）</div><div>式典テーマ・短尺BGMなど</div><div>50万円〜</div></div>
-        </div>
-        <p class="note">※価格は規模・編成・演奏時間で変動します。<br>※すべて<strong>設計（コンサル）＋演奏</strong>が基本セットです。</p>
-      </div>
-    </section>
+<section id="about" class="container">
+  <h2>About｜運営</h2>
+  <p>常設オーケストラ <b>VariOrchestra</b> を基盤に、指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営。「過不足のない音」の提供を大切にしています。</p>
+</section>
 
-    <!-- PROCESS -->
-    <section id="process" class="section">
-      <div class="container">
-        <h2>Process｜ご依頼の流れ</h2>
-        <ol class="steps">
-          <li><strong>無料面談</strong>：目的・会場条件・来場者層などヒアリング</li>
-          <li><strong>設計・提案</strong>：編成／曲目／進行案・概算費用をPDFで提示</li>
-          <li><strong>確定・準備</strong>：編成確定・簡易リハ計画</li>
-          <li><strong>実施</strong>：演奏提供（現場調整は主催側と連携）</li>
-          <li><strong>フォロー</strong>：次回に向けた改善メモ共有</li>
-        </ol>
-      </div>
-    </section>
+<section id="contact" class="container">
+  <h2>Contact｜お問い合わせ</h2>
+  <p>初回面談は無料です。内容やご予算が未定でも構いません。</p>
+  <a class="btn primary" href="mailto:info@veliq.club">メールで問い合わせる</a>
+  <a class="btn ghost" href="https://forms.gle/example" target="_blank">Googleフォームで申し込む</a>
+</section>
 
-    <!-- ABOUT / CONTACT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About｜運営</h2>
-        <p>常設オーケストラ<span class="nowrap">VariOrchestra</span>を基盤に、指揮者・ヴァイオリニスト 佐藤瑛吾の監修のもと運営。<br>「過不足のない音」の提供を大切にしています。</p>
-      </div>
-    </section>
+<footer>
+  <p>© 2025 Veliq Club</p>
+</footer>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact｜無料面談</h2>
-        <p>内容が未定でも構いません。まずは目的だけでもお聞かせください。</p>
-        <!-- ▼ Googleフォームを使う場合：URL差し替えでOK -->
-        <div class="form-embed">
-          <iframe src="https://docs.google.com/forms/d/e/XXXXXXXXXXXXXXXXXXXXXXXXXXXX/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-        </div>
-        <!-- ▼メールリンク派（片方だけ残す）
-        <p><a class="btn primary" href="mailto:info@your-domain.com?subject=Veliq%20Club%20無料面談&body=ご希望日時／目的／会場（未定可）をご記載ください。">メールで問い合わせる</a></p>
-        -->
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Veliq Club</p>
-    </div>
-  </footer>
+<script>
+document.querySelector('.logo').addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
 </body>
 </html>
