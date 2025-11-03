@@ -7,7 +7,7 @@
   <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
   <style>
     /* ----------------------------------------------------------------
-    // 第4次改善: がたつき解消、スクロールの一体感、より豪華な動きとデザイン
+    // 第5次改善: 権威性の強化、モバイル安定性、レイアウトの洗練
     // ---------------------------------------------------------------- */
     :root{
       --bg:#070707; /* 深淵な黒 */
@@ -21,48 +21,46 @@
       --card:#0f0f0f; /* カード背景1 */
       --card-2:#141414; /* カード背景2 */
       --card-border:#2a2a2a; /* エッジを強調するボーダー */
-
-      /* スクロールプログレスバーの色 */
       --scroll-progress-color: var(--gold);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      /* 引っ張っても余白が見えないように（がたつき防止） */
+      height: 100%;
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
+    }
     body{
       margin:0;
       font-family: "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",sans-serif;
-      /* 背景に微細なノイズ/テクスチャ感をCSSで表現 - より細かく、繊細に */
       background: linear-gradient(rgba(0,0,0,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.01) 1px, transparent 1px), radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
       background-size: 2px 2px, 2px 2px, 100% 100%;
       color:var(--fg);
       line-height:1.75;
       letter-spacing:.04em;
+      min-height: 100%;
     }
 
     /* --- スクロールプログレスバー --- */
     #scroll-progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%; /* JSで更新 */
-      height: 3px; /* 細く */
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
       background: linear-gradient(90deg, var(--gold-2), var(--scroll-progress-color));
-      z-index: 100; /* 最前面に */
-      box-shadow: 0 0 8px rgba(208,168,82,.6); /* 光沢感を出す */
-      transition: width 0.1s ease-out; /* 滑らかな動き */
+      z-index: 100; box-shadow: 0 0 8px rgba(208,168,82,.6);
+      transition: width 0.1s ease-out;
     }
 
     /* --- Top Nav --- */
     .nav-wrap{
       position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(12px); /* ぼかしをさらに強め、背景との分離感を明確に */
-      background:rgba(12,12,12,.8); /* 透過度を少し上げて、奥の背景を感じさせる */
+      backdrop-filter: blur(12px);
+      background:rgba(12,12,12,.8);
       border-bottom:1px solid #1a1a1a;
-      box-shadow: 0 4px 20px rgba(0,0,0,.6); /* 影をより深く、豪華に */
-      transition: background .3s ease, box-shadow .3s ease; /* スクロール時の変化を滑らかに */
+      box-shadow: 0 4px 20px rgba(0,0,0,.6);
     }
     nav{
       max-width:1100px; margin:0 auto; padding:12px 24px;
-      display:flex; align-items:center; gap:20px;
+      display:flex; align-items:center; gap:12px; /* ナビ内余白を調整 */
     }
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .brand-badge{
@@ -75,209 +73,173 @@
     .brand-title{font-weight:700; color:var(--fg); font-size:19px; white-space:nowrap; letter-spacing:.05em;}
 
     .nav-center{
-      flex:1; display:flex; justify-content:center;
+      flex:1; display:flex; justify-content:flex-end; /* タブをCTA側に寄せる */
       min-width:0;
     }
     .tabs{
-      display:flex; gap:24px; overflow:auto hidden; padding:6px 4px;
-      scroll-snap-type:x mandatory;
-      flex-shrink: 0;
+      display:flex; gap:18px; /* タブ間の隙間を減らして収まりやすく */
+      overflow:auto hidden; padding:6px 0;
+      flex-shrink: 1;
+      justify-content: flex-end; /* 右寄せ */
     }
     .tabs a{
       color:var(--muted); text-decoration:none; font-weight:500; white-space:nowrap;
-      padding:8px 10px; border-radius:4px;
+      padding:8px 6px; /* 内部パディングも減らす */
+      border-radius:4px;
       border:1px solid transparent;
-      transition:color .2s, border-color .2s;
-      letter-spacing:.08em;
+      letter-spacing:.05em;
       font-size:15px;
     }
-    .tabs a:hover{color:var(--gold)}
-
     .cta{
-      margin-left:auto;
+      margin-left:12px; /* CTAとの間隔を調整 */
       flex-shrink: 0;
     }
     .btn{
       appearance:none; border:none; border-radius:4px;
       padding:12px 20px;
-      color:var(--bg);
-      background:var(--bronze-cta); /* CTAボタンはより落ち着いたブロンズに */
+      color:var(--bg); background:var(--bronze-cta);
       font-weight:700; cursor:pointer;
       border:1px solid var(--gold-2);
       letter-spacing:.1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,.4);
       transition:transform .15s, background .2s, box-shadow .2s;
-      box-shadow: 0 4px 10px rgba(0,0,0,.4); /* ボタンにも深みのある影 */
     }
     .btn:hover{
-        transform:translateY(-2px); /* 少し浮き上がるように */
-        background:var(--gold-light); /* ホバーで少し明るいゴールドに */
-        box-shadow: 0 6px 15px rgba(0,0,0,.6); /* 影をさらに強く */
+        transform:translateY(-2px);
+        background:var(--gold-light);
+        box-shadow: 0 6px 15px rgba(0,0,0,.6);
     }
-    .btn--ghost{
-      background:transparent; color:var(--gold); border-color:var(--gold);
-      box-shadow: none; /* ゴーストボタンは影なし */
-    }
-    .btn--ghost:hover{
-        background:rgba(208,168,82,.1);
-        transform:translateY(-1px);
-        box-shadow: none;
-    }
-
 
     /* --- Hero --- */
     .hero{
       max-width:1000px; margin:0 auto; padding:120px 24px 60px;
       position:relative;
-      /* Heroセクションの背景を豪華に */
-      background-image: url('https://via.placeholder.com/1920x1080/0d0c0b/b0a894?text=Veliq+Orchestra+Background'); /* プレースホルダー画像 */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed; /* 背景を固定し、視差効果を演出 */
-      background-blend-mode: multiply; /* 背景とグラデーションをブレンド */
-      isolation: isolate; /* z-index問題を避ける */
+      background-image: url('https://via.placeholder.com/1920x1080/0d0c0b/b0a894?text=Veliq+Orchestra+Background');
+      background-size: cover; background-position: center; background-attachment: fixed;
+      background-blend-mode: multiply; isolation: isolate;
     }
-    .hero::before { /* Heroセクションの上に薄いグラデーションを重ねる */
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+    .hero::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
         background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 7, 0.5) 50%, rgba(7,7,7,0.8) 100%);
-        z-index: 1; /* コンテンツの下、背景画像の上 */
+        z-index: 1;
     }
-    .hero > * {
-        position: relative;
-        z-index: 2; /* コンテンツは一番手前に */
-    }
-
     .lede{
-      font-size: clamp(32px, 5.5vw, 52px);
-      font-weight:800; line-height:1.2;
-      letter-spacing:-.02em;
+      font-size: clamp(32px, 5.5vw, 52px); font-weight:800; line-height:1.2; letter-spacing:-.02em;
     }
     .lede b{color:var(--gold)}
     .sublede{color:var(--muted); margin-top:20px; font-size:18px; line-height:1.6; letter-spacing:.05em;}
     .cta-row{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap}
-    .divider{
-      height:1px;
-      background:linear-gradient(90deg,transparent 5%,var(--gold),transparent 95%);
-      margin:50px 0 0;
-    }
-
-    /* --- Reveal on scroll (よりスムーズで豪華に) --- */
-    .reveal{opacity:0; transform:translateY(28px); transition:opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-delay:var(--delay, 0s)}
-    .reveal.show{opacity:1; transform:none}
 
     /* --- Section shells --- */
     .shell{
-      max-width:1000px; margin:0 auto; padding:70px 24px;
+      max-width:1000px; margin:0 auto; padding:80px 24px; /* セクション間隔をさらに拡大 */
     }
     .h2{
       font-size:clamp(24px,3.2vw,32px); font-weight:800;
       margin:0 0 10px; letter-spacing:.08em;
-      position: relative; /* アンダーラインのために */
-      display: inline-block; /* アンダーラインの幅をテキストに合わせる */
-      padding-bottom: 8px; /* アンダーラインとの間隔 */
+      position: relative; display: inline-block; padding-bottom: 8px;
     }
-    .h2::after { /* ゴールドのアンダーラインアニメーション */
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0%; /* 初期状態 */
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.8s ease-out var(--delay, 0s); /* h2のdelayを継承 */
-    }
-    .h2.show::after { /* アニメーション後 */
-        width: 100%;
-    }
-    .hSub{color:var(--muted); margin-top:-6px; font-size:16px; letter-spacing:.05em;}
 
     /* --- Cards --- */
+    .cards{display:grid; grid-template-columns:1fr; gap:32px; /* カード間の間隔を拡大 */}
+    @media (min-width:780px){ .cards{grid-template-columns:1fr 1fr} }
     .card{
       background:linear-gradient(180deg,var(--card),var(--card-2));
-      border:1px solid var(--card-border);
-      border-radius:6px;
-      padding:24px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 10px 30px rgba(0,0,0,.5); /* さらに深く豪華な影 */
+      border:1px solid var(--card-border); border-radius:6px;
+      padding:28px; /* カード内パディングを拡大 */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 10px 30px rgba(0,0,0,.5);
+      transition: transform .3s ease, box-shadow .3s ease; /* ホバーアニメーション */
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 15px 40px rgba(0,0,0,.6);
+    }
+    .card ul, .card p{font-size:15px; color:var(--muted); letter-spacing:.03em;}
+
+    /* サービスのリストを豪華に（アイコン追加） */
+    .card ul{ padding-left: 0; list-style: none; }
+    .card ul li {
+        position: relative;
+        padding-left: 20px; /* アイコン用のスペース */
+        margin-bottom: 8px; /* 行間を確保 */
+    }
+    .card ul li::before {
+        content: '\2732'; /* ゴールドの星（高級感のあるUnicodeアイコン） */
+        color: var(--gold);
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: 1.75;
+    }
+    /* 含まれるもの／含まれないもの（注意書き）の専用スタイル */
+    .disclaimer {
+        background: transparent;
+        border: 1px solid var(--gold-2);
+        border-left: 4px solid var(--gold);
+        padding: 20px;
+        margin-top: 40px;
+        border-radius: 4px;
+        box-shadow: none;
+        transition: none;
+    }
+    .disclaimer .kicker {
+        color: var(--gold);
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    .disclaimer p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    /* 個別の定義を強調 */
+    .disclaimer b {
+      color: var(--fg);
+    }
+    .disclaimer em {
+      color: var(--gold);
+      font-style: normal;
     }
 
-    /* --- Pricing table --- (モバイル対応を強化) */
+    /* --- Pricing table --- (前回の修正を維持) */
     .table{
       width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
       border-radius:6px; border:1px solid var(--card-border); background:var(--card);
     }
-    .table thead{ display:none; }
 
-    .table th, .table td{
-      padding:16px 16px; border-bottom:1px solid #1a1a1a; vertical-align:middle;
-      font-size:15px;
-    }
-    .table tr{ display:block; padding:0; border-bottom:1px solid #1a1a1a; }
-
-    .table th{
-      display:block;
-      color:var(--fg); background:transparent;
-      width:auto; white-space:normal; font-weight:700; letter-spacing:.08em;
-      padding-bottom: 0;
-    }
-    .table td{
-        display:block;
-        padding-top: 4px;
-        color:var(--muted);
-    }
-    .table td.price{
-        color:var(--gold);
-        font-weight:800;
-        font-size:20px;
-        padding-top: 10px;
-        padding-bottom: 16px;
-    }
-    .table td p{margin:0; font-size:15px; color:var(--muted);}
-    .table tr:last-child { border-bottom:none; }
-    .table tr:last-child td, .table tr:last-child th{border-bottom:none}
-
-    /* デスクトップ表示のテーブルスタイルを再適用 */
-    @media (min-width:780px){
-      .table thead{ display:table-header-group; }
-      .table tr{ display:table-row; border:none;}
-      .table th{
-        display:table-cell;
-        color:var(--gold); background:#1a1a1a;
-        width:22%;
-        padding-top:18px; padding-bottom:18px;
-        white-space:nowrap;
-      }
-      .table td{
-        display:table-cell;
-        color:var(--fg);
-        padding-top:18px; padding-bottom:18px;
-      }
-      .table td.price{
-          font-weight:800; font-size:20px; color:var(--gold);
-          padding-top:18px; padding-bottom:18px;
-      }
-      .table tr:last-child td, .table tr:last-child th{border-bottom:none}
-    }
-
-    /* --- Process list --- */
+    /* --- Process list --- (矢印の追加) */
     .steps {
-        display: block;
+        display: flex; /* Flexboxに変更 */
+        flex-direction: column;
+        gap: 0; /* ステップ間の隙間は矢印で調整 */
         counter-reset: step-counter;
-        gap: 16px;
     }
     .step{
       display:flex; gap:20px;
-      background:linear-gradient(180deg,var(--card),var(--card-2)); /* カード背景を再適用 */
+      background:linear-gradient(180deg,var(--card),var(--card-2));
       border:1px solid var(--card-border); border-radius:6px;
-      padding:20px 24px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 6px 20px rgba(0,0,0,.3); /* 影を強化 */
-      margin-bottom: 16px;
+      padding:24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 6px 20px rgba(0,0,0,.3);
+      margin-bottom: 24px; /* ステップの下に十分な余白 */
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+        content: '▼'; /* 矢印アイコン */
+        position: absolute;
+        bottom: -28px; /* ステップ間の矢印の位置 */
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--gold);
+        font-size: 18px;
+        z-index: 5;
+        opacity: 0.7;
     }
     .step h4{
       flex-basis: 30%;
       min-width: 120px;
       position:relative;
-      padding-left: 25px;
+      padding-left: 35px; /* インデックス用のスペースを拡大 */
       margin:0; font-size:17px; color:var(--fg); letter-spacing:.05em;
     }
     .step h4::before{
@@ -290,9 +252,6 @@
       font-weight: 800;
       line-height: 1.2;
     }
-    .step .muted {
-      flex: 1;
-    }
 
     /* --- About / Footer --- */
     footer{
@@ -300,15 +259,13 @@
       padding:40px 16px 80px; margin-top:40px;
       color:var(--muted); text-align:center; font-size:14px;
     }
-
-    /* anchors spacing under sticky header */
     .anchor{position:relative; top:-80px}
     @media (max-width:640px){ .anchor{top:-72px} }
   </style>
 </head>
 <body>
 
-  <div id="scroll-progress-bar"></div>
+<div id="scroll-progress-bar"></div>
 
   <div class="nav-wrap">
     <nav>
@@ -337,12 +294,11 @@
     <h1 class="lede reveal" style="--delay:.1s">音楽を、<b>目的</b>から設計する。<br/>VariOrchestraが演奏まで一貫提供。</h1>
     <p class="sublede reveal" style="--delay:.3s">
       式典・発表会・レセプション・セミナー等の目的から、最適な「音」を戦略的に設計（コンサルティング）。<br/>
-      熟練のプロフェッショナル集団 **VariOrchestra** が、必要な編成で現場での演奏まで一貫してサポートいたします。
+      熟練のプロフェッショナルオーケストラ **VariOrchestra** が、必要な編成で現場での演奏まで一貫してサポートいたします。
     </p>
     <div class="cta-row reveal" style="--delay:.5s">
       <a class="btn" href="#contact">無料面談を申し込む</a>
-      <a class="btn btn--ghost" href="#service">サービス概要を見る</a>
-    </div>
+      </div>
     <div class="divider"></div>
   </div>
 
@@ -358,14 +314,14 @@
           <li>目的／会場条件／来場者層／プログラム案をヒアリング</li>
           <li>「どの場面で・どの音が適切か」を目的から決定</li>
           <li>小編成〜オーケストラの妥当規模を提示</li>
-          <li>MCの有無・曲間の「間」等、運びも定義<br><span class="muted">※音響や会場手配は含みません（事前相談で前提をすり合わせ）</span></li>
+          <li>MCの有無・曲間の「間」等、運びも定義</li>
         </ul>
       </div>
 
       <div class="card reveal" style="--delay:.4s">
         <div class="kicker">② 音楽提供（演奏）<span class="badge">基本に含む</span></div>
         <ul>
-          <li>決定したプランに基づき、<b>VariOrchestra</b>（常設約50名）から適切人数で演奏を提供</li>
+          <li>決定したプランに基づき、<b>VariOrchestra</b>から適切人数で演奏を提供</li>
           <li>小編成（3–8名）／室内楽（9–18名）／オーケストラ（20名〜）</li>
           <li>編曲者在籍。既存曲の用途調整（長さ・構成）にも対応</li>
           <li>式典・発表会・レセプション・セミナーのBGMや挿入曲 ほか</li>
@@ -376,12 +332,17 @@
         <div class="kicker">③ 作曲（オプション）</div>
         <p class="muted">企業理念やイベント趣旨に沿う<b>オリジナル曲</b>を制作。式典テーマ、短尺の入退場曲、動画用BGMなど。</p>
       </div>
+      
+      <div class="card" style="opacity: 0; visibility: hidden;"></div> 
+    </div>
 
-      <div class="card reveal" style="--delay:.6s">
-        <div class="kicker">含まれるもの／含まれないもの（専門領域の定義）</div>
-        <p><b>含まれる：</b>ヒアリング・音楽設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）、進行サポート</p>
-        <p class="muted"><b>含まれない：</b>会場・音響の手配や常設運用、**レコーディング納品、映像演出・撮影**、大型打楽器の基本使用</p>
-      </div>
+    <div class="disclaimer reveal" style="--delay:.7s">
+        <div class="kicker">専門領域の定義（含まれるもの / 含まれないもの）</div>
+        <p>
+            **含まれるもの：** ヒアリング・音楽設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）、進行サポート
+            <br>
+            **含まれないもの（注意書き）：** 会場・音響の手配や常設運用、<em>レコーディング納品、映像演出・撮影</em>、大型打楽器の基本使用など、演奏・設計に直接関わらない業務は含みません。
+        </p>
     </div>
   </section>
 
@@ -447,23 +408,23 @@
     <p class="hSub reveal" style="--delay:.2s">最高品質の音楽を提供するための、綿密なプロセスをご説明します。</p>
     <div class="steps">
       <div class="step reveal" style="--delay:.3s">
-        <h4>無料面談</h4>
+        <h4>1. 無料面談</h4>
         <div class="muted">目的・会場条件・来場者層などをヒアリングし、プロジェクトの輪郭を確定します。</div>
       </div>
       <div class="step reveal" style="--delay:.4s">
-        <h4>設計・提案</h4>
+        <h4>2. 設計・提案</h4>
         <div class="muted">編成／曲目／進行案・概算費用をPDFで提示。最適な音楽設計を文書で明確にします。</div>
       </div>
       <div class="step reveal" style="--delay:.5s">
-        <h4>確定・準備</h4>
+        <h4>3. 確定・準備</h4>
         <div class="muted">編成確定・簡易リハ計画。契約に基づき、演奏に向けた準備を開始します。</div>
       </div>
       <div class="step reveal" style="--delay:.6s">
-        <h4>実施</h4>
+        <h4>4. 実施</h4>
         <div class="muted">演奏提供（現場調整は主催と連携）。本番で設計通りの「音」をお届けします。</div>
       </div>
       <div class="step reveal" style="--delay:.7s">
-        <h4>フォロー</h4>
+        <h4>5. フォロー</h4>
         <div class="muted">次回に向けた改善メモ共有。継続的な関係構築と、さらなる品質向上に繋げます。</div>
       </div>
     </div>
@@ -472,9 +433,9 @@
   <span id="about" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal" style="--delay:.1s">About｜運営</h2>
-    <p class="hSub reveal" style="--delay:.2s">プロフェッショナルな音楽家集団を基盤にしています。</p>
+    <p class="hSub reveal" style="--delay:.2s">信頼に足るプロフェッショナルな音楽家集団を基盤にしています。</p>
     <div class="card reveal" style="--delay:.3s">
-      <p>常設オーケストラ <b>VariOrchestra</b> を基盤に、指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営。「過不足のない音」の提供を大切にしています。</p>
+      <p><b>VariOrchestra</b>は、クラシック音楽の定期公演を主催する**プロフェッショナルオーケストラ**です。指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営し、**最高の音楽体験**をお届けします。</p>
     </div>
   </section>
 
@@ -508,9 +469,9 @@
     }, {threshold: 0.1});
     document.querySelectorAll('.reveal').forEach(el=>{
       io.observe(el);
-      // h2要素は別途クラスを付与
+      // h2要素は別途クラスを付与 (h2::afterのアニメーション用)
       if (el.classList.contains('h2')) {
-        el.classList.add('h2-reveal'); // アンダーラインアニメーションのトリガー用
+        el.classList.add('h2-reveal');
       }
     });
 
@@ -550,8 +511,8 @@
       progressBar.style.width = progress + '%';
     };
     window.addEventListener('scroll', updateProgressBar);
-    window.addEventListener('resize', updateProgressBar); // リサイズ時も更新
-    updateProgressBar(); // 初回ロード時
+    window.addEventListener('resize', updateProgressBar);
+    updateProgressBar();
   </script>
 </body>
 </html>
