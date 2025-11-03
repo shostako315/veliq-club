@@ -1,114 +1,279 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>Veliq Club | 音を設計するクラシック体験</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark only" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veliq Club | 音楽を、目的から考える</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-  :root{
-    --bg:#0B0B0B; --ink:#F6F4EE; --gold:#C9A24A;
-    --gold-20:rgba(201,162,74,.2); --g70:#6E6E6E; --g40:#A8A8A8;
-    --max:1160px; --rad:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--ink)}
-  body{font-family:"Noto Sans JP","Noto Serif JP","Playfair Display",system-ui,-apple-system,"Segoe UI",sans-serif; letter-spacing:.02em; line-height:1.8}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .container.narrow{max-width:860px}.container.tight{max-width:760px}
-  header{position:sticky;top:0;z-index:5;background:rgba(11,11,11,.82);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--gold-20)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{display:flex;align-items:baseline;gap:.5rem;font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.06em}
-  .brand-mark{display:inline-block;width:36px;height:36px;line-height:36px;border:1px solid var(--gold);border-radius:50%;text-align:center;color:var(--gold);font-weight:700;margin-right:.25rem}
-  .brand-text{font-size:20px}
-  nav a{margin-left:18px;opacity:.9}
-  .btn{display:inline-block;padding:12px 18px;border-radius:999px;border:1px solid transparent;transition:.25s;font-weight:600}
-  .btn-outline{border-color:var(--gold)}.btn-outline:hover{background:var(--gold);color:#0B0B0B}
-  .btn-gold{background:var(--gold);color:#0B0B0B}.btn-gold:hover{filter:saturate(110%)}
-  .btn-ghost{border:1px solid var(--gold-20)}.btn-ghost:hover{border-color:var(--gold)}
-  .display{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.04em;line-height:1.25;font-size:clamp(32px,4.2vw,56px)}
-  .serif{font-family:"Playfair Display","Noto Serif JP",serif}
-  .lead{font-size:clamp(16px,1.4vw,20px);color:var(--g40)} .muted{color:var(--g40)}
-  .hero{position:relative;padding:18vh 0 14vh;border-bottom:1px solid var(--gold-20)}
-  .hero .cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-  .section{padding:96px 0}
-  .page-hero{padding:120px 0 70px;border-bottom:1px solid var(--gold-20)}
-  .cards{display:grid;gap:22px}.cards.cols-3{grid-template-columns:repeat(3,1fr)}
-  .card{padding:24px;border:1px solid var(--gold-20);border-radius:var(--rad);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));transition:.25s}
-  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold)}
-  .price{border:1px solid var(--gold-20);border-radius:var(--rad);overflow:hidden}
-  .price .row{display:flex;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--gold-20)}
-  .price .row:first-child{border-top:none}
-  form{display:grid;gap:14px} label{display:grid;gap:8px;font-size:.95rem}
-  input,textarea,select{background:#121212;border:1px solid var(--gold-20);border-radius:12px;padding:12px 14px;color:var(--ink);outline:none;transition:.2s}
-  input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.18)}
-  footer{border-top:1px solid var(--gold-20);padding:40px 0}
-  @media (max-width:960px){.cards.cols-3{grid-template-columns:1fr} nav{display:none}}
+    :root {
+      --bg: #0a0a0a;
+      --ink: #ecebe7;
+      --gold: #c6a04b;
+      --gold-soft: rgba(198,160,75,.25);
+      --mute: #a7a6a2;
+      --max: 1100px;
+      --rad: 14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(198,160,75,.1);
+      background: rgba(10,10,10,.9);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: .05em;
+      color: var(--gold);
+    }
+
+    nav a {
+      color: var(--ink);
+      margin-left: 20px;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+    nav a:hover { color: var(--gold); opacity: 1; }
+
+    .hero {
+      text-align: center;
+      padding: 12vh 20px 10vh;
+      border-bottom: 1px solid rgba(198,160,75,.12);
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px,5vw,56px);
+      margin-bottom: 20px;
+      letter-spacing: .02em;
+    }
+
+    .lead {
+      color: var(--mute);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+      transition: .25s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: #0a0a0a;
+    }
+
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 20px;
+      border-bottom: 1px solid rgba(198,160,75,.1);
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      margin-bottom: 0.6em;
+      color: var(--gold);
+      text-align: left;
+    }
+
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      color: var(--gold);
+      margin-top: 1.6em;
+      margin-bottom: 0.4em;
+    }
+
+    p {
+      margin: 0 0 1em;
+      color: var(--ink);
+    }
+
+    .muted { color: var(--mute); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    th, td {
+      border-bottom: 1px solid rgba(198,160,75,.1);
+      text-align: left;
+      padding: 10px 0;
+    }
+
+    th { color: var(--gold); font-weight: 600; }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--mute);
+      font-size: 14px;
+    }
+
+    @media(max-width: 720px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+      section { padding: 64px 16px; }
+      nav { display: none; }
+    }
   </style>
 </head>
+
 <body>
-
-<header>
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">V</span><span class="brand-text">Veliq&nbsp;Club</span>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="cases.html">Cases</a>
-      <a href="about.html">About</a>
-      <a class="btn btn-outline" href="contact.html">相談する</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <h1 class="display">音楽は、「流す」のではなく——<span style="color:var(--gold)">設計</span>する。</h1>
-    <p class="lead">上質を知る人のための <em>音楽体験デザイン</em>。VariOrchestraとともに、空間・時間・沈黙までも構築します。</p>
-    <div class="cta">
-      <a class="btn btn-gold" href="services.html">サービスを見る</a>
-      <a class="btn btn-outline" href="contact.html">無料相談を申し込む</a>
+  <header>
+    <div class="nav">
+      <div class="brand">Veliq Club</div>
+      <nav>
+        <a href="#concept">Concept</a>
+        <a href="#service">Service</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="section">
-  <div class="container narrow">
-    <h2 class="serif">音の美学を、あなたの空間へ。</h2>
-    <p>Veliq Clubは、クラシック音楽を「体験」として設計するプロフェッショナル集団です。<br>
-      企業イベント、ブランド発表、式典、プライベートサロン——あらゆる場面に、心を満たす響きをデザインします。</p>
-  </div>
-</section>
+  <section class="hero">
+    <h1>音楽を、目的から考える。</h1>
+    <p class="lead">
+      Veliq Clubは、企業・団体・個人イベントのために、<br>
+      <strong>音楽の使い方を設計し、最適な形で提供する</strong>サービスです。<br>
+      初回面談から提案・演奏まで、一貫して対応します。
+    </p>
+    <a href="#contact" class="btn">無料面談を申し込む</a>
+    <a href="#service" class="btn" style="margin-left:12px;">サービス概要を見る</a>
+  </section>
 
-<section class="section">
-  <div class="container cards cols-3">
-    <div class="card">
-      <h3 class="serif">Design</h3>
-      <p>目的・空間・来場者に合わせた最適な音楽設計。構成・演出・編成を提案します。</p>
-    </div>
-    <div class="card">
-      <h3 class="serif">Perform</h3>
-      <p>VariOrchestraによる上質な生演奏。指揮者・奏者による洗練された響き。</p>
-    </div>
-    <div class="card">
-      <h3 class="serif">Create</h3>
-      <p>企業・ブランドのためのオリジナル楽曲制作も可能。あなたの理念を音で表現します。</p>
-    </div>
-  </div>
-</section>
+  <section id="concept">
+    <h2>Concept｜コンセプト</h2>
+    <p>
+      私たちは、演奏そのものを「商品」とは考えていません。<br>
+      目的に合わせて、どんな音楽を・どのように使うかを設計し、<br>
+      その設計に基づいて演奏を実施します。<br><br>
+      式典・発表会・レセプション・セミナーなど、<br>
+      音楽が担うべき役割を明確にし、最適な形で形にします。
+    </p>
+  </section>
 
-<footer>
-  <div class="container narrow">
-    <p>© 2025 Veliq Club | VariOrchestra 常設連携</p>
-  </div>
-</footer>
+  <section id="service">
+    <h2>Service｜サービス内容</h2>
 
+    <h3>① Consultation｜ヒアリング・設計</h3>
+    <p>
+      目的、会場条件、来場者層、プログラム構成などを整理し、<br>
+      最適な編成・曲目・進行案を提案します。<br>
+      「どの場面でどんな音を使うと効果的か」を共に考え、<br>
+      実行までの全体像を設計します。
+    </p>
+
+    <h3>② Solution｜音楽提供（演奏）</h3>
+    <p>
+      設計段階で定めたプランをもとに、演奏を提供します。<br>
+      小編成からオーケストラまで、目的・会場規模に応じて構成。<br>
+      コンサルティングで描いたプランを、演奏という形で実現します。
+    </p>
+
+    <h3>③ Composition｜作曲（オプション）</h3>
+    <p>
+      ご希望に応じて、イベントや企業の理念に合わせた<br>
+      オリジナル楽曲を制作します。<br>
+      式典のテーマ音楽や、セミナー用の短い楽曲など、<br>
+      目的に沿った形でご提案します。
+    </p>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing｜料金目安</h2>
+    <table>
+      <tr><th>内容</th><th>概要</th><th>目安価格（税別）</th></tr>
+      <tr><td>オーケストラ編成（約50名）</td><td>式典・発表会・企業イベントなど</td><td>200万円〜</td></tr>
+      <tr><td>室内楽・小編成</td><td>弦楽四重奏・少人数イベント向け</td><td>40万円〜</td></tr>
+      <tr><td>セミナー・トークイベント伴奏</td><td>企画内の一部として音楽を活用</td><td>30万円〜</td></tr>
+      <tr><td>オリジナル楽曲制作</td><td>式典テーマ・短編楽曲など</td><td>50万円〜</td></tr>
+    </table>
+    <p class="muted">
+      ※ 上記は目安です。規模・編成・演奏時間等により変動します。<br>
+      ※ 作曲はオプションです。
+    </p>
+  </section>
+
+  <section id="process">
+    <h2>Process｜ご依頼の流れ</h2>
+    <p>
+      <strong>1. 初回面談（無料）</strong><br>
+      目的・会場・来場者層などをヒアリングします。<br><br>
+
+      <strong>2. 設計・提案（コンサルティング）</strong><br>
+      音楽の構成案・曲目・編成・概算費用をご提案します。<br><br>
+
+      <strong>3. 実施（演奏の提供）</strong><br>
+      決定した内容に基づき、演奏を実施します。<br><br>
+
+      <strong>4. オプション（作曲）</strong><br>
+      ご希望に応じて、オリジナル楽曲を制作します。
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About｜運営体制</h2>
+    <p>
+      Veliq Clubは、常設オーケストラ「VariOrchestra」を基盤とし、<br>
+      指揮者・ヴァイオリニスト <strong>佐藤瑛吾</strong> の監修のもと運営されています。<br><br>
+      音楽を通じた価値提供を一貫して行うため、<br>
+      企画・演奏・制作を統合的に管理できる体制を整えています。
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact｜お問い合わせ</h2>
+    <p>
+      初回面談は無料です。<br>
+      内容やご予算が未定でも構いません。<br>
+      ご希望を伺い、最適なご提案を差し上げます。
+    </p>
+    <p class="muted">※フォーム実装は後ほど追加予定です。</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Veliq Club. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
