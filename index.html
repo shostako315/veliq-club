@@ -4,7 +4,52 @@
   <title>Veliq Club | 音を設計するクラシック体験</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="color-scheme" content="dark only" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --bg:#0B0B0B; --ink:#F6F4EE; --gold:#C9A24A;
+    --gold-20:rgba(201,162,74,.2); --g70:#6E6E6E; --g40:#A8A8A8;
+    --max:1160px; --rad:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink)}
+  body{font-family:"Noto Sans JP","Noto Serif JP","Playfair Display",system-ui,-apple-system,"Segoe UI",sans-serif; letter-spacing:.02em; line-height:1.8}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .container.narrow{max-width:860px}.container.tight{max-width:760px}
+  header{position:sticky;top:0;z-index:5;background:rgba(11,11,11,.82);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--gold-20)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:baseline;gap:.5rem;font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.06em}
+  .brand-mark{display:inline-block;width:36px;height:36px;line-height:36px;border:1px solid var(--gold);border-radius:50%;text-align:center;color:var(--gold);font-weight:700;margin-right:.25rem}
+  .brand-text{font-size:20px}
+  nav a{margin-left:18px;opacity:.9}
+  .btn{display:inline-block;padding:12px 18px;border-radius:999px;border:1px solid transparent;transition:.25s;font-weight:600}
+  .btn-outline{border-color:var(--gold)}.btn-outline:hover{background:var(--gold);color:#0B0B0B}
+  .btn-gold{background:var(--gold);color:#0B0B0B}.btn-gold:hover{filter:saturate(110%)}
+  .btn-ghost{border:1px solid var(--gold-20)}.btn-ghost:hover{border-color:var(--gold)}
+  .display{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.04em;line-height:1.25;font-size:clamp(32px,4.2vw,56px)}
+  .serif{font-family:"Playfair Display","Noto Serif JP",serif}
+  .lead{font-size:clamp(16px,1.4vw,20px);color:var(--g40)} .muted{color:var(--g40)}
+  .hero{position:relative;padding:18vh 0 14vh;border-bottom:1px solid var(--gold-20)}
+  .hero .cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+  .section{padding:96px 0}
+  .page-hero{padding:120px 0 70px;border-bottom:1px solid var(--gold-20)}
+  .cards{display:grid;gap:22px}.cards.cols-3{grid-template-columns:repeat(3,1fr)}
+  .card{padding:24px;border:1px solid var(--gold-20);border-radius:var(--rad);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));transition:.25s}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold)}
+  .price{border:1px solid var(--gold-20);border-radius:var(--rad);overflow:hidden}
+  .price .row{display:flex;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--gold-20)}
+  .price .row:first-child{border-top:none}
+  form{display:grid;gap:14px} label{display:grid;gap:8px;font-size:.95rem}
+  input,textarea,select{background:#121212;border:1px solid var(--gold-20);border-radius:12px;padding:12px 14px;color:var(--ink);outline:none;transition:.2s}
+  input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.18)}
+  footer{border-top:1px solid var(--gold-20);padding:40px 0}
+  @media (max-width:960px){.cards.cols-3{grid-template-columns:1fr} nav{display:none}}
+  </style>
 </head>
 <body>
 
