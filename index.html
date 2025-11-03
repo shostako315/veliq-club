@@ -1,265 +1,220 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veliq Club｜音楽を、目的から設計。演奏まで一貫提供。</title>
-  <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
-  <style>
-    /* ----------------------------------------------------------------
-    // 第9次最終版: 全バグ撲滅とデザインの安定化
-    // ---------------------------------------------------------------- */
-    :root{
-      --bg:#070707; --fg:#e9e2d0; --muted:#b0a894; --gold:#d0a852;
-      --bronze-cta:#a0824e; --gold-2:#8b6f36;
-      --line:#1c1c1c; --card:#0f0f0f; --card-border:#2a2a2a;
-    }
-    *{box-sizing:border-box}
-    html{
-      scroll-behavior:smooth; height: 100%; 
-      overflow-x: hidden; 
-      overscroll-behavior-y: none;
-    }
-    body{
-      margin:0;
-      font-family: "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",sans-serif;
-      background: radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
-      color:var(--fg);
-      line-height:1.7; /* 行間を調整し、読みやすさを確保 */
-      letter-spacing:.04em;
-      min-height: 100%;
-    }
-    
-    /* --- Top Nav (バグ1-1, 1-2 修正: 安定性と全タブ表示) --- */
-    .nav-wrap{
-      position:sticky; top:0; z-index:100; /* Z-INDEXを最大化し、コンテンツとの重なりを完全に防ぐ */
-      backdrop-filter: blur(12px);
-      background:rgba(12,12,12,.95); 
-      border-bottom:1px solid #1a1a1a;
-      box-shadow: 0 4px 20px rgba(0,0,0,.6);
-    }
-    nav{
-      max-width:1100px; margin:0 auto; padding:12px 10px; /* 左右パディングを詰める */
-      display:flex; align-items:center; gap:6px;
-    }
-    .brand{
-      flex-shrink: 0; 
-      display:flex; align-items:center; gap:8px; text-decoration:none;
-      min-width: 100px; /* ロゴ「Veliq Club」の文字化けを防ぐ最小幅を確保 */
-    }
-    .brand-title{
-      font-weight:700; color:var(--fg); font-size:16px; 
-      white-space:nowrap; /* 文字化け・折り返しを防ぐ */
-      letter-spacing:.05em;
-    }
-
-    .nav-center{
-      flex:1; min-width:0; 
-      display: flex; align-items: center;
-      overflow: hidden; 
-      margin: 0 4px; /* CTAボタンとの間隔を最小限に */
-    }
-    .tabs{
-      display:flex; 
-      gap:4px; /* タブ間の隙間をさらに詰める */
-      overflow-x: hidden; 
-      padding:4px 0;
-      flex-shrink: 0;
-    }
-    .tabs a{
-      font-size:11px; /* 全タブ表示を優先した極限の文字サイズ */
-      padding:6px 4px; 
-      letter-spacing:.01em;
-      white-space:nowrap;
-    }
-
-    .cta{
-      flex-shrink: 0;
-    }
-    .btn{
-      padding:10px 12px; 
-      font-size: 13px; 
-    }
-    
-    /* --- Pricing table (バグ1-3 修正: モバイル表示の強制切替) --- */
-    .table-container {
-        display: none; /* モバイルでは完全に非表示 */
-    }
-    .table-custom-mobile {
-        display: grid;
-        gap: 24px; 
-    }
-    /* デスクトップ表示のテーブルスタイル */
-    @media (min-width:780px){
-      .table-container { display: block; } /* デスクトップでのみ表示 */
-      .table-custom-mobile { display: none; } /* デスクトップでは非表示 */
-    }
-    .price-item{
-        background: var(--card); border-radius: 6px; padding: 20px;
-        display: flex; justify-content: space-between; align-items: center;
-        border: 1px solid var(--card-border);
-    }
-    
-    /* --- Process list (バグ1-4 修正: ハイフン表示の解消と行間調整) --- */
-    .step h4{ 
-        flex-basis: 30%; 
-        min-width: 100px;
-        line-height: 1.5; 
-        white-space: nowrap; /* タイトルの不自然な改行を防ぐ */
-    }
-    .step .muted {
-      line-height: 1.8; /* 説明文の行間を確保し、視認性を高める (課題2-3) */
-      padding-left: 10px; /* タイトルとの間隔を広げる */
-    }
-    
-    /* --- Hero (課題2-2 修正: 不要なリンクを削除) --- */
-    .hero a.sub-link { 
-      display: none; /* 不要な下線付きリンクを非表示 */
-    }
-
-    /* --- About (バグ1-5 修正: 文言の最終修正) --- */
-    .about-text p {
-      line-height: 1.8;
-    }
-    .hSub {
-        color: var(--muted);
-        font-size: 15px;
-        margin-top: -10px;
-        margin-bottom: 24px;
-        line-height: 1.6;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VariOrchestra | 音楽戦略コンサルティング & プロフェッショナルオーケストラ</title>
+    <meta name="description" content="式典・発表会・レセプション等の目的から最適な「音」を戦略的に設計。プロフェッショナルオーケストラ VariOrchestra が演奏まで一貫提供します。">
+    <style>
+        /* 模擬的なTailwind CSSのユーティリティクラス（一部抜粋） */
+        body { font-family: 'Times New Roman', serif; color: #333; line-height: 1.6; } /* ロゴに合わせてクラシックなセリフ体を指定 */
+        .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .bg-gray-50 { background-color: #fcfcf7; } /* 淡いクリーム色を想定 */
+        .text-4xl { font-size: 2.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .font-extrabold { font-weight: 800; }
+        .font-semibold { font-weight: 600; }
+        /* ロゴに近いマットなゴールド系カラーに変更 */
+        .text-primary { color: #A48239; } 
+        .bg-primary { background-color: #A48239; }
+        .border-t-4 { border-top-width: 4px; border-color: #A48239; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .transition-colors { transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-duration: 150ms; }
+        /* ホバー時の不透明度を調整して、少し暗めのゴールドに */
+        .hover\:bg-opacity-90:hover { background-color: rgba(164, 130, 57, 0.9); } 
+        .rounded-lg { border-radius: 0.5rem; }
+        .p-6 { padding: 1.5rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .grid-cols-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+        .grid-cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+        @media (max-width: 768px) {
+            .md\:grid-cols-1 { grid-template-columns: 1fr; }
+            .md\:text-center { text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-<div id="scroll-progress-bar"></div>
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container flex items-center justify-between py-4">
+            <a href="#" class="text-2xl font-extrabold text-primary">VO VariOrchestra</a> 
+            <nav class="hidden md:flex space-x-6">
+                <a href="#solution" class="hover:text-primary transition-colors">Solution</a>
+                <a href="#pricing" class="hover:text-primary transition-colors">Pricing</a>
+                <a href="#process" class="hover:text-primary transition-colors">Process</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="mailto:info@variorchestra.com" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors">無料面談を申し込む</a>
+            </nav>
+            </div>
+    </header>
 
-  <div class="nav-wrap">
-    <nav>
-      <a class="brand" href="#top" aria-label="Veliq Clubホームへ">
-        <div class="brand-badge">V</div>
-        <div class="brand-title">Veliq Club</div>
-      </a>
-
-      <div class="nav-center" aria-label="サイト内メニュー">
-        <div class="tabs">
-          <a href="#service">サービス</a>
-          <a href="#cases">実績</a>
-          <a href="#pricing">料金</a>
-          <a href="#process">流れ</a>
-          <a href="#about">運営</a>
+    <section class="py-16 bg-gray-50">
+        <div class="container md:grid md:grid-cols-2 md:gap-12 items-center">
+            <div>
+                <h1 class="text-4xl font-extrabold mb-4">音楽を、目的から設計する。<br class="md:hidden">戦略的な音響ソリューション。</h1>
+                <p class="text-xl mb-6">
+                    式典・発表会・レセプション等の**ビジネスゴール**から最適な「音」を戦略的に設計（**音楽戦略コンサルティング**）。<br>
+                    そのソリューションを、熟練のプロフェッショナルオーケストラ **VariOrchestra** が、必要な編成で演奏まで一貫して提供いたします。
+                </p>
+                <a href="mailto:info@variorchestra.com" class="inline-block bg-primary text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-lg">
+                    無料面談を申し込む
+                </a>
+            </div>
+            <div class="hidden md:block">
+                            </div>
         </div>
-      </div>
-
-      <div class="cta">
-        <a class="btn" href="#contact">無料面談</a>
-      </div>
-    </nav>
-  </div>
-
-  <div id="top" class="hero section">
-    <h1 class="lede reveal" style="--delay:.1s">音楽を、<b>目的</b>から設計する。<br/>VariOrchestraが演奏まで一貫提供。</h1>
-    <p class="sublede reveal" style="--delay:.3s">
-      式典・発表会・レセプション・セミナー等の目的から、最適な「音」を戦略的に設計（コンサルティング）。<br/>
-      熟練のプロフェッショナルオーケストラ **VariOrchestra** が、必要な編成で現場での演奏まで一貫してサポートいたします。
-    </p>
-    <div class="cta-row reveal" style="--delay:.5s">
-      <a class="btn" href="#contact">無料面談を申し込む</a>
-      </div>
-  </div>
-
-  <span id="service" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">Service｜サービス内容</h2>
-    <p class="hSub reveal" style="--delay:.2s">プロフェッショナルな音楽体験を、企画の核心からデザインします。</p>
-
-    <div class="disclaimer reveal" style="--delay:.7s">
-        <div class="kicker">専門領域の定義</div>
-        <p>
-            **含むもの：** ヒアリング・音楽設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）、進行サポート
-            <br>
-            **含まないもの：** 会場・音響の手配や常設運用、レコーディング納品、映像演出・撮影、大型打楽器の基本使用など、演奏・設計に直接関わらない業務。
-        </p>
-    </div>
-  </section>
-
-  <span id="pricing" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">Pricing｜料金目安（税別）</h2>
-    <p class="hSub reveal" style="--delay:.2s">全て設計コンサルティングと演奏が基本セットです。</p>
-
-    <div class="table-custom-mobile reveal" style="--delay:.3s">
-        <div class="price-item">
-            <div class="price-details"><h4>オーケストラ編成</h4><p>式典・発表会・企業イベント向け（20名〜）</p></div>
-            <div class="price-value">200万円〜</div>
-        </div>
-        <div class="price-item">
-            <div class="price-details"><h4>室内楽・小編成</h4><p>弦楽四重奏〜少人数イベント向け</p></div>
-            <div class="price-value">40万円〜</div>
-        </div>
-        <div class="price-item">
-            <div class="price-details"><h4>セミナー伴奏</h4><p>開閉会＋合間の短尺曲（解説なし）</p></div>
-            <div class="price-value">30万円〜</div>
-        </div>
-        <div class="price-item">
-            <div class="price-details"><h4>作曲（オプション）</h4><p>式典テーマ・短尺BGMなど</p></div>
-            <div class="price-value">50万円〜</div>
-        </div>
-    </div>
-    
-    <div class="card table-container reveal" style="--delay:.3s">
-      <p class="muted" style="margin-top:16px; line-height: 1.6;">※価格は規模・編成・演奏時間で変動します。※すべて**設計（コンサル）＋演奏**が基本セットです。</p>
-    </div>
-  </section>
-
-  <span id="process" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">Process｜ご依頼の流れ</h2>
-    <p class="hSub reveal" style="--delay:.2s">最高品質の音楽を提供するための、綿密なプロセスをご説明します。</p>
-    <div class="steps">
-      <div class="step reveal" style="--delay:.3s">
-        <h4>1. 無料面談</h4>
-        <div class="muted">目的・会場条件・来場者層などをヒアリングし、プロジェクトの輪郭を確定します。</div>
-      </div>
-      <div class="step reveal" style="--delay:.4s">
-        <h4>2. 設計・提案</h4>
-        <div class="muted">編成／曲目／進行案・概算費用をPDFで提示。最適な音楽設計を文書で明確にします。</div>
-      </div>
-      <div class="step reveal" style="--delay:.5s">
-        <h4>3. 確定・準備</h4>
-        <div class="muted">編成確定・簡易リハ計画。契約に基づき、演奏に向けた準備を開始します。</div>
-      </div>
-      <div class="step reveal" style="--delay:.6s">
-        <h4>4. 実施</h4>
-        <div class="muted">演奏提供（現場調整は主催と連携）。本番で設計通りの「音」をお届けします。</div>
-      </div>
-      <div class="step reveal" style="--delay:.7s">
-        <h4>5. フォロー</h4>
-        <div class="muted">次回に向けた改善メモ共有。継続的な関係構築と、さらなる品質向上に繋げます。</div>
-      </div>
-    </div>
-  </section>
-
-  <span id="about" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">About｜運営</h2>
-    <p class="hSub reveal" style="--delay:.2s">信頼に足るプロフェッショナルオーケストラを基盤にしています。</p>
-    <div class="card reveal about-text" style="--delay:.3s">
-      <p><b>VariOrchestra</b>は、クラシック音楽の定期公演を主催する**プロフェッショナルオーケストラ**です。指揮者・ヴァイオリニスト **佐藤瑛吾** の監修のもと運営し、最高の音楽体験をお届けします。</p>
-    </div>
-  </section>
-
-  <span id="contact" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">Contact｜お問い合わせ</h2>
-    <p class="hSub reveal" style="--delay:.2s">貴社のイベントに最適な音楽を、無料面談から設計し始めましょう。</p>
     </section>
 
-  <footer>© 2025 Veliq Club</footer>
+    <section id="solution" class="py-16">
+        <div class="container">
+            <h2 class="text-3xl font-extrabold text-center mb-10 border-b pb-2">Solution｜音響戦略コンサルティングと実行</h2>
+            <p class="text-center text-xl mb-12">プロフェッショナルな音楽体験を、企画の核心からデザインします。</p>
 
-  <script>
-    // JSは省略
-  </script>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 bg-white rounded-lg shadow-lg border-t-4 border-primary">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">✅ 提供内容：コンサルティングから実行まで</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>**ヒアリング・音楽設計提案（戦略文書/PDF）**</li>
+                        <li>編成/曲目の決定と必要な編曲</li>
+                        <li>当日の演奏提供（ソリューション実行）</li>
+                        <li>進行サポート（現場ディレクションを含む）</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg border-t-4 border-gray-300">
+                    <h3 class="text-2xl font-semibold mb-4">❌ 外部業務：</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>会場・音響の手配や常設運用</li>
+                        <li>レコーディング納品、映像演出・撮影</li>
+                        <li>大型打楽器の基本使用など、演奏・設計に直接関わらない業務。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="container">
+            <h2 class="text-3xl font-extrabold text-center mb-10 border-b pb-2">Pricing｜料金目安（税別）</h2>
+            <p class="text-center mb-12">全て**戦略設計コンサルティング**と演奏（ソリューション実行）が基本セットです。</p>
+
+            <div class="grid md:grid-cols-3 md:gap-8 gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-lg border-t-4 border-primary">
+                    <h3 class="text-xl font-bold mb-2">フルオーケストラ編成</h3>
+                    <p class="text-gray-600 mb-4">式典・発表会・企業イベント向け（20名〜）</p>
+                    <div class="text-3xl font-extrabold text-primary mb-4">200万円〜</div>
+                    <p class="text-sm">戦略設計コンサルティングと演奏が基本セット</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-lg border-t-4 border-primary">
+                    <h3 class="text-xl font-bold mb-2">室内楽・小編成</h3>
+                    <p class="text-gray-600 mb-4">弦楽四重奏〜少人数イベント向け</p>
+                    <div class="text-3xl font-extrabold text-primary mb-4">40万円〜</div>
+                    <p class="text-sm">戦略設計コンサルティングと演奏が基本セット</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-lg border-t-4 border-primary">
+                    <h3 class="text-xl font-bold mb-2">セミナー伴奏</h3>
+                    <p class="text-gray-600 mb-4">開閉会＋合間の短尺曲（解説なし）</p>
+                    <div class="text-3xl font-extrabold text-primary mb-4">30万円〜</div>
+                    <p class="text-sm">戦略設計コンサルティングと演奏が基本セット</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center p-6 bg-white rounded-lg shadow-lg max-w-lg mx-auto border border-gray-200">
+                <h3 class="text-xl font-bold mb-2">オリジナル楽曲制作（オプション）</h3>
+                <p class="text-gray-600 mb-4">式典テーマ・短尺BGMなど</p>
+                <div class="text-2xl font-extrabold text-primary">50万円〜</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="process" class="py-16">
+        <div class="container">
+            <h2 class="text-3xl font-extrabold text-center mb-10 border-b pb-2">Process｜ご依頼の流れ</h2>
+            <p class="text-center text-xl mb-12">最高品質の音楽**ソリューション**を提供するための、綿密なプロセスをご説明します。</p>
+
+            <div class="space-y-10">
+                <div class="md:flex items-center">
+                    <div class="text-4xl font-extrabold text-primary mr-8 w-16 text-center">01.</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2">戦略面談 (無料)</h3>
+                        <p class="text-gray-700">目的・会場条件・来場者層などをヒアリングし、プロジェクトの輪郭を確定します。</p>
+                    </div>
+                </div>
+                <div class="md:flex items-center">
+                    <div class="text-4xl font-extrabold text-primary mr-8 w-16 text-center">02.</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2">音楽戦略設計・提案</h3>
+                        <p class="text-gray-700">編成／曲目／進行案・概算費用をPDFで提示。最適な音楽設計を文書で明確にします。</p>
+                    </div>
+                </div>
+                <div class="md:flex items-center">
+                    <div class="text-4xl font-extrabold text-primary mr-8 w-16 text-center">03.</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2">確定・実行準備</h3>
+                        <p class="text-gray-700">編成確定・簡易リハ計画。契約に基づき、演奏に向けた準備を開始します。</p>
+                    </div>
+                </div>
+                <div class="md:flex items-center">
+                    <div class="text-4xl font-extrabold text-primary mr-8 w-16 text-center">04.</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2">ソリューション実行（演奏提供）</h3>
+                        <p class="text-gray-700">演奏提供（現場調整は主催と連携）。本番で設計通りの「音」をお届けします。</p>
+                    </div>
+                </div>
+                <div class="md:flex items-center">
+                    <div class="text-4xl font-extrabold text-primary mr-8 w-16 text-center">05.</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2">フォローアップ</h3>
+                        <p class="text-gray-700">次回に向けた改善メモ共有。継続的な関係構築と、さらなる品質向上に繋げます。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container md:grid md:grid-cols-2 md:gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-6 border-b pb-2">About｜運営</h2>
+                <p class="text-xl mb-4">信頼に足るプロフェッショナルオーケストラを基盤にしています。</p>
+                <p class="text-lg">
+                    **VariOrchestra**は、クラシック音楽の定期公演を主催する**プロフェッショナルオーケストラ**です。
+                </p>
+                <p class="text-lg mt-2">
+                    指揮者・ヴァイオリニスト **佐藤瑛吾** の監修のもと運営し、最高の音楽体験をお届けします。
+                </p>
+            </div>
+            <div class="hidden md:block text-center">
+                            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16">
+        <div class="container text-center bg-primary text-white p-10 rounded-lg shadow-2xl">
+            <h2 class="text-3xl font-extrabold mb-4">Contact｜お問い合わせ</h2>
+            <p class="text-xl mb-8">
+                貴社のイベントに最適な音楽を、無料の**戦略面談**から設計し始めましょう。
+            </p>
+            <a href="mailto:info@variorchestra.com" class="inline-block bg-white text-primary text-lg font-semibold px-10 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-xl">
+                無料面談を申し込む
+            </a>
+            <p class="mt-4 text-sm opacity-80">数営業日以内に担当者よりご連絡いたします。</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container text-center">
+            <p class="mb-2">VariOrchestra</p>
+            <p>&copy; 2025 VariOrchestra. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
