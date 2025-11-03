@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>About | Veliq Club</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">V</span><span class="brand-text">Veliq&nbsp;Club</span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="cases.html">Cases</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-outline" href="contact.html">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container narrow">
+    <h1 class="display">About</h1>
+    <p class="lead">音の質感、間の美しさ、響きの余白。<br>私たちは、音を「設計」するオーケストラです。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <h2 class="serif">Philosophy｜理念</h2>
+    <p>私たちは、クラシック音楽を「聴く」体験ではなく、<br>
+    「生きる空間を豊かにする体験」として設計します。<br><br>
+    音楽は、流すものではない。<br>
+    音を置く場所、時間、沈黙の間までもデザインする。<br>
+    VariOrchestraは、その思想を具現化する集団です。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <h2 class="serif">Team｜チーム</h2>
+    <ul style="line-height:1.9; list-style:none; padding:0;">
+      <li><strong>佐藤 瑛吾</strong> — 指揮者・ヴァイオリニスト・音楽監督</li>
+      <li><strong>VariOrchestra</strong> — 常設50名のプロフェッショナル集団</li>
+      <li><strong>事務局</strong> — コーディネート・運営管理</li>
+      <li><strong>ステージマネージャー</strong> — 現場セッティング／当日進行</li>
+      <li><strong>編曲・作編成</strong> — 空間演出に最適化した楽曲構成</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <h2 class="serif">Process｜進め方</h2>
+    <ol style="line-height:1.9;">
+      <li><strong>無料面談：</strong>目的・空間・来場者層のヒアリング</li>
+      <li><strong>設計：</strong>演奏内容・構成・編成をデザイン</li>
+      <li><strong>提案：</strong>見積とPDFプラン提示</li>
+      <li><strong>実行：</strong>演奏・現場統括・マネジメント</li>
+      <li><strong>フォロー：</strong>記録・次回提案</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <blockquote style="border-left:2px solid var(--gold);padding-left:16px;margin-top:40px;">
+      <p><em>「音楽とは、心の建築である。<br>音を配置し、沈黙をデザインする。<br>それが私たちの仕事です。」</em></p>
+      <p>— 佐藤 瑛吾 / Veliq Club 主宰</p>
+    </blockquote>
+  </div>
+</section>
+
+<footer>
+  <div class="container narrow">
+    <p>© 2025 Veliq Club | VariOrchestra 常設連携</p>
+  </div>
+</footer>
+
+</body>
+</html>
