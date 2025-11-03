@@ -6,134 +6,225 @@
   <title>Veliq Club｜音楽を、目的から設計。演奏まで一貫提供。</title>
   <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
   <style>
+    /* ----------------------------------------------------------------
+    // 改善点: 配色、フォント、余白を高級志向に
+    // ---------------------------------------------------------------- */
     :root{
-      --bg:#0b0b0b; --fg:#e9e2d0; --muted:#c9c0a8;
-      --gold:#c9a24a; --gold-2:#a78637; --line:#1c1c1c;
-      --card:#111; --card-2:#151515;
+      --bg:#070707; /* 深淵な黒 */
+      --fg:#e9e2d0; /* オフホワイト */
+      --muted:#b0a894; /* 落ち着いたグレー */
+      --gold:#d0a852; /* 深みのあるゴールド */
+      --gold-2:#a78637; /* 金の影 */
+      --line:#1c1c1c; /* セパレーター */
+      --card:#0f0f0f; /* カード背景1 */
+      --card-2:#141414; /* カード背景2 */
+      --card-border:#2a2a2a; /* エッジを強調するボーダー */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",Meiryo,sans-serif;
-      background: radial-gradient(1200px 400px at 50% -150px,#15120d, var(--bg)) fixed;
+      margin:0;
+      /* 高級感を出すため、欧文フォントを強調。和文は品のあるゴシック体 */
+      font-family: "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",sans-serif;
+      /* 背景グラデーションをより暗く、中心を強く */
+      background: radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
       color:var(--fg);
-      line-height:1.7;
-      letter-spacing:.02em;
+      line-height:1.75; /* 行間を広げて優雅に */
+      letter-spacing:.04em; /* 文字間隔を広げて洗練された印象に */
     }
 
     /* --- Top Nav --- */
     .nav-wrap{
       position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(6px);
-      background:linear-gradient(180deg, rgba(15,15,15,.92), rgba(15,15,15,.75) 60%, rgba(15,15,15,.0));
-      border-bottom:1px solid #000;
+      /* ぼかしを少し強めに、背景色をソリッドに近づける */
+      backdrop-filter: blur(8px);
+      background:rgba(12,12,12,.85);
+      border-bottom:1px solid #1a1a1a;
+      box-shadow: 0 1px 12px rgba(0,0,0,.3);
     }
     nav{
-      max-width:1100px; margin:0 auto; padding:10px 16px;
-      display:flex; align-items:center; gap:12px;
+      max-width:1100px; margin:0 auto; padding:12px 24px; /* 上下余白を増やし、左右を広げる */
+      display:flex; align-items:center; gap:20px;
     }
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .brand-badge{
-      width:34px; height:34px; border-radius:50%;
-      border:1px solid var(--gold-2); color:var(--gold);
+      width:36px; height:36px; border-radius:4px; /* 四角形でシャープに */
+      border:1px solid var(--gold); color:var(--gold);
       display:grid; place-items:center; font-weight:700;
-      background:rgba(40,32,15,.35);
+      background:rgba(40,32,15,.2);
     }
-    .brand-title{font-weight:700; color:var(--fg); font-size:18px; white-space:nowrap}
+    .brand-title{font-weight:700; color:var(--fg); font-size:19px; white-space:nowrap; letter-spacing:.05em;}
 
     .nav-center{
       flex:1; display:flex; justify-content:center;
       min-width:0;
     }
     .tabs{
-      display:flex; gap:18px; overflow:auto hidden; padding:6px 4px;
+      display:flex; gap:24px; overflow:auto hidden; padding:6px 4px;
       scroll-snap-type:x mandatory;
     }
     .tabs a{
-      color:var(--muted); text-decoration:none; font-weight:600; white-space:nowrap;
-      padding:6px 8px; border-radius:10px; border:1px solid transparent;
-      scroll-snap-align:center;
+      color:var(--muted); text-decoration:none; font-weight:500; white-space:nowrap;
+      padding:8px 10px; border-radius:4px; /* 角丸を抑える */
+      border:1px solid transparent;
+      transition:color .2s, border-color .2s;
+      letter-spacing:.08em;
+      font-size:15px;
     }
-    .tabs a:hover{color:var(--fg)}
+    .tabs a:hover{color:var(--gold)} /* ホバー時はゴールドに */
+
     .cta{
       margin-left:auto;
     }
     .btn{
-      appearance:none; border:none; border-radius:999px; padding:10px 14px;
-      color:#111; background:var(--gold); font-weight:700; cursor:pointer;
+      appearance:none; border:none; border-radius:4px; /* 角丸を抑える */
+      padding:12px 20px;
+      color:var(--bg); /* ボタン内の文字は黒 */
+      background:var(--gold); font-weight:700; cursor:pointer;
       border:1px solid var(--gold-2);
+      letter-spacing:.1em;
+      transition:transform .15s, opacity .15s;
     }
+    .btn:hover{opacity:.9; transform:translateY(-1px)} /* ホバーエフェクトを追加 */
     .btn--ghost{
-      background:transparent; color:var(--gold); border-color:var(--gold-2);
+      background:transparent; color:var(--gold); border-color:var(--gold);
     }
+    .btn--ghost:hover{background:rgba(208,168,82,.1)}
 
     /* --- Hero --- */
     .section{position:relative}
     .hero{
-      max-width:1100px; margin:0 auto; padding:64px 16px 32px;
+      max-width:1000px; margin:0 auto; padding:120px 24px 60px; /* さらに大胆な余白を確保 */
+      position:relative;
     }
+    /* 背景画像をCSSのみで表現 (画像差し替え時はここにbackground-imageを追加) */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        /* 薄くぼかした画像を入れることで、さらに高級感が増します */
+        /* background-image: url('placeholder-orchestra-bg.jpg'); */
+        /* background-size: cover; background-position: center; */
+        background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 7, 0.0) 70%);
+        z-index: -1;
+    }
+
     .lede{
-      font-size: clamp(26px, 4.8vw, 40px);
-      font-weight:800; line-height:1.35;
+      /* 非常に大きく大胆なフォントサイズ */
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight:800; line-height:1.2;
+      letter-spacing:-.02em; /* 字間を詰めて緊張感を出す */
     }
     .lede b{color:var(--gold)}
-    .sublede{color:var(--muted); margin-top:12px}
-    .cta-row{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+    .sublede{color:var(--muted); margin-top:20px; font-size:18px; line-height:1.6; letter-spacing:.05em;}
+    .cta-row{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap}
     .divider{
-      height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent);
-      margin:26px 0 0;
+      height:1px;
+      /* ゴールドのグラデーション線に強化 */
+      background:linear-gradient(90deg,transparent 5%,var(--gold),transparent 95%);
+      margin:50px 0 0; /* 余白を増やして区切りを強調 */
     }
 
     /* --- Reveal on scroll --- */
-    .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+    .reveal{opacity:0; transform:translateY(24px); transition:opacity 1.2s ease-out, transform 1.2s ease-out; transition-delay:var(--delay, 0s)} /* 動きを遅くエレガントに */
     .reveal.show{opacity:1; transform:none}
 
     /* --- Section shells --- */
     .shell{
-      max-width:1100px; margin:0 auto; padding:46px 16px;
+      max-width:1000px; margin:0 auto; padding:70px 24px; /* セクション余白も大胆に */
     }
-    .h2{font-size:clamp(20px,3.2vw,28px); font-weight:800; margin:0 0 16px}
-    .hSub{color:var(--muted); margin-top:-6px}
+    .h2{
+      font-size:clamp(24px,3.2vw,32px); font-weight:800;
+      margin:0 0 10px; letter-spacing:.08em;
+    }
+    .hSub{color:var(--muted); margin-top:-6px; font-size:16px; letter-spacing:.05em;}
 
     /* --- Cards --- */
-    .cards{display:grid; grid-template-columns:1fr; gap:14px}
+    .cards{display:grid; grid-template-columns:1fr; gap:20px} /* 隙間を広げる */
     @media (min-width:780px){ .cards{grid-template-columns:1fr 1fr} }
     .card{
       background:linear-gradient(180deg,var(--card),var(--card-2));
-      border:1px solid #0e0e0e; border-radius:14px; padding:18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
+      border:1px solid var(--card-border); /* ボーダーを強調 */
+      border-radius:6px; /* 角丸をシャープに */
+      padding:24px; /* パディングを増やす */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 4px 10px rgba(0,0,0,.2); /* 奥行きを出す */
     }
-    .kicker{font-weight:800; color:var(--fg)}
-    .badge{display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--gold-2); color:var(--gold); border-radius:999px; vertical-align:2px; margin-left:8px}
+    .kicker{
+      font-weight:800; color:var(--fg);
+      font-size:18px; margin-bottom:10px;
+    }
+    .badge{
+      display:inline-block; font-size:11px; padding:3px 10px;
+      border:1px solid var(--gold); color:var(--gold);
+      border-radius:4px; /* 角丸をシャープに */
+      vertical-align:2px; margin-left:10px;
+      font-weight:700; letter-spacing:.05em;
+    }
+    .card ul, .card p{font-size:15px; color:var(--muted); letter-spacing:.03em;}
 
     /* --- Pricing table --- */
     .table{
       width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
-      border-radius:14px; border:1px solid #0e0e0e; background:var(--card);
+      border-radius:6px; border:1px solid var(--card-border); background:var(--card);
     }
     .table th, .table td{
-      padding:16px 14px; border-bottom:1px solid #121212; vertical-align:top;
+      padding:18px 16px; border-bottom:1px solid #1a1a1a; vertical-align:middle;
+      font-size:15px;
     }
-    .table th{color:var(--muted); width:22%; white-space:nowrap}
-    .table td p{margin:0}
-    .price{font-weight:800; font-size:18px}
+    .table th{
+      color:var(--gold); background:#1a1a1a; /* ヘッダーに濃い背景色 */
+      width:22%; white-space:nowrap; font-weight:700; letter-spacing:.08em;
+    }
+    .table td{color:var(--fg);}
+    .table td p{margin:0; font-size:15px; color:var(--muted);}
+    .price{font-weight:800; font-size:20px; color:var(--gold)}
     .table tr:last-child td, .table tr:last-child th{border-bottom:none}
 
-    /* --- Process list --- */
-    .steps{display:grid; gap:12px}
-    .step{
-      background:linear-gradient(180deg,var(--card),var(--card-2));
-      border:1px solid #0e0e0e; border-radius:14px; padding:16px;
+    /* --- Process list --- (ゴールドインデックスを適用) */
+    .steps {
+        display: block;
+        counter-reset: step-counter; /* カウンターをリセット */
+        gap: 16px;
     }
-    .step h4{margin:0 0 4px; font-size:16px}
-    .muted{color:var(--muted)}
+    .step{
+      display:flex; gap:20px;
+      background:var(--card);
+      border:1px solid var(--card-border); border-radius:6px;
+      padding:20px 24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+      margin-bottom: 16px; /* 隙間を確保 */
+    }
+    .step h4{
+      flex-basis: 30%; /* タイトルと内容の比率を調整 */
+      min-width: 120px;
+      position:relative;
+      padding-left: 30px; /* インデックス用のスペース */
+      margin:0; font-size:17px; color:var(--fg); letter-spacing:.05em;
+    }
+    .step h4::before{
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 0; top: 0;
+      color: var(--gold);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .step .muted {
+      flex: 1;
+    }
 
     /* --- About / Footer --- */
-    footer{border-top:1px solid var(--line); padding:26px 16px 60px; margin-top:26px; color:var(--muted); text-align:center}
+    footer{
+      border-top:1px solid var(--line);
+      padding:40px 16px 80px; margin-top:40px; /* 余白を増やす */
+      color:var(--muted); text-align:center; font-size:14px;
+    }
 
     /* anchors spacing under sticky header */
-    .anchor{position:relative; top:-76px}
-    @media (max-width:640px){ .anchor{top:-68px} }
+    .anchor{position:relative; top:-80px}
+    @media (max-width:640px){ .anchor{top:-72px} }
 
     /* fix tap highlight */
     a,button{outline:none}
@@ -141,10 +232,8 @@
 </head>
 <body>
 
-  <!-- Sticky Nav -->
   <div class="nav-wrap">
     <nav>
-      <!-- LOGO: 常にトップへ。クリックでズレない（hrefでのスクロール、no layout shift） -->
       <a class="brand" href="#top" aria-label="Veliq Clubホームへ">
         <div class="brand-badge">V</div>
         <div class="brand-title">Veliq Club</div>
@@ -153,7 +242,7 @@
       <div class="nav-center" aria-label="サイト内メニュー">
         <div class="tabs">
           <a href="#service">サービス</a>
-          <a href="#cases">導入例</a>
+          <a href="#cases">実績</a>
           <a href="#pricing">料金</a>
           <a href="#process">流れ</a>
           <a href="#about">運営</a>
@@ -166,27 +255,26 @@
     </nav>
   </div>
 
-  <!-- Hero -->
   <div id="top" class="hero section">
-    <h1 class="lede reveal">音楽を、<b>目的</b>から設計する。<br/>演奏まで一貫提供。</h1>
-    <p class="sublede reveal">
-      式典・発表会・レセプション・セミナー等に対し、<br/>
-      「どの場面で、どんな音が最適か」を設計し、必要な編成（小編成〜室内楽〜オーケストラ）で演奏まで提供します。
+    <h1 class="lede reveal" style="--delay:.1s">音楽を、<b>目的</b>から設計する。<br/>VariOrchestraが演奏まで一貫提供。</h1>
+    <p class="sublede reveal" style="--delay:.3s">
+      式典・発表会・レセプション・セミナー等の目的から、最適な「音」を戦略的に設計（コンサルティング）。<br/>
+      熟練のプロフェッショナル集団 **VariOrchestra** が、必要な編成で現場での演奏まで一貫してサポートいたします。
     </p>
-    <div class="cta-row reveal">
+    <div class="cta-row reveal" style="--delay:.5s">
       <a class="btn" href="#contact">無料面談を申し込む</a>
       <a class="btn btn--ghost" href="#service">サービス概要を見る</a>
     </div>
     <div class="divider"></div>
   </div>
 
-  <!-- Service -->
   <span id="service" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal">Service｜サービス内容</h2>
+    <p class="hSub reveal" style="--delay:.1s">プロフェッショナルな音楽体験を、企画の核心からデザインします。</p>
 
     <div class="cards">
-      <div class="card reveal">
+      <div class="card reveal" style="--delay:.2s">
         <div class="kicker">① 設計・提案（コンサルティング）<span class="badge">基本に含む</span></div>
         <ul>
           <li>目的／会場条件／来場者層／プログラム案をヒアリング</li>
@@ -196,7 +284,7 @@
         </ul>
       </div>
 
-      <div class="card reveal">
+      <div class="card reveal" style="--delay:.3s">
         <div class="kicker">② 音楽提供（演奏）<span class="badge">基本に含む</span></div>
         <ul>
           <li>決定したプランに基づき、<b>VariOrchestra</b>（常設約50名）から適切人数で演奏を提供</li>
@@ -206,44 +294,44 @@
         </ul>
       </div>
 
-      <div class="card reveal">
+      <div class="card reveal" style="--delay:.4s">
         <div class="kicker">③ 作曲（オプション）</div>
         <p class="muted">企業理念やイベント趣旨に沿う<b>オリジナル曲</b>を制作。式典テーマ、短尺の入退場曲、動画用BGMなど。</p>
       </div>
 
-      <div class="card reveal">
-        <div class="kicker">含まれるもの／含まれないもの</div>
-        <p><b>含まれる：</b>ヒアリング・設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）</p>
-        <p class="muted"><b>含まれない：</b>会場・音響の手配や常設運用、録音納品（必要時は別途相談）、大型打楽器の基本使用</p>
+      <div class="card reveal" style="--delay:.5s">
+        <div class="kicker">含まれるもの／含まれないもの（専門領域の定義）</div>
+        <p><b>含まれる：</b>ヒアリング・音楽設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）、進行サポート</p>
+        <p class="muted"><b>含まれない：</b>会場・音響の手配や常設運用、**レコーディング納品、映像演出・撮影**、大型打楽器の基本使用</p>
       </div>
     </div>
   </section>
 
-  <!-- Use cases -->
   <span id="cases" class="anchor"></span>
   <section class="shell section">
-    <h2 class="h2 reveal">Use Cases｜導入例</h2>
+    <h2 class="h2 reveal">Use Cases｜導入実績</h2>
+    <p class="hSub reveal" style="--delay:.1s">特定の目的のために設計され、実行された音楽提供事例です。</p>
     <div class="cards">
-      <div class="card reveal">
-        <h3>上場企業・創業記念式典</h3>
-        <p>入場／表彰／退場を音で区切り、式次第に沿って過不足なく運営。<br><span class="muted">目安：20–30名・60分</span></p>
+      <div class="card reveal" style="--delay:.2s">
+        <h3>（事例1）大規模病院・周年記念式典</h3>
+        <p>荘厳な**帝国ホテル**の会場にて、**35名のオーケストラ**を編成。医療系ドラマのテーマ曲などを中心に、格式高い祝典を演出しました。<br><span class="muted">目安：オーケストラ（35名）・60分</span></p>
       </div>
-      <div class="card reveal">
-        <h3>ブランド発表・レセプション</h3>
-        <p>滞在時間に合わせ、開始前は控えめ、要所は存在感のある曲に。<br><span class="muted">目安：小〜中編成・45–90分</span></p>
+      <div class="card reveal" style="--delay:.3s">
+        <h3>（事例2）大手コンサルティングファーム・顧客向けVIPイベント</h3>
+        <p>顧客へのホスピタリティを高めるため、**10名程度の弦楽アンサンブル**を編成。有名なクラシック曲の小編成アレンジにより、上品かつ静寂な空間を提供しました。<br><span class="muted">目安：室内楽（10名）・30分</span></p>
       </div>
-      <div class="card reveal">
-        <h3>経営者向けセミナー</h3>
-        <p>トークの合間に短い楽曲で切り替えを演出。開閉会に1曲ずつ、合間に短尺を2–3曲。<br><span class="muted">目安：弦楽四重奏</span></p>
+      <div class="card reveal" style="--delay:.4s">
+        <h3>（事例3）ブランド発表・レセプション</h3>
+        <p>滞在時間に合わせ、開始前は控えめ、要所は存在感のある曲に。ブランドイメージを損なわないよう音質設計。<br><span class="muted">目安：小〜中編成・45–90分</span></p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
   <span id="pricing" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal">Pricing｜料金目安（税別）</h2>
-    <div class="card reveal">
+    <p class="hSub reveal" style="--delay:.1s">全て設計コンサルティングと演奏が基本セットです。</p>
+    <div class="card reveal" style="--delay:.2s">
       <table class="table" aria-label="料金表">
         <thead>
           <tr><th>内容</th><th>概要</th><th>目安価格</th></tr>
@@ -271,40 +359,54 @@
           </tr>
         </tbody>
       </table>
-      <p class="muted" style="margin-top:10px">※価格は規模・編成・演奏時間で変動します。※すべて<b>設計（コンサル）＋演奏</b>が基本セットです。</p>
+      <p class="muted" style="margin-top:16px">※価格は規模・編成・演奏時間で変動します。※すべて<b>設計（コンサル）＋演奏</b>が基本セットです。</p>
     </div>
   </section>
 
-  <!-- Process -->
   <span id="process" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal">Process｜ご依頼の流れ</h2>
+    <p class="hSub reveal" style="--delay:.1s">最高品質の音楽を提供するための、綿密なプロセスをご説明します。</p>
     <div class="steps">
-      <div class="step reveal"><h4>1. 無料面談</h4><div class="muted">目的・会場条件・来場者層などをヒアリング</div></div>
-      <div class="step reveal"><h4>2. 設計・提案</h4><div class="muted">編成／曲目／進行案・概算費用をPDFで提示</div></div>
-      <div class="step reveal"><h4>3. 確定・準備</h4><div class="muted">編成確定・簡易リハ計画</div></div>
-      <div class="step reveal"><h4>4. 実施</h4><div class="muted">演奏提供（現場調整は主催と連携）</div></div>
-      <div class="step reveal"><h4>5. フォロー</h4><div class="muted">次回に向けた改善メモ共有</div></div>
+      <div class="step reveal" style="--delay:.2s">
+        <h4>無料面談</h4>
+        <div class="muted">目的・会場条件・来場者層などをヒアリングし、プロジェクトの輪郭を確定します。</div>
+      </div>
+      <div class="step reveal" style="--delay:.3s">
+        <h4>設計・提案</h4>
+        <div class="muted">編成／曲目／進行案・概算費用をPDFで提示。最適な音楽設計を文書で明確にします。</div>
+      </div>
+      <div class="step reveal" style="--delay:.4s">
+        <h4>確定・準備</h4>
+        <div class="muted">編成確定・簡易リハ計画。契約に基づき、演奏に向けた準備を開始します。</div>
+      </div>
+      <div class="step reveal" style="--delay:.5s">
+        <h4>実施</h4>
+        <div class="muted">演奏提供（現場調整は主催と連携）。本番で設計通りの「音」をお届けします。</div>
+      </div>
+      <div class="step reveal" style="--delay:.6s">
+        <h4>フォロー</h4>
+        <div class="muted">次回に向けた改善メモ共有。継続的な関係構築と、さらなる品質向上に繋げます。</div>
+      </div>
     </div>
   </section>
 
-  <!-- About -->
   <span id="about" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal">About｜運営</h2>
-    <div class="card reveal">
+    <p class="hSub reveal" style="--delay:.1s">プロフェッショナルな音楽家集団を基盤にしています。</p>
+    <div class="card reveal" style="--delay:.2s">
       <p>常設オーケストラ <b>VariOrchestra</b> を基盤に、指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営。「過不足のない音」の提供を大切にしています。</p>
     </div>
   </section>
 
-  <!-- Contact -->
   <span id="contact" class="anchor"></span>
   <section class="shell section">
     <h2 class="h2 reveal">Contact｜お問い合わせ</h2>
-    <div class="card reveal">
-      <p>初回面談は無料です。内容やご予算が未定でも構いません。</p>
-      <div class="cta-row">
-        <!-- ★ フォームのみ（メールは削除）／URL差し替え可 -->
+    <p class="hSub reveal" style="--delay:.1s">貴社のイベントに最適な音楽を、無料面談から設計し始めましょう。</p>
+    <div class="card reveal" style="--delay:.2s">
+      <p>初回面談は無料です。内容やご予算が未定でも構いません。まずはお気軽にご相談ください。</p>
+      <div class="cta-row" style="margin-top:20px;">
         <a class="btn" href="https://forms.gle/veliqclub-contact" target="_blank" rel="noopener">Googleフォームで申し込む</a>
       </div>
     </div>
@@ -318,7 +420,7 @@
       ents.forEach(ent=>{
         if(ent.isIntersecting){ ent.target.classList.add('show'); io.unobserve(ent.target); }
       });
-    }, {threshold: 0.15});
+    }, {threshold: 0.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
     // ---- tab active state（現在地をざっくり反映）
@@ -334,8 +436,8 @@
         if(y >= top) active = '#'+id;
       });
       tabEls.forEach(a=>{
-        a.style.color = (a.getAttribute('href')===active) ? 'var(--fg)' : 'var(--muted)';
-        a.style.borderColor = (a.getAttribute('href')===active) ? 'var(--gold-2)' : 'transparent';
+        a.style.color = (a.getAttribute('href')===active) ? 'var(--gold)' : 'var(--muted)'; /* アクティブなタブをゴールドに */
+        a.style.borderColor = (a.getAttribute('href')===active) ? 'var(--gold)' : 'transparent';
       });
     };
     markActive();
