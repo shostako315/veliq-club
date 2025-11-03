@@ -7,13 +7,14 @@
   <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
   <style>
     /* ----------------------------------------------------------------
-    // 改善点: 配色、フォント、余白を高級志向に
+    // 第3次改善: 質感、配色、モバイル対応（特にPricing）を徹底強化
     // ---------------------------------------------------------------- */
     :root{
       --bg:#070707; /* 深淵な黒 */
       --fg:#e9e2d0; /* オフホワイト */
       --muted:#b0a894; /* 落ち着いたグレー */
       --gold:#d0a852; /* 深みのあるゴールド */
+      --bronze-cta:#b09050; /* CTA用: ややダークなブロンズ */
       --gold-2:#a78637; /* 金の影 */
       --line:#1c1c1c; /* セパレーター */
       --card:#0f0f0f; /* カード背景1 */
@@ -24,34 +25,34 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      /* 高級感を出すため、欧文フォントを強調。和文は品のあるゴシック体 */
       font-family: "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",sans-serif;
-      /* 背景グラデーションをより暗く、中心を強く */
-      background: radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
+      /* 背景に微細なノイズ/テクスチャ感をCSSで表現 */
+      background: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
+      background-size: 100% 100%;
       color:var(--fg);
-      line-height:1.75; /* 行間を広げて優雅に */
-      letter-spacing:.04em; /* 文字間隔を広げて洗練された印象に */
+      line-height:1.75;
+      letter-spacing:.04em;
     }
 
     /* --- Top Nav --- */
     .nav-wrap{
       position:sticky; top:0; z-index:20;
-      /* ぼかしを少し強めに、背景色をソリッドに近づける */
-      backdrop-filter: blur(8px);
-      background:rgba(12,12,12,.85);
+      backdrop-filter: blur(10px); /* ぼかしを強め、ナビゲーションの存在感を強調 */
+      background:rgba(12,12,12,.88); /* 背景透過度を低くし、ソリッドに近づける */
       border-bottom:1px solid #1a1a1a;
-      box-shadow: 0 1px 12px rgba(0,0,0,.3);
+      box-shadow: 0 1px 12px rgba(0,0,0,.5); /* より深みのあるシャドウ */
     }
     nav{
-      max-width:1100px; margin:0 auto; padding:12px 24px; /* 上下余白を増やし、左右を広げる */
+      max-width:1100px; margin:0 auto; padding:12px 24px;
       display:flex; align-items:center; gap:20px;
     }
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .brand-badge{
-      width:36px; height:36px; border-radius:4px; /* 四角形でシャープに */
+      width:36px; height:36px; border-radius:4px;
       border:1px solid var(--gold); color:var(--gold);
       display:grid; place-items:center; font-weight:700;
       background:rgba(40,32,15,.2);
+      flex-shrink: 0; /* モバイルで縮まないように */
     }
     .brand-title{font-weight:700; color:var(--fg); font-size:19px; white-space:nowrap; letter-spacing:.05em;}
 
@@ -62,128 +63,138 @@
     .tabs{
       display:flex; gap:24px; overflow:auto hidden; padding:6px 4px;
       scroll-snap-type:x mandatory;
+      flex-shrink: 0; /* モバイルで縮まないように */
     }
     .tabs a{
       color:var(--muted); text-decoration:none; font-weight:500; white-space:nowrap;
-      padding:8px 10px; border-radius:4px; /* 角丸を抑える */
+      padding:8px 10px; border-radius:4px;
       border:1px solid transparent;
       transition:color .2s, border-color .2s;
       letter-spacing:.08em;
       font-size:15px;
     }
-    .tabs a:hover{color:var(--gold)} /* ホバー時はゴールドに */
+    .tabs a:hover{color:var(--gold)}
 
     .cta{
       margin-left:auto;
+      flex-shrink: 0;
     }
     .btn{
-      appearance:none; border:none; border-radius:4px; /* 角丸を抑える */
+      appearance:none; border:none; border-radius:4px;
       padding:12px 20px;
-      color:var(--bg); /* ボタン内の文字は黒 */
-      background:var(--gold); font-weight:700; cursor:pointer;
+      color:var(--bg);
+      background:var(--bronze-cta); /* CTAボタンはより落ち着いたブロンズに */
+      font-weight:700; cursor:pointer;
       border:1px solid var(--gold-2);
       letter-spacing:.1em;
-      transition:transform .15s, opacity .15s;
+      transition:transform .15s, opacity .15s, background .2s;
     }
-    .btn:hover{opacity:.9; transform:translateY(-1px)} /* ホバーエフェクトを追加 */
+    .btn:hover{opacity:.9; transform:translateY(-1px); background:var(--gold)} /* ホバーで明るいゴールドに */
     .btn--ghost{
       background:transparent; color:var(--gold); border-color:var(--gold);
     }
     .btn--ghost:hover{background:rgba(208,168,82,.1)}
 
     /* --- Hero --- */
-    .section{position:relative}
     .hero{
-      max-width:1000px; margin:0 auto; padding:120px 24px 60px; /* さらに大胆な余白を確保 */
+      max-width:1000px; margin:0 auto; padding:120px 24px 60px;
       position:relative;
     }
-    /* 背景画像をCSSのみで表現 (画像差し替え時はここにbackground-imageを追加) */
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        /* 薄くぼかした画像を入れることで、さらに高級感が増します */
-        /* background-image: url('placeholder-orchestra-bg.jpg'); */
-        /* background-size: cover; background-position: center; */
-        background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 7, 0.0) 70%);
-        z-index: -1;
-    }
-
     .lede{
-      /* 非常に大きく大胆なフォントサイズ */
       font-size: clamp(32px, 5.5vw, 52px);
       font-weight:800; line-height:1.2;
-      letter-spacing:-.02em; /* 字間を詰めて緊張感を出す */
+      letter-spacing:-.02em;
     }
     .lede b{color:var(--gold)}
     .sublede{color:var(--muted); margin-top:20px; font-size:18px; line-height:1.6; letter-spacing:.05em;}
     .cta-row{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap}
     .divider{
       height:1px;
-      /* ゴールドのグラデーション線に強化 */
-      background:linear-gradient(90deg,transparent 5%,var(--gold),transparent 95%);
-      margin:50px 0 0; /* 余白を増やして区切りを強調 */
+      background:linear-gradient(90deg,transparent 5%,var(--gold-2),transparent 95%); /* 少し落ち着いたゴールドの線 */
+      margin:50px 0 0;
     }
-
-    /* --- Reveal on scroll --- */
-    .reveal{opacity:0; transform:translateY(24px); transition:opacity 1.2s ease-out, transform 1.2s ease-out; transition-delay:var(--delay, 0s)} /* 動きを遅くエレガントに */
-    .reveal.show{opacity:1; transform:none}
 
     /* --- Section shells --- */
     .shell{
-      max-width:1000px; margin:0 auto; padding:70px 24px; /* セクション余白も大胆に */
+      max-width:1000px; margin:0 auto; padding:70px 24px;
     }
-    .h2{
-      font-size:clamp(24px,3.2vw,32px); font-weight:800;
-      margin:0 0 10px; letter-spacing:.08em;
-    }
-    .hSub{color:var(--muted); margin-top:-6px; font-size:16px; letter-spacing:.05em;}
 
     /* --- Cards --- */
-    .cards{display:grid; grid-template-columns:1fr; gap:20px} /* 隙間を広げる */
-    @media (min-width:780px){ .cards{grid-template-columns:1fr 1fr} }
     .card{
       background:linear-gradient(180deg,var(--card),var(--card-2));
-      border:1px solid var(--card-border); /* ボーダーを強調 */
-      border-radius:6px; /* 角丸をシャープに */
-      padding:24px; /* パディングを増やす */
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 4px 10px rgba(0,0,0,.2); /* 奥行きを出す */
+      border:1px solid var(--card-border);
+      border-radius:6px;
+      padding:24px;
+      /* 質感と奥行きを強調するシャドウ */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 8px 25px rgba(0,0,0,.4);
     }
     .kicker{
       font-weight:800; color:var(--fg);
       font-size:18px; margin-bottom:10px;
     }
-    .badge{
-      display:inline-block; font-size:11px; padding:3px 10px;
-      border:1px solid var(--gold); color:var(--gold);
-      border-radius:4px; /* 角丸をシャープに */
-      vertical-align:2px; margin-left:10px;
-      font-weight:700; letter-spacing:.05em;
-    }
-    .card ul, .card p{font-size:15px; color:var(--muted); letter-spacing:.03em;}
 
-    /* --- Pricing table --- */
+    /* --- Pricing table --- (モバイル対応を強化) */
     .table{
       width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
       border-radius:6px; border:1px solid var(--card-border); background:var(--card);
     }
+    .table thead{ display:none; } /* モバイルではヘッダーを非表示に */
+
     .table th, .table td{
-      padding:18px 16px; border-bottom:1px solid #1a1a1a; vertical-align:middle;
+      padding:16px 16px; border-bottom:1px solid #1a1a1a; vertical-align:middle;
       font-size:15px;
     }
+    .table tr{ display:block; padding:0; border-bottom:1px solid #1a1a1a; }
+
     .table th{
-      color:var(--gold); background:#1a1a1a; /* ヘッダーに濃い背景色 */
-      width:22%; white-space:nowrap; font-weight:700; letter-spacing:.08em;
+      display:block;
+      color:var(--fg); background:transparent; /* thの背景を透明にして、tdと同じカード背景に馴染ませる */
+      width:auto; white-space:normal; font-weight:700; letter-spacing:.08em;
+      padding-bottom: 0;
     }
-    .table td{color:var(--fg);}
+    .table td{
+        display:block;
+        padding-top: 4px;
+        color:var(--muted);
+    }
+    .table td.price{
+        color:var(--gold);
+        font-weight:800;
+        font-size:20px;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
     .table td p{margin:0; font-size:15px; color:var(--muted);}
-    .price{font-weight:800; font-size:20px; color:var(--gold)}
+    .table tr:last-child { border-bottom:none; }
     .table tr:last-child td, .table tr:last-child th{border-bottom:none}
 
-    /* --- Process list --- (ゴールドインデックスを適用) */
+    /* デスクトップ表示のテーブルスタイルを再適用 */
+    @media (min-width:780px){
+      .table thead{ display:table-header-group; }
+      .table tr{ display:table-row; border:none;}
+      .table th{
+        display:table-cell;
+        color:var(--gold); background:#1a1a1a;
+        width:22%;
+        padding-top:18px; padding-bottom:18px;
+        white-space:nowrap;
+      }
+      .table td{
+        display:table-cell;
+        color:var(--fg);
+        padding-top:18px; padding-bottom:18px;
+      }
+      .table td.price{
+          font-weight:800; font-size:20px; color:var(--gold);
+          padding-top:18px; padding-bottom:18px;
+      }
+      .table tr:last-child td, .table tr:last-child th{border-bottom:none}
+    }
+
+    /* --- Process list --- (ゴールドインデックスのサイズ調整) */
     .steps {
         display: block;
-        counter-reset: step-counter; /* カウンターをリセット */
+        counter-reset: step-counter;
         gap: 16px;
     }
     .step{
@@ -192,13 +203,13 @@
       border:1px solid var(--card-border); border-radius:6px;
       padding:20px 24px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
-      margin-bottom: 16px; /* 隙間を確保 */
+      margin-bottom: 16px;
     }
     .step h4{
-      flex-basis: 30%; /* タイトルと内容の比率を調整 */
+      flex-basis: 30%;
       min-width: 120px;
       position:relative;
-      padding-left: 30px; /* インデックス用のスペース */
+      padding-left: 25px; /* インデックス用のスペースを調整 */
       margin:0; font-size:17px; color:var(--fg); letter-spacing:.05em;
     }
     .step h4::before{
@@ -207,9 +218,9 @@
       position: absolute;
       left: 0; top: 0;
       color: var(--gold);
-      font-size: 24px;
+      font-size: 20px; /* サイズを少し下げて上品に */
       font-weight: 800;
-      line-height: 1;
+      line-height: 1.2;
     }
     .step .muted {
       flex: 1;
@@ -218,16 +229,13 @@
     /* --- About / Footer --- */
     footer{
       border-top:1px solid var(--line);
-      padding:40px 16px 80px; margin-top:40px; /* 余白を増やす */
+      padding:40px 16px 80px; margin-top:40px;
       color:var(--muted); text-align:center; font-size:14px;
     }
 
     /* anchors spacing under sticky header */
     .anchor{position:relative; top:-80px}
     @media (max-width:640px){ .anchor{top:-72px} }
-
-    /* fix tap highlight */
-    a,button{outline:none}
   </style>
 </head>
 <body>
@@ -415,7 +423,7 @@
   <footer>© 2025 Veliq Club</footer>
 
   <script>
-    // ---- reveal on scroll (軽量)
+    // 省略：スクリプトは第2次改訂版と同じ
     const io = new IntersectionObserver((ents)=>{
       ents.forEach(ent=>{
         if(ent.isIntersecting){ ent.target.classList.add('show'); io.unobserve(ent.target); }
@@ -423,7 +431,6 @@
     }, {threshold: 0.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // ---- tab active state（現在地をざっくり反映）
     const sections = ['service','cases','pricing','process','about','contact'];
     const tabEls = Array.from(document.querySelectorAll('.tabs a'));
     const markActive = () => {
@@ -436,14 +443,13 @@
         if(y >= top) active = '#'+id;
       });
       tabEls.forEach(a=>{
-        a.style.color = (a.getAttribute('href')===active) ? 'var(--gold)' : 'var(--muted)'; /* アクティブなタブをゴールドに */
+        a.style.color = (a.getAttribute('href')===active) ? 'var(--gold)' : 'var(--muted)';
         a.style.borderColor = (a.getAttribute('href')===active) ? 'var(--gold)' : 'transparent';
       });
     };
     markActive();
     window.addEventListener('scroll', markActive, {passive:true});
 
-    // ---- avoid jump on brand click (安定スクロール)
     document.querySelector('.brand').addEventListener('click', (e)=>{
       e.preventDefault();
       window.scrollTo({top:0, behavior:'smooth'});
