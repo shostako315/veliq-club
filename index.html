@@ -1,319 +1,351 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Veliq Club | 音楽コンサルティング＆演奏</title>
-  <meta name="description" content="式典・発表会・レセプション・セミナー向けに、音楽の使い方を設計し、必要な編成で演奏まで一貫提供します。" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veliq Club｜音楽を、目的から設計。演奏まで一貫提供。</title>
+  <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
   <style>
     :root{
-      --bg:#0b0b0b;
-      --bg-soft:#111;
-      --panel:#141414;
-      --text:#f2f2f2;
-      --muted:#c7c7c7;
-      --gold:#c9a24b;
-      --line:#2a2a2a;
-      --radius:14px;
-      --max:980px;
+      --bg:#0b0b0b; --fg:#e9e2d0; --muted:#c9c0a8;
+      --gold:#c9a24a; --gold-2:#a78637; --line:#1c1c1c;
+      --card:#111; --card-2:#151515;
     }
-    html{scroll-behavior:smooth;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      margin:0;background:var(--bg);color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",
-                   "Yu Gothic",YuGothic,"Noto Sans JP",Segoe UI,Roboto,Arial,sans-serif;
+      margin:0; font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","游ゴシック体",YuGothic,"Noto Sans JP",Meiryo,sans-serif;
+      background: radial-gradient(1200px 400px at 50% -150px,#15120d, var(--bg)) fixed;
+      color:var(--fg);
       line-height:1.7;
+      letter-spacing:.02em;
     }
-    /* ===== Header ===== */
-    .header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(1.2) blur(8px);
-      background:rgba(11,11,11,.75);
-      border-bottom:1px solid var(--line);
+
+    /* --- Top Nav --- */
+    .nav-wrap{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(15,15,15,.92), rgba(15,15,15,.75) 60%, rgba(15,15,15,.0));
+      border-bottom:1px solid #000;
     }
-    .nav{
-      max-width:var(--max);margin:auto;
-      display:flex;align-items:center;gap:18px;
-      padding:12px 18px;
+    nav{
+      max-width:1100px; margin:0 auto; padding:10px 16px;
+      display:flex; align-items:center; gap:12px;
     }
-    .brand{
-      display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);
-      font-weight:700;font-size:20px;letter-spacing:.02em;
-    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .brand-badge{
-      width:28px;height:28px;border-radius:999px;border:1px solid var(--gold);
-      display:grid;place-items:center;font-weight:700;color:var(--gold);
-      font-family:Georgia,"Times New Roman",serif;
+      width:34px; height:34px; border-radius:50%;
+      border:1px solid var(--gold-2); color:var(--gold);
+      display:grid; place-items:center; font-weight:700;
+      background:rgba(40,32,15,.35);
     }
-    .spacer{flex:1}
-    .nav a{
-      color:var(--muted);text-decoration:none;font-size:15px;padding:8px 10px;border-radius:999px;
+    .brand-title{font-weight:700; color:var(--fg); font-size:18px; white-space:nowrap}
+
+    .nav-center{
+      flex:1; display:flex; justify-content:center;
+      min-width:0;
     }
-    .nav a.active{color:var(--text);background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35)}
-    .cta{border:1px solid var(--gold);color:var(--text);padding:8px 14px;border-radius:999px;text-decoration:none}
-    .cta--fill{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
-    /* ===== Layout ===== */
-    section{scroll-margin-top:78px}
-    .wrap{max-width:var(--max);margin:auto;padding:0 18px}
+    .tabs{
+      display:flex; gap:18px; overflow:auto hidden; padding:6px 4px;
+      scroll-snap-type:x mandatory;
+    }
+    .tabs a{
+      color:var(--muted); text-decoration:none; font-weight:600; white-space:nowrap;
+      padding:6px 8px; border-radius:10px; border:1px solid transparent;
+      scroll-snap-align:center;
+    }
+    .tabs a:hover{color:var(--fg)}
+    .cta{
+      margin-left:auto;
+    }
+    .btn{
+      appearance:none; border:none; border-radius:999px; padding:10px 14px;
+      color:#111; background:var(--gold); font-weight:700; cursor:pointer;
+      border:1px solid var(--gold-2);
+    }
+    .btn--ghost{
+      background:transparent; color:var(--gold); border-color:var(--gold-2);
+    }
+
+    /* --- Hero --- */
+    .section{position:relative}
     .hero{
-      padding:64px 0 36px;border-bottom:1px solid var(--line);
-      background:
-        radial-gradient(900px 400px at 20% -10%, rgba(201,162,75,.06), transparent 60%),
-        radial-gradient(900px 400px at 80% -10%, rgba(201,162,75,.08), transparent 60%);
+      max-width:1100px; margin:0 auto; padding:64px 16px 32px;
     }
-    .hero h1{
-      font-family:Georgia,"Times New Roman",serif;
-      font-weight:700;letter-spacing:.02em;line-height:1.25;
-      font-size:clamp(26px,4.6vw,44px);margin:0 0 10px;
+    .lede{
+      font-size: clamp(26px, 4.8vw, 40px);
+      font-weight:800; line-height:1.35;
     }
-    .lead{color:var(--muted);max-width:760px;font-size:16px;margin:0 0 26px}
-    .btnrow{display:flex;gap:12px;flex-wrap:wrap}
-    /* ===== Sections ===== */
-    .section{padding:56px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,transparent,transparent 70%,rgba(255,255,255,.02) 100%)}
-    .section.alt{background:var(--bg-soft)}
-    h2{
-      font-family:Georgia,"Times New Roman",serif;
-      font-weight:700;letter-spacing:.02em;
-      font-size:clamp(20px,3.4vw,28px);
-      margin:0 0 24px;
+    .lede b{color:var(--gold)}
+    .sublede{color:var(--muted); margin-top:12px}
+    .cta-row{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+    .divider{
+      height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent);
+      margin:26px 0 0;
     }
-    .cards{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:780px){.cards{grid-template-columns:1fr 1fr}}
+
+    /* --- Reveal on scroll --- */
+    .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    /* --- Section shells --- */
+    .shell{
+      max-width:1100px; margin:0 auto; padding:46px 16px;
+    }
+    .h2{font-size:clamp(20px,3.2vw,28px); font-weight:800; margin:0 0 16px}
+    .hSub{color:var(--muted); margin-top:-6px}
+
+    /* --- Cards --- */
+    .cards{display:grid; grid-template-columns:1fr; gap:14px}
+    @media (min-width:780px){ .cards{grid-template-columns:1fr 1fr} }
     .card{
-      background:var(--panel);border:1px solid #1f1f1f;border-radius:var(--radius);
-      padding:18px 18px 16px;position:relative;overflow:hidden;
-      box-shadow:0 0 0 1px rgba(255,255,255,.01) inset;
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid #0e0e0e; border-radius:14px; padding:18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
     }
-    .card h3{
-      margin:0 0 8px;font-size:18px;font-weight:700;
-      font-family:Georgia,"Times New Roman",serif;
-    }
-    .card .tag{display:inline-block;font-size:12px;color:#111;background:var(--gold);
-      padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:1px}
-    .muted{color:var(--muted)}
-    ul.tight{margin:10px 0 0;padding-left:18px}
-    ul.tight li{margin:6px 0}
-    /* Pricing table */
+    .kicker{font-weight:800; color:var(--fg)}
+    .badge{display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--gold-2); color:var(--gold); border-radius:999px; vertical-align:2px; margin-left:8px}
+
+    /* --- Pricing table --- */
     .table{
-      width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;
-      border:1px solid #1f1f1f;border-radius:var(--radius);
+      width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
+      border-radius:14px; border:1px solid #0e0e0e; background:var(--card);
     }
-    .table th,.table td{padding:14px 14px;font-size:15px;border-bottom:1px solid #1f1f1f}
-    .table thead th{background:#171717;text-align:left;font-weight:700}
-    .table tr:last-child td{border-bottom:none}
-    /* About & Contact */
-    .panel{
-      background:var(--panel);border:1px solid #1f1f1f;border-radius:var(--radius);padding:18px
+    .table th, .table td{
+      padding:16px 14px; border-bottom:1px solid #121212; vertical-align:top;
     }
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-block;text-decoration:none;border:1px solid var(--gold);
-         color:var(--text);padding:10px 14px;border-radius:12px}
-    .btn.primary{background:var(--gold);color:#111;font-weight:700}
-    /* ===== Footer ===== */
-    footer{padding:28px 0;color:var(--muted);font-size:13px}
-    /* ===== Reveal (にゅるっと) ===== */
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.6,.2,1)}
-    .reveal.show{opacity:1;transform:none}
+    .table th{color:var(--muted); width:22%; white-space:nowrap}
+    .table td p{margin:0}
+    .price{font-weight:800; font-size:18px}
+    .table tr:last-child td, .table tr:last-child th{border-bottom:none}
+
+    /* --- Process list --- */
+    .steps{display:grid; gap:12px}
+    .step{
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid #0e0e0e; border-radius:14px; padding:16px;
+    }
+    .step h4{margin:0 0 4px; font-size:16px}
+    .muted{color:var(--muted)}
+
+    /* --- About / Footer --- */
+    footer{border-top:1px solid var(--line); padding:26px 16px 60px; margin-top:26px; color:var(--muted); text-align:center}
+
+    /* anchors spacing under sticky header */
+    .anchor{position:relative; top:-76px}
+    @media (max-width:640px){ .anchor{top:-68px} }
+
+    /* fix tap highlight */
+    a,button{outline:none}
   </style>
 </head>
 <body>
-  <!-- ===== Header ===== -->
-  <header class="header">
-    <nav class="nav">
-      <a class="brand" href="#home" aria-label="Veliq Club">
-        <span class="brand-badge">V</span> <span>Veliq Club</span>
+
+  <!-- Sticky Nav -->
+  <div class="nav-wrap">
+    <nav>
+      <!-- LOGO: 常にトップへ。クリックでズレない（hrefでのスクロール、no layout shift） -->
+      <a class="brand" href="#top" aria-label="Veliq Clubホームへ">
+        <div class="brand-badge">V</div>
+        <div class="brand-title">Veliq Club</div>
       </a>
-      <div class="spacer"></div>
-      <a href="#services">サービス</a>
-      <a href="#cases">導入例</a>
-      <a href="#pricing">料金</a>
-      <a href="#process">流れ</a>
-      <a href="#contact" class="cta">無料面談</a>
+
+      <div class="nav-center" aria-label="サイト内メニュー">
+        <div class="tabs">
+          <a href="#service">サービス</a>
+          <a href="#cases">導入例</a>
+          <a href="#pricing">料金</a>
+          <a href="#process">流れ</a>
+          <a href="#about">運営</a>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="#contact">無料面談</a>
+      </div>
     </nav>
-  </header>
+  </div>
 
-  <!-- ===== Hero ===== -->
-  <section id="home" class="hero">
-    <div class="wrap">
-      <h1 class="reveal">音楽を、<span style="color:var(--gold)">目的</span>から設計する。<br/>演奏まで一貫提供。</h1>
-      <p class="lead reveal">
-        式典・発表会・レセプション・セミナー等に対し、<strong>「どの場面でどんな音が最適か」</strong>を設計し、
-        必要な編成（小編成〜室内楽〜オーケストラ）で演奏まで提供します。
-      </p>
-      <div class="btnrow reveal">
-        <a href="#contact" class="cta cta--fill">無料面談を申し込む</a>
-        <a href="#services" class="cta">サービス概要を見る</a>
+  <!-- Hero -->
+  <div id="top" class="hero section">
+    <h1 class="lede reveal">音楽を、<b>目的</b>から設計する。<br/>演奏まで一貫提供。</h1>
+    <p class="sublede reveal">
+      式典・発表会・レセプション・セミナー等に対し、<br/>
+      「どの場面で、どんな音が最適か」を設計し、必要な編成（小編成〜室内楽〜オーケストラ）で演奏まで提供します。
+    </p>
+    <div class="cta-row reveal">
+      <a class="btn" href="#contact">無料面談を申し込む</a>
+      <a class="btn btn--ghost" href="#service">サービス概要を見る</a>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Service -->
+  <span id="service" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">Service｜サービス内容</h2>
+
+    <div class="cards">
+      <div class="card reveal">
+        <div class="kicker">① 設計・提案（コンサルティング）<span class="badge">基本に含む</span></div>
+        <ul>
+          <li>目的／会場条件／来場者層／プログラム案をヒアリング</li>
+          <li>「どの場面で・どの音が適切か」を目的から決定</li>
+          <li>小編成〜オーケストラの妥当規模を提示</li>
+          <li>MCの有無・曲間の「間」等、運びも定義<br><span class="muted">※音響や会場手配は含みません（事前相談で前提をすり合わせ）</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="kicker">② 音楽提供（演奏）<span class="badge">基本に含む</span></div>
+        <ul>
+          <li>決定したプランに基づき、<b>VariOrchestra</b>（常設約50名）から適切人数で演奏を提供</li>
+          <li>小編成（3–8名）／室内楽（9–18名）／オーケストラ（20名〜）</li>
+          <li>編曲者在籍。既存曲の用途調整（長さ・構成）にも対応</li>
+          <li>式典・発表会・レセプション・セミナーのBGMや挿入曲 ほか</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="kicker">③ 作曲（オプション）</div>
+        <p class="muted">企業理念やイベント趣旨に沿う<b>オリジナル曲</b>を制作。式典テーマ、短尺の入退場曲、動画用BGMなど。</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="kicker">含まれるもの／含まれないもの</div>
+        <p><b>含まれる：</b>ヒアリング・設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）</p>
+        <p class="muted"><b>含まれない：</b>会場・音響の手配や常設運用、録音納品（必要時は別途相談）、大型打楽器の基本使用</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Services ===== -->
-  <section id="services" class="section alt">
-    <div class="wrap">
-      <h2 class="reveal">Service｜サービス内容</h2>
-      <div class="cards">
-        <div class="card reveal">
-          <h3>① 設計・提案（コンサルティング） <span class="tag">基本に含む</span></h3>
-          <p class="muted">目的／会場条件／来場者層をヒアリングし、最適な<strong>編成・曲目・進行</strong>をPDFでご提案。</p>
-          <ul class="tight">
-            <li>場面別「この場面にはこの音」を目安化</li>
-            <li>小編成〜オケまでの受当規模を提示</li>
-            <li>MCの有無、曲間の「間」など運びも定義</li>
-          </ul>
-          <p class="muted" style="margin-top:10px">※会場・音響の手配や常設運用は含みません（事前相談で主催側と連携）。</p>
-        </div>
-
-        <div class="card reveal">
-          <h3>② 音楽提供（演奏） <span class="tag">基本に含む</span></h3>
-          <p class="muted">決定プランに基づき、<strong>VariOrchestra</strong>（常設約50名）から必要人数で演奏を提供。</p>
-          <ul class="tight">
-            <li>小編成（3–8名）／室内楽（9–18名）／オーケストラ（20名〜）</li>
-            <li>編曲者在籍。既存曲の用途調整（長さ・構成）も対応</li>
-            <li>式典・発表会・レセプション・セミナーのBGM・挿入など</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>③ 作曲（オプション）</h3>
-          <p class="muted">企業理念やイベント趣旨に沿う<strong>オリジナル曲</strong>を制作（式典テーマ、短尺の入退場曲、動画用BGM等）。</p>
-        </div>
+  <!-- Use cases -->
+  <span id="cases" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">Use Cases｜導入例</h2>
+    <div class="cards">
+      <div class="card reveal">
+        <h3>上場企業・創業記念式典</h3>
+        <p>入場／表彰／退場を音で区切り、式次第に沿って過不足なく運営。<br><span class="muted">目安：20–30名・60分</span></p>
+      </div>
+      <div class="card reveal">
+        <h3>ブランド発表・レセプション</h3>
+        <p>滞在時間に合わせ、開始前は控えめ、要所は存在感のある曲に。<br><span class="muted">目安：小〜中編成・45–90分</span></p>
+      </div>
+      <div class="card reveal">
+        <h3>経営者向けセミナー</h3>
+        <p>トークの合間に短い楽曲で切り替えを演出。開閉会に1曲ずつ、合間に短尺を2–3曲。<br><span class="muted">目安：弦楽四重奏</span></p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Use Cases ===== -->
-  <section id="cases" class="section">
-    <div class="wrap">
-      <h2 class="reveal">Use Cases｜導入例</h2>
-      <div class="cards">
-        <div class="card reveal">
-          <h3>上場企業・創業記念式典</h3>
-          <p class="muted">入場／表彰／退場を音で区切り、式次第に沿って過不足なく運営。<br><strong>20–30名編成・60分想定。</strong></p>
-        </div>
-        <div class="card reveal">
-          <h3>ブランド発表・レセプション</h3>
-          <p class="muted">滞在時間に合わせ、要所は存在感、前後は控えめに。<br><strong>小〜中編成・45–90分。</strong></p>
-        </div>
-        <div class="card reveal">
-          <h3>経営者向けセミナー</h3>
-          <p class="muted">トークの合間に短い楽曲で切替え。開閉会各1曲、合間に短尺2–3曲。<br><strong>弦楽四重奏</strong>が標準。</p>
-        </div>
+  <!-- Pricing -->
+  <span id="pricing" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">Pricing｜料金目安（税別）</h2>
+    <div class="card reveal">
+      <table class="table" aria-label="料金表">
+        <thead>
+          <tr><th>内容</th><th>概要</th><th>目安価格</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>オーケストラ編成</th>
+            <td>式典・発表会・企業イベント向け（20名〜）</td>
+            <td class="price">200万円〜</td>
+          </tr>
+          <tr>
+            <th>室内楽・小編成</th>
+            <td>弦楽四重奏〜少人数イベント向け</td>
+            <td class="price">40万円〜</td>
+          </tr>
+          <tr>
+            <th>セミナー伴奏</th>
+            <td>開閉会＋合間の短尺曲（解説なし）</td>
+            <td class="price">30万円〜</td>
+          </tr>
+          <tr>
+            <th>作曲（オプション）</th>
+            <td>式典テーマ・短尺BGMなど</td>
+            <td class="price">50万円〜</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:10px">※価格は規模・編成・演奏時間で変動します。※すべて<b>設計（コンサル）＋演奏</b>が基本セットです。</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <span id="process" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">Process｜ご依頼の流れ</h2>
+    <div class="steps">
+      <div class="step reveal"><h4>1. 無料面談</h4><div class="muted">目的・会場条件・来場者層などをヒアリング</div></div>
+      <div class="step reveal"><h4>2. 設計・提案</h4><div class="muted">編成／曲目／進行案・概算費用をPDFで提示</div></div>
+      <div class="step reveal"><h4>3. 確定・準備</h4><div class="muted">編成確定・簡易リハ計画</div></div>
+      <div class="step reveal"><h4>4. 実施</h4><div class="muted">演奏提供（現場調整は主催と連携）</div></div>
+      <div class="step reveal"><h4>5. フォロー</h4><div class="muted">次回に向けた改善メモ共有</div></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <span id="about" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">About｜運営</h2>
+    <div class="card reveal">
+      <p>常設オーケストラ <b>VariOrchestra</b> を基盤に、指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営。「過不足のない音」の提供を大切にしています。</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <span id="contact" class="anchor"></span>
+  <section class="shell section">
+    <h2 class="h2 reveal">Contact｜お問い合わせ</h2>
+    <div class="card reveal">
+      <p>初回面談は無料です。内容やご予算が未定でも構いません。</p>
+      <div class="cta-row">
+        <!-- ★ フォームのみ（メールは削除）／URL差し替え可 -->
+        <a class="btn" href="https://forms.gle/veliqclub-contact" target="_blank" rel="noopener">Googleフォームで申し込む</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Pricing ===== -->
-  <section id="pricing" class="section alt">
-    <div class="wrap">
-      <h2 class="reveal">Pricing｜料金目安（税別）</h2>
-      <div class="reveal" style="overflow:auto">
-        <table class="table">
-          <thead>
-            <tr><th>内容</th><th>概要</th><th>目安価格</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>オーケストラ編成</td>
-              <td>式典・発表会・企業イベント向け（20名〜）</td>
-              <td>200万円〜</td>
-            </tr>
-            <tr>
-              <td>室内楽・小編成</td>
-              <td>弦楽四重奏〜少人数イベント向け</td>
-              <td>40万円〜</td>
-            </tr>
-            <tr>
-              <td>セミナー伴奏</td>
-              <td>開閉会＋合間の短尺曲（解説なし）</td>
-              <td>30万円〜</td>
-            </tr>
-            <tr>
-              <td>作曲（オプション）</td>
-              <td>式典テーマ・短尺BGMなど</td>
-              <td>50万円〜</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="muted reveal" style="margin-top:10px">※規模・編成・演奏時間で変動します。<br/>※すべて<strong>設計（コンサル）＋演奏</strong>が基本セットです。</p>
-    </div>
-  </section>
-
-  <!-- ===== Process ===== -->
-  <section id="process" class="section">
-    <div class="wrap">
-      <h2 class="reveal">Process｜ご依頼の流れ</h2>
-      <div class="panel reveal">
-        <ol style="margin:0;padding-left:18px">
-          <li><strong>無料面談：</strong>目的・会場条件・来場者層などヒアリング</li>
-          <li><strong>設計・提案：</strong>編成／曲目／進行案・概算費用をPDFで提示</li>
-          <li><strong>確定・準備：</strong>編成確定・簡易リハ計画</li>
-          <li><strong>実施：</strong>演奏提供（現場調整は主催と連携）</li>
-          <li><strong>フォロー：</strong>次回に向けた改善メモ共有</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== About ===== -->
-  <section id="about" class="section alt">
-    <div class="wrap">
-      <h2 class="reveal">About｜運営</h2>
-      <div class="panel reveal">
-        <p class="muted">
-          常設オーケストラ <strong>VariOrchestra</strong> を基盤に、指揮者・ヴァイオリニスト
-          <strong>佐藤瑛吾</strong> の監修のもと運営。「過不足のない音」の提供を大切にしています。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section id="contact" class="section">
-    <div class="wrap">
-      <h2 class="reveal">Contact｜お問い合わせ</h2>
-      <div class="panel reveal">
-        <p class="muted">初回面談は無料です。内容やご予算が未定でも構いません。</p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:info@example.com?subject=%E7%84%A1%E6%96%99%E9%9D%A2%E8%AB%87%E3%81%AE%E3%81%8A%E7%94%B3%E8%BE%BC&body=%E3%80%90%E7%9B%AE%E7%9A%84%E3%80%91%0A%E3%80%90%E4%BC%9A%E5%A0%B4%E6%83%85%E5%A0%B1%E3%80%91%0A%E3%80%90%E6%83%B3%E5%AE%9A%E6%97%A5%E7%A8%8B%E3%80%91%0A">メールで問い合わせる</a>
-          <a class="btn" href="https://forms.gle/your-form-id" target="_blank" rel="noopener">Googleフォームで申し込む</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">© 2025 Veliq Club</div>
-  </footer>
+  <footer>© 2025 Veliq Club</footer>
 
   <script>
-    // ==== active nav highlight ====
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.nav a')].filter(a=>a.getAttribute('href')?.startsWith('#'));
-    const byId = id => navLinks.find(a => a.getAttribute('href') === '#'+id);
-
-    const spy = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        const id = e.target.id;
-        if(e.isIntersecting){
-          navLinks.forEach(a=>a.classList.remove('active'));
-          const link = byId(id); if(link) link.classList.add('active');
-        }
+    // ---- reveal on scroll (軽量)
+    const io = new IntersectionObserver((ents)=>{
+      ents.forEach(ent=>{
+        if(ent.isIntersecting){ ent.target.classList.add('show'); io.unobserve(ent.target); }
       });
-    }, {rootMargin: "-40% 0px -55% 0px", threshold: 0});
+    }, {threshold: 0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    sections.forEach(s=>spy.observe(s));
+    // ---- tab active state（現在地をざっくり反映）
+    const sections = ['service','cases','pricing','process','about','contact'];
+    const tabEls = Array.from(document.querySelectorAll('.tabs a'));
+    const markActive = () => {
+      let y = window.scrollY + 120;
+      let active = '';
+      sections.forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if(y >= top) active = '#'+id;
+      });
+      tabEls.forEach(a=>{
+        a.style.color = (a.getAttribute('href')===active) ? 'var(--fg)' : 'var(--muted)';
+        a.style.borderColor = (a.getAttribute('href')===active) ? 'var(--gold-2)' : 'transparent';
+      });
+    };
+    markActive();
+    window.addEventListener('scroll', markActive, {passive:true});
 
-    // ==== reveal on view (にゅるっと) ====
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(es=>{
-      es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add('show'); io.unobserve(x.target);} });
-    }, {threshold: .15, rootMargin:"0px 0px -40px 0px"});
-    reveals.forEach(el=>io.observe(el));
-
-    // ==== ensure brand jumps to top cleanly ====
+    // ---- avoid jump on brand click (安定スクロール)
     document.querySelector('.brand').addEventListener('click', (e)=>{
-      // allow default anchor to #home; also close any future mobile menu if added
+      e.preventDefault();
+      window.scrollTo({top:0, behavior:'smooth'});
+      history.replaceState(null,'','#top');
     });
   </script>
 </body>
