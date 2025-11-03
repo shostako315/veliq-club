@@ -7,29 +7,17 @@
   <meta name="description" content="式典・発表会・レセプション・セミナー等に最適な音楽を設計し、必要な編成で演奏まで一貫提供するサービスです。" />
   <style>
     /* ----------------------------------------------------------------
-    // 第5次改善: 権威性の強化、モバイル安定性、レイアウトの洗練
+    // 第6次改善: ナビゲーションのモバイル最適化、料金テーブルの抜本的改善
     // ---------------------------------------------------------------- */
     :root{
-      --bg:#070707; /* 深淵な黒 */
-      --fg:#e9e2d0; /* オフホワイト */
-      --muted:#b0a894; /* 落ち着いたグレー */
-      --gold:#d0a852; /* 深みのあるゴールド */
-      --bronze-cta:#a0824e; /* CTA用: よりダークなブロンズ */
-      --gold-light:#f0d080; /* ホバー用: 少し明るいゴールド */
-      --gold-2:#8b6f36; /* 金の影 */
-      --line:#1c1c1c; /* セパレーター */
-      --card:#0f0f0f; /* カード背景1 */
-      --card-2:#141414; /* カード背景2 */
-      --card-border:#2a2a2a; /* エッジを強調するボーダー */
+      --bg:#070707; --fg:#e9e2d0; --muted:#b0a894; --gold:#d0a852;
+      --bronze-cta:#a0824e; --gold-light:#f0d080; --gold-2:#8b6f36;
+      --line:#1c1c1c; --card:#0f0f0f; --card-2:#141414; --card-border:#2a2a2a;
       --scroll-progress-color: var(--gold);
     }
     *{box-sizing:border-box}
     html{
-      scroll-behavior:smooth;
-      /* 引っ張っても余白が見えないように（がたつき防止） */
-      height: 100%;
-      overflow-x: hidden;
-      overscroll-behavior-y: none;
+      scroll-behavior:smooth; height: 100%; overflow-x: hidden; overscroll-behavior-y: none;
     }
     body{
       margin:0;
@@ -37,77 +25,56 @@
       background: linear-gradient(rgba(0,0,0,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.01) 1px, transparent 1px), radial-gradient(1200px 400px at 50% -150px,#120f0d, var(--bg)) fixed;
       background-size: 2px 2px, 2px 2px, 100% 100%;
       color:var(--fg);
-      line-height:1.75;
+      line-height:1.8; /* 行間を広げ、視認性と高級感を向上 */
       letter-spacing:.04em;
       min-height: 100%;
     }
 
-    /* --- スクロールプログレスバー --- */
-    #scroll-progress-bar {
-      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
-      background: linear-gradient(90deg, var(--gold-2), var(--scroll-progress-color));
-      z-index: 100; box-shadow: 0 0 8px rgba(208,168,82,.6);
-      transition: width 0.1s ease-out;
-    }
-
-    /* --- Top Nav --- */
+    /* --- Top Nav (モバイル最適化) --- */
     .nav-wrap{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(12px);
-      background:rgba(12,12,12,.8);
-      border-bottom:1px solid #1a1a1a;
+      position:sticky; top:0; z-index:20; backdrop-filter: blur(12px);
+      background:rgba(12,12,12,.8); border-bottom:1px solid #1a1a1a;
       box-shadow: 0 4px 20px rgba(0,0,0,.6);
     }
     nav{
       max-width:1100px; margin:0 auto; padding:12px 24px;
-      display:flex; align-items:center; gap:12px; /* ナビ内余白を調整 */
+      display:flex; align-items:center; gap:12px;
     }
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-    .brand-badge{
-      width:36px; height:36px; border-radius:4px;
-      border:1px solid var(--gold); color:var(--gold);
-      display:grid; place-items:center; font-weight:700;
-      background:rgba(40,32,15,.2);
-      flex-shrink: 0;
-    }
+    .brand{flex-shrink: 0; display:flex; align-items:center; gap:12px; text-decoration:none}
+    .brand-badge{width:36px; height:36px; border-radius:4px; border:1px solid var(--gold); color:var(--gold); display:grid; place-items:center; font-weight:700; background:rgba(40,32,15,.2); flex-shrink: 0;}
     .brand-title{font-weight:700; color:var(--fg); font-size:19px; white-space:nowrap; letter-spacing:.05em;}
 
     .nav-center{
-      flex:1; display:flex; justify-content:flex-end; /* タブをCTA側に寄せる */
-      min-width:0;
+      flex:1; min-width:0; overflow:hidden; /* タブメニューをこの領域に収める */
+      display: flex; align-items: center;
     }
     .tabs{
-      display:flex; gap:18px; /* タブ間の隙間を減らして収まりやすく */
-      overflow:auto hidden; padding:6px 0;
-      flex-shrink: 1;
-      justify-content: flex-end; /* 右寄せ */
+      display:flex; gap:12px; /* タブ間の隙間をさらに詰める */
+      overflow-x: auto; /* タブをスクロール可能に */
+      padding:6px 0;
+      flex-shrink: 0;
     }
     .tabs a{
       color:var(--muted); text-decoration:none; font-weight:500; white-space:nowrap;
-      padding:8px 6px; /* 内部パディングも減らす */
-      border-radius:4px;
-      border:1px solid transparent;
+      padding:8px 6px;
+      border-radius:4px; border:1px solid transparent;
       letter-spacing:.05em;
-      font-size:15px;
+      font-size:14px; /* 文字サイズを微調整 */
     }
+
     .cta{
-      margin-left:12px; /* CTAとの間隔を調整 */
+      margin-left:auto; /* CTAボタンを右端に */
       flex-shrink: 0;
     }
     .btn{
       appearance:none; border:none; border-radius:4px;
-      padding:12px 20px;
+      padding:12px 18px; /* モバイルでボタン幅を少し狭める */
       color:var(--bg); background:var(--bronze-cta);
       font-weight:700; cursor:pointer;
       border:1px solid var(--gold-2);
       letter-spacing:.1em;
       box-shadow: 0 4px 10px rgba(0,0,0,.4);
       transition:transform .15s, background .2s, box-shadow .2s;
-    }
-    .btn:hover{
-        transform:translateY(-2px);
-        background:var(--gold-light);
-        box-shadow: 0 6px 15px rgba(0,0,0,.6);
     }
 
     /* --- Hero --- */
@@ -118,21 +85,19 @@
       background-size: cover; background-position: center; background-attachment: fixed;
       background-blend-mode: multiply; isolation: isolate;
     }
-    .hero::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 7, 0.5) 50%, rgba(7,7,7,0.8) 100%);
-        z-index: 1;
-    }
     .lede{
       font-size: clamp(32px, 5.5vw, 52px); font-weight:800; line-height:1.2; letter-spacing:-.02em;
     }
-    .lede b{color:var(--gold)}
-    .sublede{color:var(--muted); margin-top:20px; font-size:18px; line-height:1.6; letter-spacing:.05em;}
-    .cta-row{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap}
+    .sublede{
+      color:var(--muted); margin-top:20px; font-size:18px; line-height:1.6; letter-spacing:.05em;
+      /* Heroの改行位置を改善 */
+      word-break: keep-all; 
+      overflow-wrap: break-word;
+    }
 
     /* --- Section shells --- */
     .shell{
-      max-width:1000px; margin:0 auto; padding:80px 24px; /* セクション間隔をさらに拡大 */
+      max-width:1000px; margin:0 auto; padding:80px 24px;
     }
     .h2{
       font-size:clamp(24px,3.2vw,32px); font-weight:800;
@@ -141,126 +106,113 @@
     }
 
     /* --- Cards --- */
-    .cards{display:grid; grid-template-columns:1fr; gap:32px; /* カード間の間隔を拡大 */}
+    .cards{display:grid; grid-template-columns:1fr; gap:32px;}
     @media (min-width:780px){ .cards{grid-template-columns:1fr 1fr} }
     .card{
       background:linear-gradient(180deg,var(--card),var(--card-2));
       border:1px solid var(--card-border); border-radius:6px;
-      padding:28px; /* カード内パディングを拡大 */
+      padding:28px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 10px 30px rgba(0,0,0,.5);
-      transition: transform .3s ease, box-shadow .3s ease; /* ホバーアニメーション */
     }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 15px 40px rgba(0,0,0,.6);
-    }
-    .card ul, .card p{font-size:15px; color:var(--muted); letter-spacing:.03em;}
-
-    /* サービスのリストを豪華に（アイコン追加） */
-    .card ul{ padding-left: 0; list-style: none; }
+    /* Serviceのリスト行間を調整 */
     .card ul li {
-        position: relative;
-        padding-left: 20px; /* アイコン用のスペース */
-        margin-bottom: 8px; /* 行間を確保 */
+        position: relative; padding-left: 20px; margin-bottom: 8px;
+        line-height: 1.6; /* リスト内の行間を調整 */
     }
-    .card ul li::before {
-        content: '\2732'; /* ゴールドの星（高級感のあるUnicodeアイコン） */
-        color: var(--gold);
+
+    /* --- Pricing table (モバイルの抜本的改善) --- */
+    .table-container {
+        /* モバイルではテーブルを非表示にし、代わりに以下のカスタム表示を使用 */
+        display: none; 
+    }
+    .table-custom-mobile {
+        display: grid;
+        gap: 16px; /* 項目間の隙間 */
+    }
+    .price-item {
+        padding: 20px 24px;
+        background:linear-gradient(180deg,var(--card),var(--card-2));
+        border:1px solid var(--card-border); border-radius:6px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 6px 20px rgba(0,0,0,.3);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .price-item:not(:last-child) {
+        margin-bottom: 16px; /* 下に余白 */
+    }
+    .price-details {
+        flex: 1;
+        padding-right: 16px;
+    }
+    .price-details h4 {
+        margin: 0 0 4px;
+        font-size: 17px;
+        color: var(--fg);
+    }
+    .price-details p {
+        margin: 0;
         font-size: 14px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        line-height: 1.75;
-    }
-    /* 含まれるもの／含まれないもの（注意書き）の専用スタイル */
-    .disclaimer {
-        background: transparent;
-        border: 1px solid var(--gold-2);
-        border-left: 4px solid var(--gold);
-        padding: 20px;
-        margin-top: 40px;
-        border-radius: 4px;
-        box-shadow: none;
-        transition: none;
-    }
-    .disclaimer .kicker {
-        color: var(--gold);
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
-    .disclaimer p {
         color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
-    /* 個別の定義を強調 */
-    .disclaimer b {
-      color: var(--fg);
+    .price-value {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--gold);
+        white-space: nowrap; /* 価格が途中で改行しないように */
+        flex-shrink: 0;
     }
-    .disclaimer em {
-      color: var(--gold);
-      font-style: normal;
+    /* デスクトップ表示のテーブルスタイルを再適用 */
+    @media (min-width:780px){
+      .table-container { display: block; }
+      .table-custom-mobile { display: none; }
+      /* 以前のテーブルCSSをここに再定義（省略） */
+      .table{
+        width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
+        border-radius:6px; border:1px solid var(--card-border); background:var(--card);
+      }
+      .table thead{ display:table-header-group; }
+      .table tr{ display:table-row; border:none;}
+      .table th{
+        display:table-cell; color:var(--gold); background:#1a1a1a;
+        width:22%; padding:18px; white-space:nowrap;
+      }
+      .table td{
+        display:table-cell; color:var(--fg); padding:18px;
+      }
+      .table td.price{
+          font-weight:800; font-size:20px; color:var(--gold);
+      }
     }
 
-    /* --- Pricing table --- (前回の修正を維持) */
-    .table{
-      width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
-      border-radius:6px; border:1px solid var(--card-border); background:var(--card);
-    }
-
-    /* --- Process list --- (矢印の追加) */
-    .steps {
-        display: flex; /* Flexboxに変更 */
-        flex-direction: column;
-        gap: 0; /* ステップ間の隙間は矢印で調整 */
-        counter-reset: step-counter;
-    }
+    /* --- Process list (行間調整) --- */
     .step{
       display:flex; gap:20px;
       background:linear-gradient(180deg,var(--card),var(--card-2));
       border:1px solid var(--card-border); border-radius:6px;
       padding:24px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 6px 20px rgba(0,0,0,.3);
-      margin-bottom: 24px; /* ステップの下に十分な余白 */
+      margin-bottom: 24px;
       position: relative;
     }
-    .step:not(:last-child)::after {
-        content: '▼'; /* 矢印アイコン */
-        position: absolute;
-        bottom: -28px; /* ステップ間の矢印の位置 */
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--gold);
-        font-size: 18px;
-        z-index: 5;
-        opacity: 0.7;
-    }
     .step h4{
-      flex-basis: 30%;
-      min-width: 120px;
-      position:relative;
-      padding-left: 35px; /* インデックス用のスペースを拡大 */
-      margin:0; font-size:17px; color:var(--fg); letter-spacing:.05em;
+      flex-basis: 30%; min-width: 120px; position:relative;
+      padding-left: 35px; margin:0; font-size:17px; color:var(--fg); letter-spacing:.05em;
+      line-height: 1.6; /* タイトル部分の行間を調整 */
     }
-    .step h4::before{
-      content: counter(step-counter);
-      counter-increment: step-counter;
-      position: absolute;
-      left: 0; top: 0;
-      color: var(--gold);
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.2;
+    .step .muted {
+      line-height: 1.7; /* 説明文の行間を調整 */
+    }
+    .step:not(:last-child)::after {
+        content: '▼'; position: absolute; bottom: -28px; left: 50%;
+        transform: translateX(-50%); color: var(--gold); font-size: 18px; z-index: 5; opacity: 0.7;
     }
 
-    /* --- About / Footer --- */
-    footer{
-      border-top:1px solid var(--line);
-      padding:40px 16px 80px; margin-top:40px;
-      color:var(--muted); text-align:center; font-size:14px;
+    /* --- About (表現と行間調整) --- */
+    .about-text {
+      line-height: 1.8; /* Aboutセクションの行間を広く */
     }
-    .anchor{position:relative; top:-80px}
-    @media (max-width:640px){ .anchor{top:-72px} }
   </style>
 </head>
 <body>
@@ -298,7 +250,7 @@
     </p>
     <div class="cta-row reveal" style="--delay:.5s">
       <a class="btn" href="#contact">無料面談を申し込む</a>
-      </div>
+    </div>
     <div class="divider"></div>
   </div>
 
@@ -341,28 +293,8 @@
         <p>
             **含まれるもの：** ヒアリング・音楽設計提案（PDF）、編成/曲目の決定と必要な編曲、当日の演奏提供（リハを含む）、進行サポート
             <br>
-            **含まれないもの（注意書き）：** 会場・音響の手配や常設運用、<em>レコーディング納品、映像演出・撮影</em>、大型打楽器の基本使用など、演奏・設計に直接関わらない業務は含みません。
+            **含まれないもの（注意書き）：** 会場・音響の手配や常設運用、*レコーディング納品、映像演出・撮影*、大型打楽器の基本使用など、演奏・設計に直接関わらない業務は含みません。
         </p>
-    </div>
-  </section>
-
-  <span id="cases" class="anchor"></span>
-  <section class="shell section">
-    <h2 class="h2 reveal" style="--delay:.1s">Use Cases｜導入実績</h2>
-    <p class="hSub reveal" style="--delay:.2s">特定の目的のために設計され、実行された音楽提供事例です。</p>
-    <div class="cards">
-      <div class="card reveal" style="--delay:.3s">
-        <h3>（事例1）大規模病院・周年記念式典</h3>
-        <p>荘厳な**帝国ホテル**の会場にて、**35名のオーケストラ**を編成。医療系ドラマのテーマ曲などを中心に、格式高い祝典を演出しました。<br><span class="muted">目安：オーケストラ（35名）・60分</span></p>
-      </div>
-      <div class="card reveal" style="--delay:.4s">
-        <h3>（事例2）大手コンサルティングファーム・顧客向けVIPイベント</h3>
-        <p>顧客へのホスピタリティを高めるため、**10名程度の弦楽アンサンブル**を編成。有名なクラシック曲の小編成アレンジにより、上品かつ静寂な空間を提供しました。<br><span class="muted">目安：室内楽（10名）・30分</span></p>
-      </div>
-      <div class="card reveal" style="--delay:.5s">
-        <h3>（事例3）ブランド発表・レセプション</h3>
-        <p>滞在時間に合わせ、開始前は控えめ、要所は存在感のある曲に。ブランドイメージを損なわないよう音質設計。<br><span class="muted">目安：小〜中編成・45–90分</span></p>
-      </div>
     </div>
   </section>
 
@@ -370,7 +302,39 @@
   <section class="shell section">
     <h2 class="h2 reveal" style="--delay:.1s">Pricing｜料金目安（税別）</h2>
     <p class="hSub reveal" style="--delay:.2s">全て設計コンサルティングと演奏が基本セットです。</p>
-    <div class="card reveal" style="--delay:.3s">
+
+    <div class="table-custom-mobile reveal" style="--delay:.3s">
+        <div class="price-item">
+            <div class="price-details">
+                <h4>オーケストラ編成</h4>
+                <p>式典・発表会・企業イベント向け（20名〜）</p>
+            </div>
+            <div class="price-value">200万円〜</div>
+        </div>
+        <div class="price-item">
+            <div class="price-details">
+                <h4>室内楽・小編成</h4>
+                <p>弦楽四重奏〜少人数イベント向け</p>
+            </div>
+            <div class="price-value">40万円〜</div>
+        </div>
+        <div class="price-item">
+            <div class="price-details">
+                <h4>セミナー伴奏</h4>
+                <p>開閉会＋合間の短尺曲（解説なし）</p>
+            </div>
+            <div class="price-value">30万円〜</div>
+        </div>
+        <div class="price-item">
+            <div class="price-details">
+                <h4>作曲（オプション）</h4>
+                <p>式典テーマ・短尺BGMなど</p>
+            </div>
+            <div class="price-value">50万円〜</div>
+        </div>
+    </div>
+    
+    <div class="card table-container reveal" style="--delay:.3s">
       <table class="table" aria-label="料金表">
         <thead>
           <tr><th>内容</th><th>概要</th><th>目安価格</th></tr>
@@ -398,7 +362,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="muted" style="margin-top:16px">※価格は規模・編成・演奏時間で変動します。※すべて<b>設計（コンサル）＋演奏</b>が基本セットです。</p>
+      <p class="muted" style="margin-top:16px; line-height: 1.6;">※価格は規模・編成・演奏時間で変動します。※すべて<b>設計（コンサル）＋演奏</b>が基本セットです。</p>
     </div>
   </section>
 
@@ -434,8 +398,8 @@
   <section class="shell section">
     <h2 class="h2 reveal" style="--delay:.1s">About｜運営</h2>
     <p class="hSub reveal" style="--delay:.2s">信頼に足るプロフェッショナルな音楽家集団を基盤にしています。</p>
-    <div class="card reveal" style="--delay:.3s">
-      <p><b>VariOrchestra</b>は、クラシック音楽の定期公演を主催する**プロフェッショナルオーケストラ**です。指揮者・ヴァイオリニスト <b>佐藤瑛吾</b> の監修のもと運営し、**最高の音楽体験**をお届けします。</p>
+    <div class="card reveal about-text" style="--delay:.3s">
+      <p><b>VariOrchestra</b>は、クラシック音楽の定期公演を主催する**プロフェッショナルオーケストラ**です。指揮者・ヴァイオリニスト **佐藤瑛吾** の監修のもと運営し、最高の音楽体験をお届けします。</p>
     </div>
   </section>
 
@@ -459,7 +423,6 @@
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('show');
-          // h2のアンダーラインアニメーションをトリガー
           if (entry.target.classList.contains('h2')) {
             entry.target.classList.add('show-underline');
           }
@@ -469,7 +432,6 @@
     }, {threshold: 0.1});
     document.querySelectorAll('.reveal').forEach(el=>{
       io.observe(el);
-      // h2要素は別途クラスを付与 (h2::afterのアニメーション用)
       if (el.classList.contains('h2')) {
         el.classList.add('h2-reveal');
       }
