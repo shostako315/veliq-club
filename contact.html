@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>Contact | Veliq Club</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">V</span><span class="brand-text">Veliq&nbsp;Club</span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="cases.html">Cases</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-outline" href="contact.html">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container narrow">
+    <h1 class="display">Contact</h1>
+    <p class="lead">初回面談は無料です。VariOrchestraとともに、最適な“音の設計”をご提案します。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <p class="muted" style="margin-top:-8px;margin-bottom:22px;">
+      ※ 演奏とコンサルティングは <strong>常にセット</strong> でのご提供となります。
+    </p>
+
+    <!-- 送信先はダミー。後で Formspree 等の URL に差し替え -->
+    <form id="contact-form" action="ACTION_URL" method="POST" autocomplete="on">
+      <label>お名前<span aria-hidden="true"> *</span>
+        <input type="text" name="name" required>
+      </label>
+
+      <label>会社名 / ご所属
+        <input type="text" name="company">
+      </label>
+
+      <label>メールアドレス<span aria-hidden="true"> *</span>
+        <input type="email" name="email" required>
+      </label>
+
+      <label>ご相談種別
+        <select name="category">
+          <option value="event">企業／式典などのイベント相談</option>
+          <option value="brand">ブランド・製品発表</option>
+          <option value="salon">個人サロン／プライベート演奏</option>
+          <option value="compose">作曲・編曲のご相談</option>
+          <option value="other">その他</option>
+        </select>
+      </label>
+
+      <label>ご相談内容（用途・規模・期日・会場など未確定でも大丈夫です）
+        <textarea name="message" rows="6" placeholder="例）来賓100名の式典。式典冒頭15分＋歓談中30分程度。会場は都内ホテル。"></textarea>
+      </label>
+
+      <label>面談方法
+        <select name="meeting">
+          <option value="online">オンライン（Zoom）</option>
+          <option value="inperson">対面（都内近郊）</option>
+        </select>
+      </label>
+
+      <label>ご希望日時
+        <input type="text" name="datetime" placeholder="例：来週火曜 午後 など">
+      </label>
+
+      <!-- 簡易スパム対策（表示しないフィールド） -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit" class="btn btn-gold">無料相談を申し込む</button>
+    </form>
+
+    <p class="muted small" style="margin-top:10px;">
+      送信後、通常1–2営業日以内にご連絡いたします。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container narrow">
+    <p>© 2025 Veliq Club | VariOrchestra 常設連携</p>
+  </div>
+</footer>
+
+<script>
+  // GitHub Pagesでの簡易バリデーション＆ダミー送信
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    const url = this.getAttribute('action');
+    if (url === 'ACTION_URL') {
+      e.preventDefault();
+      alert('送信先URL（ACTION_URL）が未設定です。Formspree等のエンドポイントに差し替えてください。');
+    }
+  });
+</script>
+
+</body>
+</html>
