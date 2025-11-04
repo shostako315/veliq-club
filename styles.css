@@ -1,10 +1,10 @@
 /* ---------------------------------------------------- */
-/* CSSリセットとWebフォントの適用 (漆黒の深化) */
+/* CSSリセットとタイポグラフィ (Netflix風 高コントラスト) */
 /* ---------------------------------------------------- */
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
-    background-color: #0D0D0D; /* 最も深い漆黒 */
-    color: #E0E0E0; 
+    background-color: #000000; /* 純粋な黒 (Netflixの暗さ) */
+    color: #FFFFFF; /* テキストを純粋な白に */
     line-height: 1.8; 
     margin: 0;
     scroll-behavior: smooth;
@@ -13,11 +13,22 @@ body {
 }
 h1, h2, h3 { 
     font-family: 'Playfair Display', serif;
-    line-height: 1.2;
+    line-height: 1.1; /* タイトな行間 */
     color: #FFFFFF;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* 影を強調 */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); 
+    font-weight: 900; /* 強調 */
 }
-/* ゴールド系カラーの定義は維持 */
+/* 🔥【最重要：紫文字の解消】全てのリンクの色を白/ゴールドに設定 */
+a { 
+    text-decoration: none; 
+    color: #E0E0E0; /* リンクを灰色に近い白に */
+    transition: color 0.3s;
+}
+a:hover {
+    color: #A48239; /* ホバーでゴールドに */
+}
+
+/* ゴールド系カラーの定義 */
 .text-primary { color: #A48239; } 
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
@@ -25,104 +36,149 @@ h1, h2, h3 {
 
 
 /* ---------------------------------------------------- */
-/* ヘッダーとアニメーション設定 (PC) - 初期状態を隠すアニメーションはPCのみ */
+/* ゴージャス化とUI強化 (重厚感) */
+/* ---------------------------------------------------- */
+.container { 
+    max-width: 1280px; /* 横幅を広げ、シネマティックな余白 */
+    margin-left: auto; margin-right: auto; 
+    padding-left: 2rem; padding-right: 2rem; 
+}
+
+/* 見出し下の区切り線を極限まで太く強調 */
+.border-b-2 { 
+    border-bottom-width: 8px; /* 究極の重厚下線 */
+    border-color: #A48239; 
+    box-shadow: 0 3px 15px rgba(164, 130, 57, 0.5); /* 光沢を強く */
+} 
+
+/* シャドウを深く、要素の浮き出しを強調 */
+.shadow-lg { 
+    box-shadow: 0 40px 60px -15px rgba(0, 0, 0, 0.95), 0 5px 25px -5px rgba(0, 0, 0, 0.5); 
+} 
+
+/* カードの高級化（Pricing, Solution）と余白の追求 */
+.p-8 {
+    padding: 3.5rem; /* PC版のパディングを究極に拡大 */
+    border-radius: 4px; 
+    background-color: #121212; /* 黒に近い、わずかに明るい背景 */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(164, 130, 57, 0.5); /* インナーシャドウを強化 */
+}
+
+/* ---------------------------------------------------- */
+/* Processセクションの特別調整（Netflix風の番号付け） */
+/* ---------------------------------------------------- */
+.process-step-container {
+    padding: 3rem; 
+    background-color: #0D0D0D; 
+    border-left: 8px solid #A48239; 
+    border-radius: 4px; 
+}
+.process-step-container .flex-grow {
+    margin-left: 3rem; /* 番号との間隔をさらに拡大 */
+}
+.process-step-container .text-4xl {
+    font-size: 4rem; /* 番号を非常に大きく */
+    color: #A48239; 
+    text-shadow: 0 0 10px rgba(164, 130, 57, 0.8); /* 究極の光沢 */
+}
+
+
+/* ---------------------------------------------------- */
+/* 画像プレースホルダーのスタイル */
+/* ---------------------------------------------------- */
+.image-placeholder-hero {
+    width: 100%;
+    height: 400px; /* PCでの高さを設定 */
+    background-color: #121212; /* 暗い背景 */
+    background-image: linear-gradient(45deg, #1A1A1A 25%, #0D0D0D 25%, #0D0D0D 50%, #1A1A1A 50%, #1A1A1A 75%, #0D0D0D 75%, #0D0D0D 100%);
+    background-size: 40px 40px; /* チェック柄のダミーパターン */
+    border: 3px solid #A48239;
+    margin-top: 4rem;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+    position: relative;
+    /* ダミーテキスト */
+    color: #A48239;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 400px;
+    content: "CINEMATIC VISUAL HERE";
+}
+.image-placeholder-hero::before {
+    content: "CINEMATIC VISUAL HERE";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    line-height: 400px;
+}
+.image-placeholder-about {
+    width: 100%;
+    height: 300px;
+    background-color: #1A1A1A;
+    border: 1px solid #A48239;
+    margin-top: 2rem;
+    position: relative;
+    text-align: center;
+    color: #A48239;
+    line-height: 300px;
+    font-size: 1.2rem;
+    content: "KEY PERSON IMAGE";
+}
+.image-placeholder-about::before {
+    content: "KEY PERSON IMAGE";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    line-height: 300px;
+}
+
+/* ---------------------------------------------------- */
+/* ヘッダーとアニメーション設定 (PC) */
 /* ---------------------------------------------------- */
 header { 
-    /* アニメーション初期設定 */
     transform: translateY(-100%); 
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
-    
-    /* 固定ヘッダーの維持 */
     position: sticky; top: 0; z-index: 50; 
-    background-color: rgba(13, 13, 13, 0.95);
+    background-color: rgba(0, 0, 0, 0.95); /* 純粋な黒の透過背景 */
     backdrop-filter: blur(5px);
     padding: 1rem 0;
-    border-bottom: 1px solid #333333; /* ボーダーをより目立たないように */
+    border-bottom: 1px solid #1A1A1A;
 }
 @keyframes slideInDown {
     from { transform: translateY(-100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-/* PCヘッダーのサイズ調整 */
-.header-content { display: flex; justify-content: space-between; align-items: center; }
-.logo-text { font-size: 1.8rem; }
-.nav-links a { margin-left: 1.5rem; transition: color 0.3s; }
-
-
-/* ---------------------------------------------------- */
-/* デザインアップデートと重厚感の追求 */
-/* ---------------------------------------------------- */
-.container { 
-    max-width: 1200px; margin-left: auto; margin-right: auto; 
-    padding-left: 2rem; padding-right: 2rem; /* PCのコンテナ余白を少し広げる */
-}
-
-/* 見出し下の区切り線を強調 */
-.border-b-2 { 
-    border-bottom-width: 6px; /* さらに太く！ */
-    border-color: #A48239; 
-    /* ゴールドの下線に光沢を与えるシャドウ */
-    box-shadow: 0 3px 10px rgba(164, 130, 57, 0.4); 
-} 
-
-/* カードの高級化（Pricing, Solution）と余白の追求 */
-.p-8 {
-    padding: 3rem; /* PC版のパディングをさらに拡大し、間を持たせる */
-    border-radius: 4px; /* わずかに角を丸める */
-    background-color: #121212; 
-    /* 二重の立体感シャドウ */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(164, 130, 57, 0.3);
-}
-
-/* Processセクションの特別調整（重厚なステップ） */
-.process-step-container {
-    padding: 3rem; /* ProcessステップのパディングもPCで拡大 */
-    background-color: #1A1A1A; 
-    border-left: 8px solid #A48239; /* 左ボーダーをさらに太く */
-    border-radius: 4px; /* 角を丸める */
-}
-.process-step-container .flex-grow {
-    margin-left: 2.5rem; /* 番号との間隔をさらに拡大 */
-}
-.process-step-container .text-4xl {
-    font-size: 3.5rem; /* 番号を大きく */
-    color: #A48239; 
-    text-shadow: 0 0 8px rgba(164, 130, 57, 0.6); /* 光沢を強化 */
-}
-
 
 /* ---------------------------------------------------- */
 /* レスポンシブ最適化 (スマホ用デザイン) - ヘッダー強制表示と圧縮 */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
-    /* **1. ヘッダーの崩れ解消と強制表示（最重要修正）** */
+    /* **1. ヘッダーの崩れ解消と強制表示** */
     header { 
         padding: 0.4rem 0; 
-        animation: none; 
-        /* 【重要】アニメーション初期設定をモバイルでは無効化 */
-        transform: none !important; 
+        animation: none !important; /* アニメーションを完全に無効化 */
+        transform: none !important; /* 位置・透明度を強制リセット */
         opacity: 1 !important; 
+        position: fixed; /* ヘッダー固定を強制 */
+        top: 0;
+        width: 100%;
     }
     
     .container {
-        padding-left: 0.7rem; /* 左右の余白を極限まで詰める */
+        padding-left: 0.7rem; 
         padding-right: 0.7rem;
     }
     
     .header-content { 
-        /* 内部要素が溢れた場合の最終手段 */
         width: 100%;
         box-sizing: border-box;
-        overflow: hidden; /* ヘッダー全体の横スクロールを抑制 */
+        overflow: hidden; 
         min-height: 40px; 
     }
     
     .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.2rem; } 
     
     .nav-links { 
-        font-size: 0.55rem; 
+        font-size: 0.5rem; /* さらに圧縮 */
         margin-left: 0.1rem; 
         white-space: nowrap; 
         overflow: hidden; 
@@ -135,7 +191,7 @@ header {
     
     .cta-button {
         padding: 0.1rem 0.3rem; 
-        font-size: 0.55rem; 
+        font-size: 0.5rem; 
         border-width: 1px;
         flex-shrink: 0; 
     }
@@ -149,10 +205,20 @@ header {
         padding: 1.25rem;
         border-left-width: 4px; 
     }
-    .process-step-container .flex-grow {
-        margin-left: 1.5rem; 
+
+    .image-placeholder-hero {
+        height: 250px;
+        margin-top: 3rem;
+        line-height: 250px;
     }
-    .process-step-container .text-4xl {
-        font-size: 2.2rem; 
+    .image-placeholder-hero::before {
+        line-height: 250px;
+    }
+    .image-placeholder-about {
+        height: 200px;
+        line-height: 200px;
+    }
+    .image-placeholder-about::before {
+        line-height: 200px;
     }
 }
