@@ -1,18 +1,19 @@
 /* ---------------------------------------------------- */
-/* CSSリセットと高級感を出すための配色 */
+/* CSSリセットとWebフォントの適用 */
 /* ---------------------------------------------------- */
 body { 
-    font-family: 'Georgia', 'Times New Roman', serif;
+    /* Webフォントを優先し、システムフォントをフォールバックに */
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
     background-color: #1A1A1A; 
     color: #E0E0E0; 
     line-height: 1.8; 
     margin: 0;
     scroll-behavior: smooth;
-    /* 【重要】ページ全体の最小高さを確保し、スクロールを可能にする */
-    min-height: 100vh; 
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 h1, h2, h3 { 
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Playfair Display', serif;
     line-height: 1.2;
     color: #FFFFFF;
 }
@@ -24,7 +25,7 @@ a { text-decoration: none; color: #E0E0E0; }
 .border-primary { border-color: #A48239; }
 .bg-secondary { background-color: #262626; } 
 
-/* 【視認性強化】低コントラスト文字を明るく調整 */
+/* 視認性強化色 */
 .text-gray-300 { color: #CCCCCC; } 
 .text-gray-400 { color: #AAAAAA; } 
 .text-gray-500 { color: #888888; } 
@@ -32,40 +33,157 @@ a { text-decoration: none; color: #E0E0E0; }
 
 
 /* ---------------------------------------------------- */
-/* ユーティリティとレイアウト */
+/* ゴージャス化とUI強化 */
 /* ---------------------------------------------------- */
-.container { 
-    max-width: 1200px; 
-    margin-left: auto; 
-    margin-right: auto; 
-    padding-left: 1.5rem; 
-    padding-right: 1.5rem; 
-    /* 【重要】paddingやmarginが相殺されるのを防ぎ、表示を安定させる */
-    box-sizing: border-box; 
+.font-extrabold { font-weight: 900; } /* ウェイト強化 */
+.font-semibold { font-weight: 700; } /* ウェイト強化 */
+
+/* 見出し下の区切り線を太くし、ゴージャス感を強調 */
+.border-b-2 { border-bottom-width: 4px; } 
+
+/* シャドウを深くし、要素の浮き出しを強調 */
+.shadow-lg { box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.5), 0 5px 10px -5px rgba(0, 0, 0, 0.05); } 
+
+/* スムーズスクロールのための調整: 固定ヘッダーの高さ分、スクロール位置を調整 */
+html {
+    scroll-padding-top: 5rem; 
 }
-section {
-    /* 【重要】セクションが意図せず消えるのを防ぐ */
-    min-height: 100px; 
-    display: block; /* 念のためブロック要素であることを明示 */
+
+
+/* ---------------------------------------------------- */
+/* ヘッダーとナビゲーション (PC) */
+/* ---------------------------------------------------- */
+header { 
+    position: sticky; top: 0; z-index: 50; 
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    border-bottom: 1px solid #262626;
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo-text { font-size: 1.8rem; }
+.nav-links a { margin-left: 1.5rem; transition: color 0.3s; }
+
+/* CTAボタン: ゴールドのボーダーを太くしてリッチに */
+.cta-button {
+    border: 2px solid #A48239; 
+    color: #A48239;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem; 
+    transition: background-color 0.3s, color 0.3s;
+}
+.cta-button:hover { 
+    background-color: #A48239; 
+    color: #1A1A1A; 
 }
 
-/* 他のユーティリティは省略 */
-.py-16 { padding-top: 5rem; padding-bottom: 5rem; }
-.text-4xl { font-size: 2.5rem; }
-/* ... (以下、前回提供したCSSが続く) ... */
+/* メインビジュアル内のCTAボタン: ゴールド背景 */
+.cta-button-main {
+    background-color: #A48239;
+    color: #1A1A1A;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.cta-button-main:hover {
+    background-color: rgba(164, 130, 57, 0.9);
+}
 
 /* ---------------------------------------------------- */
-/* スクロールアニメーションの模擬 */
+/* フローティングCTAボタンの追加 */
 /* ---------------------------------------------------- */
-/* 【重要】アニメーション初期設定の透明度(opacity: 0)が原因で要素が見えない場合を想定し、
-   一旦「is-visible」クラスを削除するか、JavaScriptの導入を推奨します。
-   ここではCSSのみで対応するため、一旦このアニメーションを削除して問題を切り分けます。 */
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #A48239;
+    color: #1A1A1A;
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-weight: 700;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+.floating-cta:hover {
+    transform: scale(1.05);
+}
+.mobile-icon { display: none; } /* PCではアイコン非表示 */
 
-/* .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.fade-in.is-visible { opacity: 1; transform: translateY(0); } */
-
-/* 上記をコメントアウトし、HTMLの「fade-in」クラスも一時的に削除してみてください。 */
 
 /* ---------------------------------------------------- */
-/* ヘッダー、ナビゲーション、リストなどのCSS定義... */
-/* ...（前回のファイルと同じ内容を続けて記述してください）... */
+/* リストアイコンの調整 (3種類に対応) */
+/* ---------------------------------------------------- */
+.list-style-none { list-style: none; padding-left: 0; }
+.list-style-none li { position: relative; padding-left: 1.8em; }
+
+/* 1. 含むもの (✓) */
+.list-included li::before { content: '✓'; color: #A48239; font-weight: bold; position: absolute; left: 0; }
+/* 3. 要相談/注意書き (△) */
+.list-caution li::before {
+    content: '△';
+    color: #FFC300; /* 注意を促すイエロー */
+    font-weight: bold; 
+    position: absolute; 
+    left: 0; 
+}
+
+/* ---------------------------------------------------- */
+/* スクロールアニメーション (フェードインの復活) */
+/* ---------------------------------------------------- */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+
+/* ---------------------------------------------------- */
+/* レスポンシブ最適化 (スマホ用デザイン) */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* **1. フォントと余白** */
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+    .grid-cols-2 { grid-template-columns: 1fr; gap: 2rem; }
+    body { line-height: 1.6; }
+    
+    /* モバイルでの見出しのサイズを調整 */
+    .text-4xl { font-size: 2rem; } /* h1 */
+    .text-3xl { font-size: 1.5rem; }   /* h2 */
+    .text-2xl { font-size: 1.35rem; } /* h3 */
+    .text-xl { font-size: 1rem; }      /* 本文 */
+    .logo-text { font-size: 1.4rem; } /* Veliq Club ロゴを小さく */
+
+
+    /* **2. ヘッダーの詰め込み** */
+    header { padding: 0.75rem 0; } /* ヘッダーの高さを低くする */
+    .nav-links { font-size: 0.7rem; } /* ナビゲーションリンク全体を小さく */
+    .nav-links a { margin-left: 0.8rem; } /* リンク間のスペースを詰める */
+    .cta-button {
+        padding: 0.3rem 0.6rem; 
+        font-size: 0.7rem; 
+        border-width: 1px; /* ボーダーを細く */
+    }
+    
+    /* **3. CTAボタンとフローティングCTA** */
+    .cta-button-main {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-cta {
+        padding: 12px 15px; /* モバイルでは小さく */
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%; /* アイコン用に丸く */
+        text-align: center;
+        width: 50px;
+        height: 50px;
+    }
+    .desktop-text { display: none; } /* モバイルではテキスト非表示 */
+    .mobile-icon { 
+        display: block; /* モバイルではアイコン表示 */
+        font-size: 1.2rem;
+    }
+}
