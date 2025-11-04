@@ -153,17 +153,37 @@ header {
     .text-3xl { font-size: 1.5rem; }   /* h2 */
     .text-2xl { font-size: 1.35rem; } /* h3 */
     .text-xl { font-size: 1rem; }      /* 本文 */
-    .logo-text { font-size: 1.4rem; } /* Veliq Club ロゴを小さく */
 
 
-    /* **2. ヘッダーの詰め込み** */
-    header { padding: 0.75rem 0; } /* ヘッダーの高さを低くする */
-    .nav-links { font-size: 0.7rem; } /* ナビゲーションリンク全体を小さく */
-    .nav-links a { margin-left: 0.8rem; } /* リンク間のスペースを詰める */
+    /* **2. ヘッダーの詰め込み（最重要修正箇所）** */
+    header { 
+        padding: 0.5rem 0; /* ヘッダーの高さをさらに低く */
+    }
+    .container {
+        padding-left: 1rem; /* 左右の余白を詰める */
+        padding-right: 1rem; /* 左右の余白を詰める */
+    }
+    
+    /* ロゴ（Veliq Club）をさらに小さく */
+    .logo-text { font-size: 1.25rem; } 
+    
+    /* ナビゲーションリンク全体をさらに小さく */
+    .nav-links { 
+        font-size: 0.6rem; /* フォントサイズを極限まで詰める */
+        margin-left: 0.5rem; /* 左側にわずかなマージンを追加 */
+        /* 非常に重要な設定：要素が折り返さず、横に並ぶようにする */
+        white-space: nowrap; 
+    }
+    
+    .nav-links a { 
+        margin-left: 0.6rem; /* リンク間のスペースをさらに詰める */
+    }
+    
+    /* CTAボタンを極限まで小さくし、テキストを削減 */
     .cta-button {
-        padding: 0.3rem 0.6rem; 
-        font-size: 0.7rem; 
-        border-width: 1px; /* ボーダーを細く */
+        padding: 0.2rem 0.5rem; /* パディングを削減 */
+        font-size: 0.6rem; 
+        border-width: 1px;
     }
     
     /* **3. CTAボタンとフローティングCTA** */
@@ -173,17 +193,14 @@ header {
     }
 
     .floating-cta {
-        padding: 12px 15px; /* モバイルでは小さく */
+        padding: 12px 15px; 
         right: 15px;
         bottom: 15px;
-        border-radius: 50%; /* アイコン用に丸く */
+        border-radius: 50%;
         text-align: center;
         width: 50px;
         height: 50px;
     }
-    .desktop-text { display: none; } /* モバイルではテキスト非表示 */
-    .mobile-icon { 
-        display: block; /* モバイルではアイコン表示 */
-        font-size: 1.2rem;
-    }
+    .desktop-text { display: none; } 
+    .mobile-icon { display: block; font-size: 1.2rem; }
 }
