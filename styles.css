@@ -1,11 +1,11 @@
 /* ---------------------------------------------------- */
-/* CSSリセットとタイポグラフィ (シャープで信頼性の高いスタイルへ) */
+/* CSSリセットとタイポグラフィ (シャープで信頼性の高いスタイル) */
 /* ---------------------------------------------------- */
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
     background-color: #000000; /* 純粋な黒 */
-    color: #FFFFFF; /* テキストは純粋な白に */
-    line-height: 1.7; /* 読みやすい行間に */
+    color: #FFFFFF; 
+    line-height: 1.7; 
     margin: 0;
     scroll-behavior: smooth;
     min-height: 100vh;
@@ -15,13 +15,12 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     line-height: 1.1; 
     color: #FFFFFF;
-    text-shadow: none; /* 過度な光沢を削除 */
-    font-weight: 700; /* 強調を抑え、エレガントに */
+    font-weight: 700; 
 }
-/* リンクの色を統一（紫色排除） */
+/* 🔥【紫文字の解消とリンクの統一】 */
 a { 
     text-decoration: none; 
-    color: #CCCCCC; /* リンクを明るいグレーに */
+    color: #CCCCCC; 
     transition: color 0.3s;
 }
 a:hover {
@@ -32,131 +31,255 @@ a:hover {
 .text-primary { color: #A48239; } 
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
-.bg-secondary { background-color: #1A1A1A; } 
+.bg-secondary { background-color: #0D0D0D; } /* セクションの背景色を僅かに調整 */
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 900; } 
 
 
 /* ---------------------------------------------------- */
-/* ゴージャス化とUI強化 (シャープな重厚感) */
+/* コンテナとセクションの余白 */
 /* ---------------------------------------------------- */
 .container { 
     max-width: 1280px; 
     margin-left: auto; margin-right: auto; 
-    padding-left: 2.5rem; padding-right: 2.5rem; /* PCの余白をさらに拡大 */
+    padding-left: 2.5rem; padding-right: 2.5rem; 
 }
-.py-16 { padding-top: 5rem; padding-bottom: 5rem; } /* セクションの上下余白を大きく */
-
-
-/* 見出し下の区切り線をクリーンに */
-.border-b-2 { 
-    border-bottom-width: 3px; /* 厚すぎず、シャープな線に */
-    border-color: #A48239; 
-    box-shadow: none; /* 光沢を削除 */
-} 
-
-/* シャドウを控えめに、クリーンな印象に */
-.shadow-lg { 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 影を控えめに、清潔感を出す */
-} 
-
-/* カードの高級化（Pricing, Solution）と余白の追求 - シャープな額縁 */
-.p-8 {
-    padding: 3.5rem; 
-    border-radius: 0; /* 角を直角に戻し、シャープに */
-    background-color: #0D0D0D; 
-    /* インナーシャドウを薄い線として残す */
-    box-shadow: none;
-    border: 1px solid #1A1A1A; /* 外側の薄いフレーム */
-}
+.py-16 { padding-top: 5rem; padding-bottom: 5rem; } 
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+.pb-2 { padding-bottom: 0.5rem; }
 
 
 /* ---------------------------------------------------- */
-/* Processセクションの特別調整（クリーンなインデックス表示） */
-/* ---------------------------------------------------- */
-.process-step-container {
-    padding: 2.5rem; /* パディングを適度に調整 */
-    background-color: #0D0D0D; 
-    border-left: 4px solid #A48239; /* 左ボーダーを薄く、洗練された印象に */
-    border-radius: 0; 
-}
-.process-step-container .flex-grow {
-    margin-left: 2rem; 
-}
-.process-step-container .text-4xl {
-    font-size: 2.8rem; /* 番号を大きくしすぎず、読みやすく */
-    color: #A48239; 
-    text-shadow: none; /* 光沢を削除 */
-    font-weight: 700;
-}
-
-
-/* ---------------------------------------------------- */
-/* ヘッダーとアニメーション設定 (PC) - 安定性の確保 */
+/* ヘッダーとナビゲーション (安定性の確保) */
 /* ---------------------------------------------------- */
 header { 
-    /* アニメーション設定は維持 (PCのみ) */
     transform: translateY(-100%); 
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
     
-    /* 固定ヘッダーの安定化 */
+    /* 🔥【最終安定化】stickyに戻し、z-indexを確保 */
     position: sticky; top: 0; z-index: 50; 
     background-color: rgba(0, 0, 0, 0.98); 
     backdrop-filter: blur(5px);
     padding: 1rem 0;
     border-bottom: 1px solid #1A1A1A;
 }
-
+@keyframes slideInDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo-text { font-size: 1.8rem; color: #A48239; font-weight: 700; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { margin-left: 1.5rem; }
 
 /* ---------------------------------------------------- */
-/* 画像プレースホルダーの削除 */
+/* CTAボタンのスタイル統一 */
 /* ---------------------------------------------------- */
-.image-placeholder-hero, .image-placeholder-about {
-    display: none;
+.cta-button {
+    border: 2px solid #A48239; 
+    color: #A48239;
+    padding: 0.5rem 1rem;
+    border-radius: 2px; /* シャープな角 */
+    font-size: 0.95rem; 
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 700;
+}
+.cta-button:hover {
+    background-color: #A48239;
+    color: #000000;
+}
+.cta-button-hero {
+    background-color: #A48239;
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+.cta-button-hero:hover {
+    opacity: 0.9;
+}
+.cta-button-contact {
+    background-color: #FFFFFF; /* Contactセクションのボタンはコントラストを高める */
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+.cta-button-contact:hover {
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------- */
+/* 見出しとカードのスタイル */
+/* ---------------------------------------------------- */
+.border-b-2 { 
+    border-bottom-width: 3px; 
+    border-color: #A48239; 
+} 
+.shadow-lg { 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+} 
+
+/* Pricing/Solution カード (シャープな額縁) */
+.p-8 {
+    padding: 3.5rem; 
+    border-radius: 0; 
+    background-color: #0D0D0D; 
+    box-shadow: none;
+    border: 1px solid #1A1A1A; 
 }
 
 
 /* ---------------------------------------------------- */
-/* レスポンシブ最適化 (スマホ用デザイン) - 安定性の確保 */
+/* Processセクション */
+/* ---------------------------------------------------- */
+.process-step-container {
+    padding: 2.5rem; 
+    background-color: #0D0D0D; 
+    border-left: 4px solid #A48239; 
+    border-radius: 0; 
+}
+.process-step-container .flex-grow {
+    margin-left: 2rem; 
+}
+.process-step-container .text-4xl {
+    font-size: 2.8rem; 
+    color: #A48239; 
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------- */
+/* リストアイコンの調整 */
+/* ---------------------------------------------------- */
+.list-style-none li { position: relative; padding-left: 2em; } 
+.list-included li::before { 
+    content: '✓'; 
+    color: #A48239; 
+    font-weight: bold; 
+    position: absolute; left: 0; 
+    font-size: 1.2em; 
+}
+.list-caution li::before {
+    content: '△';
+    color: #FFC300; 
+    font-weight: bold; 
+    position: absolute; left: 0; 
+    font-size: 1.2em;
+}
+
+
+/* ---------------------------------------------------- */
+/* フッターのアップデート */
+/* ---------------------------------------------------- */
+footer {
+    background-color: #000000; 
+    padding: 2.5rem 0; 
+    border-top: 1px solid #1A1A1A;
+}
+.footer-links {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 0.8rem; 
+    font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------- */
+/* 固定コンタクトボタン */
+/* ---------------------------------------------------- */
+.fixed-contact-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    background-color: #A48239;
+    color: #000000;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 60;
+    transition: background-color 0.3s;
+}
+.fixed-contact-button:hover {
+    background-color: #B9984E;
+}
+.fixed-contact-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ---------------------------------------------------- */
+/* レスポンシブ最適化 (スマホ用デザイン) */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
-    /* **1. ヘッダーの崩れ解消と強制表示** */
+    /* ヘッダーの崩れ解消と強制表示 (固定に戻す) */
     header { 
         padding: 0.4rem 0; 
         animation: none !important; 
         transform: none !important; 
         opacity: 1 !important; 
-        position: sticky; /* スマホでもstickyに戻し、安定性を確保 */
-        top: 0;
-        width: 100%;
+        position: sticky; 
     }
     
     .container {
         padding-left: 1rem; 
         padding-right: 1rem;
     }
-    
-    .header-content { 
-        min-height: 40px; 
+
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
+
+    /* CTAボタンの圧縮 */
+    .cta-button {
+        padding: 0.3rem 0.6rem; 
+        font-size: 0.65rem; 
+        border-width: 1px;
     }
-    
-    .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.2rem; } 
+    .cta-button-hero, .cta-button-contact {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .logo-text { font-size: 1.2rem; }
     
     .nav-links { 
-        font-size: 0.55rem; 
-        margin-left: 0.1rem; 
-        white-space: nowrap; 
-        overflow: hidden; 
+        font-size: 0.6rem; 
     }
+    .nav-links a { 
+        margin-left: 0.4rem; 
+        flex-shrink: 0; 
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
     
     .p-8 {
         padding: 1.5rem; 
     }
+    
     .process-step-container {
         padding: 1.2rem;
-        border-left-width: 3px; 
     }
 
-    .py-16 { padding-top: 4rem; padding-bottom: 4rem; } 
+    .fixed-contact-button {
+        width: 45px;
+        height: 45px;
+        right: 10px;
+        bottom: 10px;
+    }
 }
-
