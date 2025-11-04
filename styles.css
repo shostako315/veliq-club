@@ -158,7 +158,27 @@ header {
 
 /* ---------------------------------------------------- */
 /* レスポンシブ最適化 (スマホ用デザイン) */
+/* **ここからが追加・修正した部分です** */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
-    /* 変更なし */
+    /* **【重要】Pricingセクションを縦一列に戻す** */
+    .md\:grid-cols-3,
+    .md\:grid-cols-5 {
+        grid-template-columns: 1fr !important; /* 縦に積み重ねる */
+    }
+
+    /* **【重要】Processの矢印とステップの横並びを解除** */
+    .process-flow {
+        grid-template-columns: 1fr !important; /* 縦一列に戻す */
+    }
+    
+    /* 流れの矢印を非表示にして縦並びをスッキリさせる */
+    .process-flow .process-arrow {
+        display: none;
+    }
+
+    /* Processステップ間の間隔を調整 */
+    .process-step {
+        margin-bottom: 2rem;
+    }
 }
