@@ -1,16 +1,31 @@
 /* ---------------------------------------------------- */
-/* CSSリセットとタイポグラフィ */
+/* CSSリセットとタイポグラフィ (シャープで信頼性の高いスタイル) */
 /* ---------------------------------------------------- */
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
-    background-color: #000000;
+    background-color: #000000; /* 純粋な黒 */
     color: #FFFFFF; 
-    line-height: 1.8; /* 行間を広げ、羅列感を解消 */
+    line-height: 1.7; 
     margin: 0;
     scroll-behavior: smooth;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 60px; 
+    padding-top: 60px; /* 🔥【重要】ヘッダーの高さ分、コンテンツ全体を下にずらす */
+}
+h1, h2, h3 { 
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1; 
+    color: #FFFFFF;
+    font-weight: 700; 
+}
+/* 🔥【リンクの統一】 */
+a { 
+    text-decoration: none; 
+    color: #CCCCCC; 
+    transition: color 0.3s;
+}
+a:hover {
+    color: #A48239; 
 }
 
 /* ゴールド系カラーの定義 */
@@ -18,131 +33,194 @@ body {
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
 .bg-secondary { background-color: #0D0D0D; } 
-.bg-primary-dark { background-color: #1A1A1A; } 
-
-/* セクションタイトルとディスクリプションに余白を追加 */
-.section-title {
-    font-size: 2.5rem;
-    border-bottom: 3px solid #A48239; 
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-.section-description {
-    font-size: 1.15rem;
-    color: #CCCCCC;
-    max-width: 800px; 
-}
-.sub-heading {
-    font-size: 1.6rem;
-    border-bottom: 1px solid #A48239;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-/* ヒーローセクション */
-h1 {
-    font-size: 3.8rem;
-    line-height: 1.2;
-    font-weight: 700;
-    margin-top: 1rem;
-}
-.pre-heading {
-    font-weight: 700;
-    /* letter-spacing: 0.2em; */ /* 余白をあえて削除し、タイポグラフィで調整 */
-}
-.py-20 { padding-top: 6rem; padding-bottom: 6rem; } 
-.py-16 { padding-top: 5rem; padding-bottom: 5rem; } 
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 900; } 
 
 
 /* ---------------------------------------------------- */
-/* Header (デザイン調整) */
+/* コンテナとセクションの余白 */
+/* ---------------------------------------------------- */
+.container { 
+    max-width: 1280px; 
+    margin-left: auto; margin-right: auto; 
+    padding-left: 2.5rem; padding-right: 2.5rem; 
+}
+.py-16 { padding-top: 5rem; padding-bottom: 5rem; } 
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+.pb-2 { padding-bottom: 0.5rem; }
+
+
+/* ---------------------------------------------------- */
+/* ヘッダーとナビゲーション (最終安定版) */
 /* ---------------------------------------------------- */
 header { 
-    position: fixed; 
+    /* PCアニメーション */
+    transform: translateY(-100%); 
+    opacity: 0;
+    animation: slideInDown 0.8s ease-out 0.2s forwards; 
+    
+    /* 🔥【重要】ヘッダーを常にfixedにし、z-indexを確保して重なりを防ぐ */
+    position: fixed; /* stickyからfixedに変更 */
     top: 0; 
-    width: 100%; 
+    width: 100%; /* 幅を常に100%に */
     z-index: 50; 
     background-color: rgba(0, 0, 0, 0.98); 
     backdrop-filter: blur(5px);
     padding: 1rem 0;
-    /* border-bottom: none; */ /* クリーンな見た目にするためボーダー削除 */
-    box-shadow: none;
-    min-height: 60px;
+    border-bottom: 1px solid #1A1A1A;
+    min-height: 60px; /* 🔥ヘッダーの最低高さを確保 */
 }
-/* ... (Headerのその他スタイルは変更なし) ... */
-
-
-/* ---------------------------------------------------- */
-/* Solution (リストアイコン、羅列感の解消) */
-/* ---------------------------------------------------- */
-.list-included li, .list-excluded li {
-    font-size: 1.1rem; /* フォントを大きくし、ゆとりを持たせる */
-    line-height: 1.6;
+@keyframes slideInDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
-/* ... (リストアイコンのスタイルは変更なし) ... */
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo-text { font-size: 1.8rem; color: #A48239; font-weight: 700; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { margin-left: 1.5rem; }
 
 /* ---------------------------------------------------- */
-/* Pricing カード (羅列感の解消とデザイン強化) */
+/* CTAボタンのスタイル統一 */
 /* ---------------------------------------------------- */
-.price-card {
-    transition: transform 0.3s, box-shadow 0.3s;
+.cta-button {
+    border: 2px solid #A48239; 
+    color: #A48239;
+    padding: 0.5rem 1rem;
+    border-radius: 2px; 
+    font-size: 0.95rem; 
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 700;
+}
+.cta-button:hover {
+    background-color: #A48239;
+    color: #000000;
+}
+.cta-button-hero {
+    background-color: #A48239;
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+.cta-button-hero:hover {
+    opacity: 0.9;
+}
+.cta-button-contact {
+    background-color: #FFFFFF; 
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+.cta-button-contact:hover {
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------- */
+/* 見出しとカードのスタイル */
+/* ---------------------------------------------------- */
+.border-b-2 { 
+    border-bottom-width: 3px; 
+    border-color: #A48239; 
+} 
+
+/* Pricing/Service カード (シャープな額縁) */
+.p-8 {
+    padding: 3.5rem; 
     border-radius: 0; 
+    background-color: #0D0D0D; 
+    box-shadow: none;
     border: 1px solid #1A1A1A; 
 }
-.price-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(164, 130, 57, 0.2); 
-    border-color: #A48239;
+.border-l-4 {
+    border-left-width: 4px; 
 }
 
 
 /* ---------------------------------------------------- */
-/* Processセクションのデザイン強化 (フローデザイン化) */
+/* Processセクション */
 /* ---------------------------------------------------- */
-.process-flow {
+.process-step-container {
+    padding: 2.5rem; 
+    background-color: #0D0D0D; 
+    border-left: 4px solid #A48239; 
+    border-radius: 0; 
+}
+.process-step-container .flex-grow {
+    margin-left: 2rem; 
+}
+.process-step-container .text-4xl {
+    font-size: 2.8rem; 
+    color: #A48239; 
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------- */
+/* リストアイコンの調整 */
+/* ---------------------------------------------------- */
+.list-style-none li { position: relative; padding-left: 2em; } 
+.list-included li::before { 
+    content: '✓'; 
+    color: #A48239; 
+    font-weight: bold; 
+    position: absolute; left: 0; 
+    font-size: 1.2em; 
+}
+
+
+/* ---------------------------------------------------- */
+/* フッターのアップデート */
+/* ---------------------------------------------------- */
+footer {
+    background-color: #000000; 
+    padding: 2.5rem 0; 
+    border-top: 1px solid #1A1A1A;
+}
+.footer-links {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 0.8rem; 
+    font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------- */
+/* 固定コンタクトボタン */
+/* ---------------------------------------------------- */
+.fixed-contact-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    background-color: #A48239;
+    color: #000000;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.process-step {
-    flex: 1;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    background-color: #1A1A1A;
-    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 60;
     transition: background-color 0.3s;
 }
-.process-step:hover {
-    background-color: #A4823910; /* ゴールドの薄いオーバーレイ */
+.fixed-contact-button:hover {
+    background-color: #B9984E;
 }
-.process-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #A48239;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-.process-heading {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 0.5rem;
-    border: none; /* Sub-headingのスタイルを継承させない */
-}
-.process-detail {
-    font-size: 0.9rem;
-    color: #CCCCCC;
-}
-.process-arrow {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.5rem;
-    font-size: 1.5rem;
-    color: #A48239;
-    height: auto; /* 高さを自動調整 */
-    align-self: center; /* 垂直方向中央寄せ */
+.fixed-contact-button svg {
+    width: 24px;
+    height: 24px;
 }
 
 
@@ -151,49 +229,61 @@ header {
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
-    body { padding-top: 50px; }
-    .py-20 { padding-top: 4rem; padding-bottom: 4rem; } 
-    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
+    body {
+        padding-top: 50px; /* 🔥スマホでのヘッダー高さに合わせて調整 */
+    }
 
-    h1 { font-size: 2.2rem; line-height: 1.3; }
-    .section-title { font-size: 2rem; }
-    .section-description { font-size: 1rem; }
+    header { 
+        padding: 0.4rem 0; 
+        animation: none !important; 
+        transform: none !important; 
+        opacity: 1 !important; 
+        position: fixed; /* スマホでもfixedで安定化 */
+        min-height: 50px; /* 🔥スマホでのヘッダー最低高さを確保 */
+    }
     
-    /* Processを縦並びに変更 */
-    .process-flow {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .process-step {
-        text-align: left;
-        padding: 1.5rem;
-        display: flex;
-        align-items: flex-start;
-        border-left: 4px solid #A48239; /* 縦のラインを追加 */
-        background-color: #0D0D0D;
-    }
-    .process-number {
-        font-size: 2.5rem;
-        margin-right: 1rem;
-        flex-shrink: 0;
-    }
-    .process-arrow {
-        display: none; /* 矢印を非表示 */
+    .container {
+        padding-left: 1rem; 
+        padding-right: 1rem;
     }
 
-    /* Priceカードも縦積みでゆとりを確保 */
-    .price-card {
-        padding: 1.5rem;
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
+    
+    /* CTAボタンの圧縮 */
+    .cta-button {
+        padding: 0.3rem 0.6rem; 
+        font-size: 0.65rem; 
+        border-width: 1px;
     }
-    .price-card h3 {
-        font-size: 1.4rem;
+    .cta-button-hero, .cta-button-contact {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
     }
-    .price-card p:nth-of-type(2) { /* 料金 */
-        font-size: 3rem;
+    .logo-text { font-size: 1.2rem; }
+    
+    .nav-links { 
+        font-size: 0.6rem; 
+    }
+    .nav-links a { 
+        margin-left: 0.4rem; 
+        flex-shrink: 0; 
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .p-8 {
+        padding: 1.5rem; 
+    }
+    
+    .process-step-container {
+        padding: 1.2rem;
     }
 
-    /* サービス設計のグリッドを縦積みに */
-    .lg\:grid-cols-2 {
-        grid-template-columns: 1fr;
+    .fixed-contact-button {
+        width: 45px;
+        height: 45px;
+        right: 10px;
+        bottom: 10px;
     }
 }
