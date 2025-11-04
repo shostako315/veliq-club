@@ -2,9 +2,8 @@
 /* CSSリセットとWebフォントの適用 (漆黒の深化) */
 /* ---------------------------------------------------- */
 body { 
-    /* 【漆黒の深化】背景色をさらに暗い色へ */
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
-    background-color: #0D0D0D; 
+    background-color: #0D0D0D; /* 最も深い漆黒 */
     color: #E0E0E0; 
     line-height: 1.8; 
     margin: 0;
@@ -16,8 +15,7 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
     color: #FFFFFF;
-    /* 豪華なタイポグラフィ */
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.15); /* 影を強調 */
 }
 a { text-decoration: none; color: #E0E0E0; }
 
@@ -30,18 +28,26 @@ a { text-decoration: none; color: #E0E0E0; }
 /* ---------------------------------------------------- */
 /* ゴージャス化とUI強化 */
 /* ---------------------------------------------------- */
-/* ... (中略：フォントウェイト、border-b-2の設定は維持) ... */
+.font-extrabold { font-weight: 900; } 
+.font-semibold { font-weight: 700; } 
 
-/* シャドウを深くし、要素の浮き出しを強調 */
+/* 見出し下の区切り線をさらに太く、ゴールドを強調 */
+.border-b-2 { 
+    border-bottom-width: 5px; /* 4pxから5pxへ */
+    border-color: #A48239; /* 明示的にゴールドを適用 */
+} 
+
+/* シャドウをさらに深く、重厚感を強調 */
 .shadow-lg { 
-    box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.8), 0 5px 15px -5px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.9), 0 5px 20px -5px rgba(0, 0, 0, 0.4); 
 } 
 
 /* カードの高級化（Pricing, Solution） */
 .p-8 {
-    padding: 2.5rem; 
+    padding: 2.75rem; /* PC版のパディングをさらに拡大 */
     border-color: #1A1A1A; 
-    box-shadow: inset 0 0 0 1px rgba(164, 130, 57, 0.3); 
+    box-shadow: inset 0 0 0 2px rgba(164, 130, 57, 0.4); /* インナーシャドウを強化 */
+    background-color: #121212; /* カードの背景色を本体よりわずかに明るく */
 }
 .container { 
     max-width: 1200px; margin-left: auto; margin-right: auto; 
@@ -54,13 +60,18 @@ a { text-decoration: none; color: #E0E0E0; }
 /* Processセクションの特別調整（重厚なステップ） */
 /* ---------------------------------------------------- */
 .process-step-container {
-    /* HTMLで`.flex items-start bg-black p-6`として使用されることを想定し、これらを上書き */
-    padding: 2.5rem; 
+    padding: 2.75rem; /* Processステップのパディングも拡大 */
     background-color: #1A1A1A; 
-    border-left: 5px solid #A48239; 
+    border-left: 6px solid #A48239; /* 左ボーダーをさらに太く */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* より深い影 */
 }
 .process-step-container .flex-grow {
-    margin-left: 1.5rem; 
+    margin-left: 2rem; /* 番号との間隔をさらに拡大 */
+}
+.process-step-container .text-4xl {
+    font-size: 3.2rem; /* 番号のサイズを調整 */
+    color: #A48239; /* 番号をゴールドに */
+    text-shadow: 0 0 5px rgba(164, 130, 57, 0.5); /* ゴールドの番号に光沢 */
 }
 
 
@@ -84,7 +95,7 @@ header {
     to { transform: translateY(0); opacity: 1; }
 }
 .header-content { display: flex; justify-content: space-between; align-items: center; }
-.nav-links { display: flex; align-items: center; } /* リンクをフレックスで横並びにする */
+.nav-links { display: flex; align-items: center; } 
 
 /* CTAボタン */
 .cta-button {
@@ -97,58 +108,120 @@ header {
 }
 
 /* ---------------------------------------------------- */
+/* フッターのアップデート */
+/* ---------------------------------------------------- */
+footer {
+    background-color: #000000; /* フッター背景を純粋な黒に */
+    padding: 2.5rem 0; /* 上下の余白を拡大 */
+}
+.footer-links {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex; /* リンクをフレックスで横並びにする */
+    justify-content: center; /* 中央揃え */
+    flex-wrap: wrap; /* リンクが多い場合に折り返す */
+    gap: 0.8rem; /* リンク間のスペース */
+}
+.footer-links a {
+    color: #AAAAAA; /* リンクの色を少し明るく */
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #E0E0E0;
+}
+footer p {
+    font-size: 0.85rem;
+    color: #666666; /* 著作権表示の色を調整 */
+}
+
+/* ---------------------------------------------------- */
+/* リストアイコンの調整 (3種類に対応) - 提供内容リストの強化 */
+/* ---------------------------------------------------- */
+.list-style-none li { position: relative; padding-left: 2em; } /* 左パディングを拡大 */
+.list-included li::before { 
+    content: '✓'; 
+    color: #FFD700; /* 提供内容のチェックマークをより明るいゴールドに */
+    font-weight: bold; 
+    position: absolute; left: 0; 
+    font-size: 1.2em; /* チェックマークを大きく */
+    text-shadow: 0 0 3px rgba(255, 215, 0, 0.7); /* 光沢を追加 */
+}
+.list-caution li::before {
+    content: '△';
+    color: #FFC300; 
+    font-weight: bold; 
+    position: absolute; left: 0; 
+    font-size: 1.2em;
+    text-shadow: 0 0 3px rgba(255, 195, 0, 0.5); 
+}
+
+/* ---------------------------------------------------- */
 /* レスポンシブ最適化 (スマホ用デザイン) */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
-    /* 1. 全体設定 */
-    .py-16 { padding-top: 4rem; padding-bottom: 4rem; } 
-    .container {
-        padding-left: 1rem; /* 左右の余白を詰める */
-        padding-right: 1rem;
-    }
-
-    /* 2. ヘッダーの崩れ解消のための究極の圧縮 */
+    /* **1. ヘッダーの表示と圧縮（最重要修正）** */
     header { 
-        padding: 0.4rem 0; /* ヘッダーの高さをさらに低く */
-        animation: none; 
+        padding: 0.4rem 0; 
+        animation: none; /* スマホではアニメーション無効化 */
+        transform: translateY(0); /* 【重要】スマホでは初期位置を常に表示に */
+        opacity: 1; /* 【重要】スマホでは常に不透明に */
+    }
+    .container {
+        padding-left: 0.8rem; /* 左右の余白をさらに詰める */
+        padding-right: 0.8rem;
     }
     
     .header-content { 
-        /* 内部要素が溢れた場合の最終手段 */
         overflow-x: hidden; 
         width: 100%;
+        min-height: 40px; /* ヘッダーの最小高さを確保 */
     }
     
-    .logo-text { font-size: 1.2rem; flex-shrink: 0; } /* ロゴを固定 */
+    .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.3rem; } /* ロゴをさらに小さく */
     
     .nav-links { 
-        font-size: 0.6rem; 
-        margin-left: 0.5rem; 
-        /* 【最重要】要素が折り返さず、横に並ぶようにする */
+        font-size: 0.55rem; /* ナビゲーションリンクをさらに小さく */
+        margin-left: 0.2rem; 
         white-space: nowrap; 
         overflow-x: hidden;
     }
     
     .nav-links a { 
-        margin-left: 0.5rem; 
-        flex-shrink: 0; /* リンクが縮まないようにする */
+        margin-left: 0.4rem; 
+        flex-shrink: 0; 
     }
     
     .cta-button {
-        padding: 0.2rem 0.4rem; /* パディングを極限まで削減 */
-        font-size: 0.6rem; 
+        padding: 0.15rem 0.3rem; /* CTAボタンを極限まで小さく */
+        font-size: 0.55rem; 
         border-width: 1px;
-        flex-shrink: 0; /* CTAボタンも縮まないようにする */
+        flex-shrink: 0; 
     }
 
-    /* 3. モバイルでのパディングとフォントの調整 */
+    /* 2. モバイルでのパディングとフォントの調整 */
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } /* セクションの上下余白調整 */
     .p-8 {
-        padding: 1.75rem; /* モバイルでのカードパディング */
+        padding: 1.5rem; /* モバイルでのカードパディング */
     }
-    /* Processステップのモバイルパディング */
     .process-step-container {
-        padding: 1.5rem;
+        padding: 1.25rem;
+        border-left-width: 4px; /* ボーダーを少し細くしてモバイルに合わせる */
     }
-
-    /* ... (中略：その他のモバイルCSSは変更なし) ... */
+    .process-step-container .flex-grow {
+        margin-left: 1.5rem; 
+    }
+    .process-step-container .text-4xl {
+        font-size: 2.2rem; /* 番号のサイズ調整 */
+    }
+    /* フッターのモバイル調整 */
+    footer {
+        padding: 1.5rem 0;
+    }
+    .footer-links {
+        gap: 0.5rem;
+        font-size: 0.75rem;
+    }
+    footer p {
+        font-size: 0.7rem;
+    }
 }
