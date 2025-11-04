@@ -1,11 +1,11 @@
 /* ---------------------------------------------------- */
-/* CSSリセットとタイポグラフィ (Netflix風 高コントラスト) */
+/* CSSリセットとタイポグラフィ (シャープで信頼性の高いスタイルへ) */
 /* ---------------------------------------------------- */
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
-    background-color: #000000; /* 純粋な黒 (Netflixの暗さ) */
-    color: #FFFFFF; /* テキストを純粋な白に */
-    line-height: 1.8; 
+    background-color: #000000; /* 純粋な黒 */
+    color: #FFFFFF; /* テキストは純粋な白に */
+    line-height: 1.7; /* 読みやすい行間に */
     margin: 0;
     scroll-behavior: smooth;
     min-height: 100vh;
@@ -13,19 +13,19 @@ body {
 }
 h1, h2, h3 { 
     font-family: 'Playfair Display', serif;
-    line-height: 1.1; /* タイトな行間 */
+    line-height: 1.1; 
     color: #FFFFFF;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); 
-    font-weight: 900; /* 強調 */
+    text-shadow: none; /* 過度な光沢を削除 */
+    font-weight: 700; /* 強調を抑え、エレガントに */
 }
-/* 🔥【最重要：紫文字の解消】全てのリンクの色を白/ゴールドに設定 */
+/* リンクの色を統一（紫色排除） */
 a { 
     text-decoration: none; 
-    color: #E0E0E0; /* リンクを灰色に近い白に */
+    color: #CCCCCC; /* リンクを明るいグレーに */
     transition: color 0.3s;
 }
 a:hover {
-    color: #A48239; /* ホバーでゴールドに */
+    color: #A48239; 
 }
 
 /* ゴールド系カラーの定義 */
@@ -36,189 +36,126 @@ a:hover {
 
 
 /* ---------------------------------------------------- */
-/* ゴージャス化とUI強化 (重厚感) */
+/* ゴージャス化とUI強化 (シャープな重厚感) */
 /* ---------------------------------------------------- */
 .container { 
-    max-width: 1280px; /* 横幅を広げ、シネマティックな余白 */
+    max-width: 1280px; 
     margin-left: auto; margin-right: auto; 
-    padding-left: 2rem; padding-right: 2rem; 
+    padding-left: 2.5rem; padding-right: 2.5rem; /* PCの余白をさらに拡大 */
 }
+.py-16 { padding-top: 5rem; padding-bottom: 5rem; } /* セクションの上下余白を大きく */
 
-/* 見出し下の区切り線を極限まで太く強調 */
+
+/* 見出し下の区切り線をクリーンに */
 .border-b-2 { 
-    border-bottom-width: 8px; /* 究極の重厚下線 */
+    border-bottom-width: 3px; /* 厚すぎず、シャープな線に */
     border-color: #A48239; 
-    box-shadow: 0 3px 15px rgba(164, 130, 57, 0.5); /* 光沢を強く */
+    box-shadow: none; /* 光沢を削除 */
 } 
 
-/* シャドウを深く、要素の浮き出しを強調 */
+/* シャドウを控えめに、クリーンな印象に */
 .shadow-lg { 
-    box-shadow: 0 40px 60px -15px rgba(0, 0, 0, 0.95), 0 5px 25px -5px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 影を控えめに、清潔感を出す */
 } 
 
-/* カードの高級化（Pricing, Solution）と余白の追求 */
+/* カードの高級化（Pricing, Solution）と余白の追求 - シャープな額縁 */
 .p-8 {
-    padding: 3.5rem; /* PC版のパディングを究極に拡大 */
-    border-radius: 4px; 
-    background-color: #121212; /* 黒に近い、わずかに明るい背景 */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(164, 130, 57, 0.5); /* インナーシャドウを強化 */
+    padding: 3.5rem; 
+    border-radius: 0; /* 角を直角に戻し、シャープに */
+    background-color: #0D0D0D; 
+    /* インナーシャドウを薄い線として残す */
+    box-shadow: none;
+    border: 1px solid #1A1A1A; /* 外側の薄いフレーム */
 }
+
 
 /* ---------------------------------------------------- */
-/* Processセクションの特別調整（Netflix風の番号付け） */
+/* Processセクションの特別調整（クリーンなインデックス表示） */
 /* ---------------------------------------------------- */
 .process-step-container {
-    padding: 3rem; 
+    padding: 2.5rem; /* パディングを適度に調整 */
     background-color: #0D0D0D; 
-    border-left: 8px solid #A48239; 
-    border-radius: 4px; 
+    border-left: 4px solid #A48239; /* 左ボーダーを薄く、洗練された印象に */
+    border-radius: 0; 
 }
 .process-step-container .flex-grow {
-    margin-left: 3rem; /* 番号との間隔をさらに拡大 */
+    margin-left: 2rem; 
 }
 .process-step-container .text-4xl {
-    font-size: 4rem; /* 番号を非常に大きく */
+    font-size: 2.8rem; /* 番号を大きくしすぎず、読みやすく */
     color: #A48239; 
-    text-shadow: 0 0 10px rgba(164, 130, 57, 0.8); /* 究極の光沢 */
+    text-shadow: none; /* 光沢を削除 */
+    font-weight: 700;
 }
 
 
 /* ---------------------------------------------------- */
-/* 画像プレースホルダーのスタイル */
-/* ---------------------------------------------------- */
-.image-placeholder-hero {
-    width: 100%;
-    height: 400px; /* PCでの高さを設定 */
-    background-color: #121212; /* 暗い背景 */
-    background-image: linear-gradient(45deg, #1A1A1A 25%, #0D0D0D 25%, #0D0D0D 50%, #1A1A1A 50%, #1A1A1A 75%, #0D0D0D 75%, #0D0D0D 100%);
-    background-size: 40px 40px; /* チェック柄のダミーパターン */
-    border: 3px solid #A48239;
-    margin-top: 4rem;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
-    position: relative;
-    /* ダミーテキスト */
-    color: #A48239;
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 400px;
-    content: "CINEMATIC VISUAL HERE";
-}
-.image-placeholder-hero::before {
-    content: "CINEMATIC VISUAL HERE";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    line-height: 400px;
-}
-.image-placeholder-about {
-    width: 100%;
-    height: 300px;
-    background-color: #1A1A1A;
-    border: 1px solid #A48239;
-    margin-top: 2rem;
-    position: relative;
-    text-align: center;
-    color: #A48239;
-    line-height: 300px;
-    font-size: 1.2rem;
-    content: "KEY PERSON IMAGE";
-}
-.image-placeholder-about::before {
-    content: "KEY PERSON IMAGE";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    line-height: 300px;
-}
-
-/* ---------------------------------------------------- */
-/* ヘッダーとアニメーション設定 (PC) */
+/* ヘッダーとアニメーション設定 (PC) - 安定性の確保 */
 /* ---------------------------------------------------- */
 header { 
+    /* アニメーション設定は維持 (PCのみ) */
     transform: translateY(-100%); 
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
+    
+    /* 固定ヘッダーの安定化 */
     position: sticky; top: 0; z-index: 50; 
-    background-color: rgba(0, 0, 0, 0.95); /* 純粋な黒の透過背景 */
+    background-color: rgba(0, 0, 0, 0.98); 
     backdrop-filter: blur(5px);
     padding: 1rem 0;
     border-bottom: 1px solid #1A1A1A;
 }
-@keyframes slideInDown {
-    from { transform: translateY(-100%); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+
 
 /* ---------------------------------------------------- */
-/* レスポンシブ最適化 (スマホ用デザイン) - ヘッダー強制表示と圧縮 */
+/* 画像プレースホルダーの削除 */
+/* ---------------------------------------------------- */
+.image-placeholder-hero, .image-placeholder-about {
+    display: none;
+}
+
+
+/* ---------------------------------------------------- */
+/* レスポンシブ最適化 (スマホ用デザイン) - 安定性の確保 */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
     /* **1. ヘッダーの崩れ解消と強制表示** */
     header { 
         padding: 0.4rem 0; 
-        animation: none !important; /* アニメーションを完全に無効化 */
-        transform: none !important; /* 位置・透明度を強制リセット */
+        animation: none !important; 
+        transform: none !important; 
         opacity: 1 !important; 
-        position: fixed; /* ヘッダー固定を強制 */
+        position: sticky; /* スマホでもstickyに戻し、安定性を確保 */
         top: 0;
         width: 100%;
     }
     
     .container {
-        padding-left: 0.7rem; 
-        padding-right: 0.7rem;
+        padding-left: 1rem; 
+        padding-right: 1rem;
     }
     
     .header-content { 
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden; 
         min-height: 40px; 
     }
     
     .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.2rem; } 
     
     .nav-links { 
-        font-size: 0.5rem; /* さらに圧縮 */
+        font-size: 0.55rem; 
         margin-left: 0.1rem; 
         white-space: nowrap; 
         overflow: hidden; 
     }
     
-    .nav-links a { 
-        margin-left: 0.3rem; 
-        flex-shrink: 0; 
-    }
-    
-    .cta-button {
-        padding: 0.1rem 0.3rem; 
-        font-size: 0.5rem; 
-        border-width: 1px;
-        flex-shrink: 0; 
-    }
-
-    /* 2. モバイルでのパディングとフォントの調整 */
-    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
     .p-8 {
         padding: 1.5rem; 
     }
     .process-step-container {
-        padding: 1.25rem;
-        border-left-width: 4px; 
+        padding: 1.2rem;
+        border-left-width: 3px; 
     }
 
-    .image-placeholder-hero {
-        height: 250px;
-        margin-top: 3rem;
-        line-height: 250px;
-    }
-    .image-placeholder-hero::before {
-        line-height: 250px;
-    }
-    .image-placeholder-about {
-        height: 200px;
-        line-height: 200px;
-    }
-    .image-placeholder-about::before {
-        line-height: 200px;
-    }
+    .py-16 { padding-top: 4rem; padding-bottom: 4rem; } 
 }
