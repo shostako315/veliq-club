@@ -1,196 +1,199 @@
 /* ---------------------------------------------------- */
 /* CSSリセットとタイポグラフィ */
 /* ---------------------------------------------------- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
     background-color: #000000;
-    color: #FFFFFF; /* 基本の文字色は白 */
-    line-height: 1.8; 
+    color: #FFFFFF; 
+    line-height: 1.8; /* 行間を広げ、羅列感を解消 */
     margin: 0;
     scroll-behavior: smooth;
     min-height: 100vh;
-    padding-top: 80px; 
-    overflow-x: hidden; 
-}
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s, transform 0.3s;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-/* グリッドレイアウトをTailwind CSS風に */
-.grid { display: grid; }
-.grid-cols-1 { grid-template-columns: 1fr; }
-.lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-.md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-.md\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-.gap-8 { gap: 2rem; }
-.gap-6 { gap: 1.5rem; }
-.gap-12 { gap: 3rem; }
-.space-y-5 > * + * { margin-top: 1.25rem; }
-/* その他、必要なTailwind風クラスの定義を追記してください */
-
-
-/* ---------------------------------------------------- */
-/* ゴールドカラーパレットと背景 */
-/* ---------------------------------------------------- */
-.text-primary { color: #D4AF37; } /* 明るいゴールド */
-.bg-primary { background-color: #D4AF37; }
-.border-primary { border-color: #D4AF37; }
-
-/* 背景用のダークカラーバリエーション */
-.bg-dark-gradient { 
-    background: linear-gradient(180deg, #0A0A0A 0%, #151515 100%); 
-}
-.bg-darker-gradient { 
-    background: linear-gradient(180deg, #151515 0%, #0A0A0A 100%); 
-}
-.bg-black-gradient { 
-    background: linear-gradient(135deg, #0D0D0D 0%, #000000 100%); 
-}
-.bg-gold-gradient { 
-    background: linear-gradient(135deg, #FFD700 0%, #AA8D37 100%); 
-}
-.bg-gold-gradient-dark {
-    background: linear-gradient(135deg, #B8860B 0%, #8C7B32 100%);
-    color: #000000; /* **ゴールド背景の基本文字色は黒** */
+    box-sizing: border-box;
+    padding-top: 60px; 
 }
 
-/* ボーダー用のゴールド */
-.border-gold-subtle { border-color: #443C28; } 
-.border-gold-darker { border-color: #AA8D37; }
+/* ゴールド系カラーの定義 */
+.text-primary { color: #A48239; } 
+.bg-primary { background-color: #A48239; }
+.border-primary { border-color: #A48239; }
+.bg-secondary { background-color: #0D0D0D; } 
+.bg-primary-dark { background-color: #1A1A1A; } 
 
-/* ゴールドのグラデーションテキスト */
-.text-gold-gradient {
-    background: linear-gradient(90deg, #FFD700, #DAA520, #B8860B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900; 
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); 
-}
-
-/* ---------------------------------------------------- */
-/* タイポグラフィと共通セクション */
-/* ---------------------------------------------------- */
+/* セクションタイトルとディスクリプションに余白を追加 */
 .section-title {
-    font-size: 3rem; 
-    border-bottom: 3px solid #D4AF37; 
-    padding-bottom: 0.8rem; 
-    margin-bottom: 1.5rem; 
-    text-align: center;
-    color: #FFFFFF;
+    font-size: 2.5rem;
+    border-bottom: 3px solid #A48239; 
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
-/* H1, Pre-headingなどのスタイルは変更なし */
+.section-description {
+    font-size: 1.15rem;
+    color: #CCCCCC;
+    max-width: 800px; 
+}
+.sub-heading {
+    font-size: 1.6rem;
+    border-bottom: 1px solid #A48239;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ヒーローセクション */
+h1 {
+    font-size: 3.8rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.pre-heading {
+    font-weight: 700;
+    /* letter-spacing: 0.2em; */ /* 余白をあえて削除し、タイポグラフィで調整 */
+}
+.py-20 { padding-top: 6rem; padding-bottom: 6rem; } 
+.py-16 { padding-top: 5rem; padding-bottom: 5rem; } 
+
 
 /* ---------------------------------------------------- */
-/* Header (ナビゲーションの文字色を白に固定) */
+/* Header (デザイン調整) */
 /* ---------------------------------------------------- */
 header { 
     position: fixed; 
     top: 0; 
     width: 100%; 
     z-index: 50; 
-    background-color: rgba(0, 0, 0, 0.95); 
-    backdrop-filter: blur(10px); 
-    padding: 1.2rem 0; 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7); 
-    min-height: 80px; 
-    border-bottom: 2px solid #222222;
+    background-color: rgba(0, 0, 0, 0.98); 
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    /* border-bottom: none; */ /* クリーンな見た目にするためボーダー削除 */
+    box-shadow: none;
+    min-height: 60px;
 }
-.nav-links a { 
-    color: #FFFFFF; /* **ナビリンクの文字色を白に** */
-    /* !importantを外し、Tailwind CSS風のクラスを優先させる */
-}
-.nav-links a:hover {
-    color: #D4AF37;
-}
+/* ... (Headerのその他スタイルは変更なし) ... */
+
 
 /* ---------------------------------------------------- */
-/* Pricing カード (ゴールドカードの文字色を黒に固定) */
+/* Solution (リストアイコン、羅列感の解消) */
+/* ---------------------------------------------------- */
+.list-included li, .list-excluded li {
+    font-size: 1.1rem; /* フォントを大きくし、ゆとりを持たせる */
+    line-height: 1.6;
+}
+/* ... (リストアイコンのスタイルは変更なし) ... */
+
+/* ---------------------------------------------------- */
+/* Pricing カード (羅列感の解消とデザイン強化) */
 /* ---------------------------------------------------- */
 .price-card {
-    /* スタイルは変更なし */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 0; 
+    border: 1px solid #1A1A1A; 
 }
-.price-card.bg-gold-gradient { 
-    color: #000000; /* **カード背景がゴールドの場合は文字色を黒に** */
-    border: 2px solid #AA8D37;
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.8);
-}
-.price-card.bg-gold-gradient h3,
-.price-card.bg-gold-gradient p {
-    color: #000000; /* **内部要素の文字色も黒に** */
-}
-
-/* ---------------------------------------------------- */
-/* Contactセクション (ゴールド背景上の文字を黒に固定) */
-/* ---------------------------------------------------- */
-/* ゴールド背景セクション内の文字を黒に強制 */
-#contact .container div * {
-    color: #000000;
-}
-#contact .container div p.text-gray-700 {
-    color: #333333; /* 詳細文は少し薄く */
+.price-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(164, 130, 57, 0.2); 
+    border-color: #A48239;
 }
 
 
 /* ---------------------------------------------------- */
-/* スクロールアニメーション共通設定 */
+/* Processセクションのデザイン強化 (フローデザイン化) */
 /* ---------------------------------------------------- */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.process-flow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
-.animate-on-scroll.active {
-    opacity: 1;
-    transform: translateY(0);
+.process-step {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #1A1A1A;
+    border-radius: 0;
+    transition: background-color 0.3s;
 }
-/* 遅延は変更なし */
+.process-step:hover {
+    background-color: #A4823910; /* ゴールドの薄いオーバーレイ */
+}
+.process-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #A48239;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+.process-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+    border: none; /* Sub-headingのスタイルを継承させない */
+}
+.process-detail {
+    font-size: 0.9rem;
+    color: #CCCCCC;
+}
+.process-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    font-size: 1.5rem;
+    color: #A48239;
+    height: auto; /* 高さを自動調整 */
+    align-self: center; /* 垂直方向中央寄せ */
+}
+
 
 /* ---------------------------------------------------- */
 /* レスポンシブ最適化 (スマホ用デザイン) */
-/* **ここからがレイアウト崩れを完全に修正するコードです** */
 /* ---------------------------------------------------- */
-@media (max-width: 1024px) { /* 1024px以下の画面で適用 */
-    /* Serviceセクションの2カラム（lg:grid-cols-2）を縦一列に戻す */
-    .lg\:grid-cols-2 { 
-        grid-template-columns: 1fr !important; 
-    }
-}
 @media (max-width: 768px) {
-    /* Pricingセクションの3カラム（md:grid-cols-3）と
-       Processセクションの5カラム（md:grid-cols-5）を縦一列に戻す */
-    .md\:grid-cols-3,
-    .md\:grid-cols-5 {
-        grid-template-columns: 1fr !important; /* 縦に積み重ねる */
-    }
+    
+    body { padding-top: 50px; }
+    .py-20 { padding-top: 4rem; padding-bottom: 4rem; } 
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
 
-    /* Processの矢印とステップの横並びを解除 */
+    h1 { font-size: 2.2rem; line-height: 1.3; }
+    .section-title { font-size: 2rem; }
+    .section-description { font-size: 1rem; }
+    
+    /* Processを縦並びに変更 */
     .process-flow {
-        grid-template-columns: 1fr !important; /* 縦一列に戻す */
+        flex-direction: column;
+        gap: 1.5rem;
     }
-    
-    /* 流れの矢印を非表示にして縦並びをスッキリさせる */
-    .process-flow .process-arrow {
-        display: none;
+    .process-step {
+        text-align: left;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        border-left: 4px solid #A48239; /* 縦のラインを追加 */
+        background-color: #0D0D0D;
+    }
+    .process-number {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        flex-shrink: 0;
+    }
+    .process-arrow {
+        display: none; /* 矢印を非表示 */
     }
 
-    /* Processステップ間の間隔を調整 */
-    .process-step {
-        margin-bottom: 2rem;
+    /* Priceカードも縦積みでゆとりを確保 */
+    .price-card {
+        padding: 1.5rem;
     }
-    
-    /* セクションタイトルの文字を少し小さく */
-    .section-title {
-        font-size: 2.5rem;
+    .price-card h3 {
+        font-size: 1.4rem;
+    }
+    .price-card p:nth-of-type(2) { /* 料金 */
+        font-size: 3rem;
+    }
+
+    /* サービス設計のグリッドを縦積みに */
+    .lg\:grid-cols-2 {
+        grid-template-columns: 1fr;
     }
 }
