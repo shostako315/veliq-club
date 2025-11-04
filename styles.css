@@ -15,213 +15,144 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
     color: #FFFFFF;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.15); /* 影を強調 */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* 影を強調 */
 }
-a { text-decoration: none; color: #E0E0E0; }
-
-/* ゴールド系カラーの定義 */
+/* ゴールド系カラーの定義は維持 */
 .text-primary { color: #A48239; } 
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
 .bg-secondary { background-color: #1A1A1A; } 
 
-/* ---------------------------------------------------- */
-/* ゴージャス化とUI強化 */
-/* ---------------------------------------------------- */
-.font-extrabold { font-weight: 900; } 
-.font-semibold { font-weight: 700; } 
-
-/* 見出し下の区切り線をさらに太く、ゴールドを強調 */
-.border-b-2 { 
-    border-bottom-width: 5px; /* 4pxから5pxへ */
-    border-color: #A48239; /* 明示的にゴールドを適用 */
-} 
-
-/* シャドウをさらに深く、重厚感を強調 */
-.shadow-lg { 
-    box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.9), 0 5px 20px -5px rgba(0, 0, 0, 0.4); 
-} 
-
-/* カードの高級化（Pricing, Solution） */
-.p-8 {
-    padding: 2.75rem; /* PC版のパディングをさらに拡大 */
-    border-color: #1A1A1A; 
-    box-shadow: inset 0 0 0 2px rgba(164, 130, 57, 0.4); /* インナーシャドウを強化 */
-    background-color: #121212; /* カードの背景色を本体よりわずかに明るく */
-}
-.container { 
-    max-width: 1200px; margin-left: auto; margin-right: auto; 
-    padding-left: 1.5rem; padding-right: 1.5rem; 
-    box-sizing: border-box; 
-}
-
 
 /* ---------------------------------------------------- */
-/* Processセクションの特別調整（重厚なステップ） */
-/* ---------------------------------------------------- */
-.process-step-container {
-    padding: 2.75rem; /* Processステップのパディングも拡大 */
-    background-color: #1A1A1A; 
-    border-left: 6px solid #A48239; /* 左ボーダーをさらに太く */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* より深い影 */
-}
-.process-step-container .flex-grow {
-    margin-left: 2rem; /* 番号との間隔をさらに拡大 */
-}
-.process-step-container .text-4xl {
-    font-size: 3.2rem; /* 番号のサイズを調整 */
-    color: #A48239; /* 番号をゴールドに */
-    text-shadow: 0 0 5px rgba(164, 130, 57, 0.5); /* ゴールドの番号に光沢 */
-}
-
-
-/* ---------------------------------------------------- */
-/* ヘッダーとアニメーション設定 (PC) */
+/* ヘッダーとアニメーション設定 (PC) - 初期状態を隠すアニメーションはPCのみ */
 /* ---------------------------------------------------- */
 header { 
-    /* アニメーション設定 */
+    /* アニメーション初期設定 */
     transform: translateY(-100%); 
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
+    
     /* 固定ヘッダーの維持 */
     position: sticky; top: 0; z-index: 50; 
     background-color: rgba(13, 13, 13, 0.95);
     backdrop-filter: blur(5px);
     padding: 1rem 0;
-    border-bottom: 1px solid #262626;
+    border-bottom: 1px solid #333333; /* ボーダーをより目立たないように */
 }
 @keyframes slideInDown {
     from { transform: translateY(-100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+/* PCヘッダーのサイズ調整 */
 .header-content { display: flex; justify-content: space-between; align-items: center; }
-.nav-links { display: flex; align-items: center; } 
+.logo-text { font-size: 1.8rem; }
+.nav-links a { margin-left: 1.5rem; transition: color 0.3s; }
 
-/* CTAボタン */
-.cta-button {
-    border: 2px solid #A48239; 
-    color: #A48239;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.95rem; 
-    transition: background-color 0.3s, color 0.3s;
-}
 
 /* ---------------------------------------------------- */
-/* フッターのアップデート */
+/* デザインアップデートと重厚感の追求 */
 /* ---------------------------------------------------- */
-footer {
-    background-color: #000000; /* フッター背景を純粋な黒に */
-    padding: 2.5rem 0; /* 上下の余白を拡大 */
-}
-.footer-links {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    display: flex; /* リンクをフレックスで横並びにする */
-    justify-content: center; /* 中央揃え */
-    flex-wrap: wrap; /* リンクが多い場合に折り返す */
-    gap: 0.8rem; /* リンク間のスペース */
-}
-.footer-links a {
-    color: #AAAAAA; /* リンクの色を少し明るく */
-    transition: color 0.3s;
-}
-.footer-links a:hover {
-    color: #E0E0E0;
-}
-footer p {
-    font-size: 0.85rem;
-    color: #666666; /* 著作権表示の色を調整 */
+.container { 
+    max-width: 1200px; margin-left: auto; margin-right: auto; 
+    padding-left: 2rem; padding-right: 2rem; /* PCのコンテナ余白を少し広げる */
 }
 
-/* ---------------------------------------------------- */
-/* リストアイコンの調整 (3種類に対応) - 提供内容リストの強化 */
-/* ---------------------------------------------------- */
-.list-style-none li { position: relative; padding-left: 2em; } /* 左パディングを拡大 */
-.list-included li::before { 
-    content: '✓'; 
-    color: #FFD700; /* 提供内容のチェックマークをより明るいゴールドに */
-    font-weight: bold; 
-    position: absolute; left: 0; 
-    font-size: 1.2em; /* チェックマークを大きく */
-    text-shadow: 0 0 3px rgba(255, 215, 0, 0.7); /* 光沢を追加 */
-}
-.list-caution li::before {
-    content: '△';
-    color: #FFC300; 
-    font-weight: bold; 
-    position: absolute; left: 0; 
-    font-size: 1.2em;
-    text-shadow: 0 0 3px rgba(255, 195, 0, 0.5); 
+/* 見出し下の区切り線を強調 */
+.border-b-2 { 
+    border-bottom-width: 6px; /* さらに太く！ */
+    border-color: #A48239; 
+    /* ゴールドの下線に光沢を与えるシャドウ */
+    box-shadow: 0 3px 10px rgba(164, 130, 57, 0.4); 
+} 
+
+/* カードの高級化（Pricing, Solution）と余白の追求 */
+.p-8 {
+    padding: 3rem; /* PC版のパディングをさらに拡大し、間を持たせる */
+    border-radius: 4px; /* わずかに角を丸める */
+    background-color: #121212; 
+    /* 二重の立体感シャドウ */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(164, 130, 57, 0.3);
 }
 
+/* Processセクションの特別調整（重厚なステップ） */
+.process-step-container {
+    padding: 3rem; /* ProcessステップのパディングもPCで拡大 */
+    background-color: #1A1A1A; 
+    border-left: 8px solid #A48239; /* 左ボーダーをさらに太く */
+    border-radius: 4px; /* 角を丸める */
+}
+.process-step-container .flex-grow {
+    margin-left: 2.5rem; /* 番号との間隔をさらに拡大 */
+}
+.process-step-container .text-4xl {
+    font-size: 3.5rem; /* 番号を大きく */
+    color: #A48239; 
+    text-shadow: 0 0 8px rgba(164, 130, 57, 0.6); /* 光沢を強化 */
+}
+
+
 /* ---------------------------------------------------- */
-/* レスポンシブ最適化 (スマホ用デザイン) */
+/* レスポンシブ最適化 (スマホ用デザイン) - ヘッダー強制表示と圧縮 */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
-    /* **1. ヘッダーの表示と圧縮（最重要修正）** */
+    
+    /* **1. ヘッダーの崩れ解消と強制表示（最重要修正）** */
     header { 
         padding: 0.4rem 0; 
-        animation: none; /* スマホではアニメーション無効化 */
-        transform: translateY(0); /* 【重要】スマホでは初期位置を常に表示に */
-        opacity: 1; /* 【重要】スマホでは常に不透明に */
+        animation: none; 
+        /* 【重要】アニメーション初期設定をモバイルでは無効化 */
+        transform: none !important; 
+        opacity: 1 !important; 
     }
+    
     .container {
-        padding-left: 0.8rem; /* 左右の余白をさらに詰める */
-        padding-right: 0.8rem;
+        padding-left: 0.7rem; /* 左右の余白を極限まで詰める */
+        padding-right: 0.7rem;
     }
     
     .header-content { 
-        overflow-x: hidden; 
+        /* 内部要素が溢れた場合の最終手段 */
         width: 100%;
-        min-height: 40px; /* ヘッダーの最小高さを確保 */
+        box-sizing: border-box;
+        overflow: hidden; /* ヘッダー全体の横スクロールを抑制 */
+        min-height: 40px; 
     }
     
-    .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.3rem; } /* ロゴをさらに小さく */
+    .logo-text { font-size: 1.1rem; flex-shrink: 0; margin-right: 0.2rem; } 
     
     .nav-links { 
-        font-size: 0.55rem; /* ナビゲーションリンクをさらに小さく */
-        margin-left: 0.2rem; 
+        font-size: 0.55rem; 
+        margin-left: 0.1rem; 
         white-space: nowrap; 
-        overflow-x: hidden;
+        overflow: hidden; 
     }
     
     .nav-links a { 
-        margin-left: 0.4rem; 
+        margin-left: 0.3rem; 
         flex-shrink: 0; 
     }
     
     .cta-button {
-        padding: 0.15rem 0.3rem; /* CTAボタンを極限まで小さく */
+        padding: 0.1rem 0.3rem; 
         font-size: 0.55rem; 
         border-width: 1px;
         flex-shrink: 0; 
     }
 
     /* 2. モバイルでのパディングとフォントの調整 */
-    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } /* セクションの上下余白調整 */
+    .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
     .p-8 {
-        padding: 1.5rem; /* モバイルでのカードパディング */
+        padding: 1.5rem; 
     }
     .process-step-container {
         padding: 1.25rem;
-        border-left-width: 4px; /* ボーダーを少し細くしてモバイルに合わせる */
+        border-left-width: 4px; 
     }
     .process-step-container .flex-grow {
         margin-left: 1.5rem; 
     }
     .process-step-container .text-4xl {
-        font-size: 2.2rem; /* 番号のサイズ調整 */
-    }
-    /* フッターのモバイル調整 */
-    footer {
-        padding: 1.5rem 0;
-    }
-    .footer-links {
-        gap: 0.5rem;
-        font-size: 0.75rem;
-    }
-    footer p {
-        font-size: 0.7rem;
+        font-size: 2.2rem; 
     }
 }
