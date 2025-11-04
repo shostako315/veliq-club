@@ -10,6 +10,7 @@ body {
     scroll-behavior: smooth;
     min-height: 100vh;
     box-sizing: border-box;
+    padding-top: 60px; /* 🔥【重要】ヘッダーの高さ分、コンテンツ全体を下にずらす */
 }
 h1, h2, h3 { 
     font-family: 'Playfair Display', serif;
@@ -60,11 +61,16 @@ header {
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
     
-    position: sticky; top: 0; z-index: 50; 
+    /* 🔥【重要】ヘッダーを常にfixedにし、z-indexを確保して重なりを防ぐ */
+    position: fixed; /* stickyからfixedに変更 */
+    top: 0; 
+    width: 100%; /* 幅を常に100%に */
+    z-index: 50; 
     background-color: rgba(0, 0, 0, 0.98); 
     backdrop-filter: blur(5px);
     padding: 1rem 0;
     border-bottom: 1px solid #1A1A1A;
+    min-height: 60px; /* 🔥ヘッダーの最低高さを確保 */
 }
 @keyframes slideInDown {
     from { transform: translateY(-100%); opacity: 0; }
@@ -126,7 +132,7 @@ header {
     border-color: #A48239; 
 } 
 
-/* Pricing/Solution カード (シャープな額縁) */
+/* Pricing/Service カード (シャープな額縁) */
 .p-8 {
     padding: 3.5rem; 
     border-radius: 0; 
@@ -223,13 +229,17 @@ footer {
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
-    /* ヘッダーの崩れ解消と強制表示 (固定に戻す) */
+    body {
+        padding-top: 50px; /* 🔥スマホでのヘッダー高さに合わせて調整 */
+    }
+
     header { 
         padding: 0.4rem 0; 
         animation: none !important; 
         transform: none !important; 
         opacity: 1 !important; 
-        position: sticky; 
+        position: fixed; /* スマホでもfixedで安定化 */
+        min-height: 50px; /* 🔥スマホでのヘッダー最低高さを確保 */
     }
     
     .container {
