@@ -4,14 +4,14 @@
 body { 
     font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
     background-color: #000000;
-    color: #FFFFFF; 
+    color: #FFFFFF; /* **視認性確保のため、文字の基本色は白に統一** */
     line-height: 1.8; 
     margin: 0;
     scroll-behavior: smooth;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 80px; /* ヘッダー固定対策を調整 */
-    overflow-x: hidden; /* 横スクロールバーを非表示に */
+    padding-top: 80px; 
+    overflow-x: hidden; 
 }
 
 /* ゴールド系カラーパレットの拡張 */
@@ -37,7 +37,7 @@ body {
 }
 
 /* ボーダー用のゴールド */
-.border-gold-subtle { border-color: #443C28; } /* 暗めのゴールド */
+.border-gold-subtle { border-color: #443C28; } 
 .border-gold-darker { border-color: #AA8D37; }
 
 /* ゴールドのグラデーションテキスト */
@@ -45,26 +45,27 @@ body {
     background: linear-gradient(90deg, #FFD700, #DAA520, #B8860B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
+    font-weight: 900; 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); 
 }
 
-/* セクションタイトルとディスクリプションに余白を追加 */
+/* セクションタイトルとディスクリプション */
 .section-title {
-    font-size: 3rem; /* サイズを拡大 */
+    font-size: 3rem; 
     border-bottom: 3px solid #D4AF37; 
-    padding-bottom: 0.8rem; /* パディングを増やす */
-    margin-bottom: 1.5rem; /* マージンを増やす */
+    padding-bottom: 0.8rem; 
+    margin-bottom: 1.5rem; 
     text-align: center;
 }
 .section-description {
-    font-size: 1.3rem; /* サイズを拡大 */
+    font-size: 1.3rem; 
     color: #CCCCCC;
-    max-width: 900px; /* 幅を広げる */
-    margin: 0 auto 3rem auto; /* 中央寄せとマージン調整 */
+    max-width: 900px; 
+    margin: 0 auto 3rem auto; 
     text-align: center;
 }
 .sub-heading {
-    font-size: 1.8rem; /* サイズを拡大 */
+    font-size: 1.8rem; 
     border-bottom: 1px solid #D4AF37;
     padding-bottom: 0.6rem;
     margin-bottom: 1.5rem;
@@ -72,29 +73,27 @@ body {
 
 /* ヒーローセクション */
 h1 {
-    font-size: 4.5rem; /* サイズをさらに拡大 */
+    font-size: 4.5rem; 
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 800; 
     margin-top: 1.5rem;
     text-align: center;
 }
 .pre-heading {
     font-weight: 700;
-    letter-spacing: 0.25em; /* 字間を広げ、高級感を演出 */
+    letter-spacing: 0.25em; 
     text-align: center;
 }
 .hero-section .container {
-    padding-top: 3rem; /* ヒーローセクションのコンテンツ上部パディングを調整 */
+    padding-top: 3rem; 
 }
 .achievement-bar {
-    border-top: 1px solid #443C28; /* 細めのゴールドボーダー */
+    border-top: 1px solid #443C28; 
     padding-top: 1.5rem;
     margin-top: 4rem;
     text-align: center;
 }
-.achievement-bar p {
-    font-size: 1rem;
-}
+
 
 /* ---------------------------------------------------- */
 /* Header (デザイン調整とアニメーション) */
@@ -104,12 +103,12 @@ header {
     top: 0; 
     width: 100%; 
     z-index: 50; 
-    background-color: rgba(0, 0, 0, 0.9); /* 透明度を少し上げる */
-    backdrop-filter: blur(8px); /* ブラーを強化 */
-    padding: 1.2rem 0; /* パディングを調整 */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); /* 影を追加 */
-    min-height: 80px; /* ヘッダーの高さを確保 */
-    border-bottom: 1px solid #222222; /* より控えめなボーダー */
+    background-color: rgba(0, 0, 0, 0.9); 
+    backdrop-filter: blur(8px); 
+    padding: 1.2rem 0; 
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); 
+    min-height: 80px; 
+    border-bottom: 1px solid #222222; 
 }
 .animate-header {
     transform: translateY(-100%);
@@ -120,16 +119,17 @@ header {
     to { transform: translateY(0); opacity: 1; }
 }
 .logo-text { 
-    font-size: 2.2rem; /* ロゴを大きく */
+    font-size: 2.2rem; 
     color: #D4AF37; 
     font-weight: 700; 
     letter-spacing: 0.1em;
 }
 .nav-links a { 
-    margin-left: 2rem; /* ナビリンク間の余白を広げる */
-    font-size: 1.1rem; /* ナビリンクのフォントサイズを調整 */
-    color: #DDDDDD;
+    margin-left: 2rem; 
+    font-size: 1.1rem; 
+    color: #FFFFFF; /* **ナビリンクの文字色を白に設定** */
     position: relative;
+    transition: color 0.3s;
 }
 .nav-links a::after {
     content: '';
@@ -144,11 +144,16 @@ header {
 .nav-links a:hover::after {
     width: 100%;
 }
+.nav-links a:hover {
+    color: #D4AF37;
+}
+
+/* CTAボタン */
 .cta-button {
     border: 2px solid #D4AF37; 
     color: #D4AF37;
-    padding: 0.7rem 1.5rem; /* パディングを調整 */
-    border-radius: 4px; /* 角を少し丸める */
+    padding: 0.7rem 1.5rem; 
+    border-radius: 4px; 
     font-size: 1rem; 
     font-weight: 700;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
@@ -156,14 +161,14 @@ header {
 .cta-button:hover {
     background-color: #D4AF37;
     color: #000000;
-    transform: translateY(-2px); /* 浮き上がるエフェクト */
+    transform: translateY(-2px); 
 }
 .cta-button-hero {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA8D37 100%); /* ゴールトグラデーション */
+    background: linear-gradient(135deg, #D4AF37 0%, #AA8D37 100%); 
     color: #000000;
-    padding: 1.2rem 2.5rem; /* パディングを増やす */
+    padding: 1.2rem 2.5rem; 
     border-radius: 4px;
-    font-size: 1.2rem; /* フォントサイズを大きく */
+    font-size: 1.2rem; 
     font-weight: 700;
     display: inline-block;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -174,7 +179,7 @@ header {
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
 }
 .cta-button-contact {
-    background: linear-gradient(135deg, #FFFFFF 0%, #DDDDDD 100%); /* 白のグラデーション */
+    background: linear-gradient(135deg, #FFFFFF 0%, #DDDDDD 100%); 
     color: #000000;
     padding: 1.2rem 2.5rem;
     border-radius: 4px;
@@ -191,11 +196,12 @@ header {
 
 
 /* ---------------------------------------------------- */
-/* Solution (リストアイコン、羅列感の解消、グリッドデザイン) */
+/* Solution (リストアイコン) */
 /* ---------------------------------------------------- */
 .list-included li, .list-excluded li {
-    font-size: 1.15rem; /* フォントを大きくし、ゆとりを持たせる */
+    font-size: 1.15rem; 
     line-height: 1.7;
+    color: #DDDDDD; /* 文字色を薄い白に */
     transition: color 0.3s;
 }
 .list-included li:hover {
@@ -206,11 +212,11 @@ header {
     color: #D4AF37; 
     font-weight: bold; 
     position: absolute; left: 0; 
-    font-size: 1.4em; /* アイコンを大きく */
+    font-size: 1.4em; 
 }
 .list-excluded li::before { 
-    content: '✖'; /* 提供外はバツ印に */
-    color: #DA2A2A; /* 赤色 */
+    content: '✖'; 
+    color: #DA2A2A; 
     font-weight: bold; 
     position: absolute; left: 0; 
     font-size: 1.4em; 
@@ -218,21 +224,21 @@ header {
 
 
 /* ---------------------------------------------------- */
-/* Pricing カード (羅列感の解消とデザイン強化) */
+/* Pricing カード */
 /* ---------------------------------------------------- */
 .price-card {
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    border-radius: 6px; /* 角を少し丸める */
-    border: 1px solid #333333; /* 控えめなボーダー */
-    padding: 2.5rem; /* パディングを均一に */
+    border-radius: 6px; 
+    border: 1px solid #333333; 
+    padding: 2.5rem; 
 }
 .price-card:hover {
     transform: translateY(-8px); 
     box-shadow: 0 15px 30px rgba(164, 130, 57, 0.3); 
-    border-color: #D4AF37; /* ホバーでゴールドボーダー */
+    border-color: #D4AF37; 
 }
-.price-card.bg-gold-gradient { /* プレミアムエディション専用 */
-    color: #000000;
+.price-card.bg-gold-gradient { 
+    color: #000000 !important; /* **文字色を確実に黒に** */
     border: 2px solid #AA8D37;
     box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
 }
@@ -241,45 +247,48 @@ header {
     box-shadow: 0 18px 40px rgba(212, 175, 55, 0.7);
 }
 .price-card h3 {
-    font-size: 1.6rem; /* 価格見出しを大きく */
+    font-size: 1.6rem; 
     margin-bottom: 0.8rem;
 }
-.price-card p:nth-of-type(2) { /* 料金数字 */
-    font-size: 4rem; /* 料金をさらに大きく */
+.price-card.bg-gold-gradient h3 {
+    color: #000000 !important;
+}
+.price-card p:nth-of-type(2) { 
+    font-size: 4rem; 
     line-height: 1;
     margin-top: 1.5rem;
 }
 
 
 /* ---------------------------------------------------- */
-/* Processセクションのデザイン強化 (フローデザイン化) */
+/* Processセクションのデザイン強化 */
 /* ---------------------------------------------------- */
 .process-step {
     flex: 1;
     text-align: center;
-    padding: 2rem 1.5rem; /* パディングを増やす */
+    padding: 2rem 1.5rem; 
     background-color: #1A1A1A;
     border-radius: 6px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     border: 1px solid #333333;
 }
 .process-step:hover {
-    background-color: #2A2A2A; /* 少し明るく */
+    background-color: #2A2A2A; 
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 .process-number {
-    font-size: 3.5rem; /* 数字をさらに大きく */
+    font-size: 3.5rem; 
     font-weight: 700;
     color: #D4AF37;
     line-height: 1;
     margin-bottom: 0.8rem;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* ゴールドの輝き */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); 
 }
 .process-heading {
-    font-size: 1.3rem; /* 見出しを大きく */
+    font-size: 1.3rem; 
     font-weight: 700;
-    color: #FFFFFF;
+    color: #FFFFFF; /* **文字色を白に設定** */
     margin-bottom: 0.5rem;
 }
 .process-detail {
@@ -287,24 +296,41 @@ header {
     color: #CCCCCC;
 }
 .process-arrow {
-    padding: 0 1rem; /* 矢印のパディングを増やす */
-    font-size: 2rem; /* 矢印を大きく */
+    padding: 0 1rem; 
+    font-size: 2rem; 
     color: #D4AF37;
     text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* ---------------------------------------------------- */
+/* Contactセクション内の文字色を黒に強制 (ゴールド背景対策) */
+/* ---------------------------------------------------- */
+.bg-gold-gradient-dark .container div {
+    color: #000000 !important; 
+}
+.bg-gold-gradient-dark .container div p {
+    color: #333333 !important;
+}
+.bg-gold-gradient-dark .container div h2 {
+    color: #000000 !important;
 }
 
 /* ---------------------------------------------------- */
 /* フッターのアップデート */
 /* ---------------------------------------------------- */
 footer {
-    background-color: #050505; /* より深い黒 */
-    padding: 3rem 0; /* パディングを増やす */
+    background-color: #050505; 
+    padding: 3rem 0; 
     border-top: 1px solid #222222;
 }
 .footer-links {
     font-size: 0.95rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
+}
+.footer-links a {
+    color: #CCCCCC;
+    transition: color 0.3s;
 }
 .footer-links a:hover {
     color: #D4AF37;
@@ -316,12 +342,12 @@ footer {
 /* ---------------------------------------------------- */
 .fixed-contact-button {
     position: fixed;
-    right: 25px; /* 位置を調整 */
-    bottom: 25px; /* 位置を調整 */
+    right: 25px; 
+    bottom: 25px; 
     background: linear-gradient(135deg, #D4AF37 0%, #AA8D37 100%);
     color: #000000;
-    width: 60px; /* サイズを少し大きく */
-    height: 60px; /* サイズを少し大きく */
+    width: 60px; 
+    height: 60px; 
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -332,11 +358,11 @@ footer {
 }
 .fixed-contact-button:hover {
     background-color: #B9984E;
-    transform: translateY(-5px); /* 浮き上がるエフェクト */
+    transform: translateY(-5px); 
     box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
 }
 .fixed-contact-button svg {
-    width: 28px; /* アイコンを大きく */
+    width: 28px; 
     height: 28px;
 }
 
@@ -351,22 +377,6 @@ footer {
 .animate-on-scroll.active {
     opacity: 1;
     transform: translateY(0);
-}
-.animate-on-scroll.active.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-.animate-on-scroll.active.fade-in-up {
-    opacity: 1;
-    transform: translateY(0);
-}
-.animate-on-scroll.active.fade-in-left {
-    opacity: 1;
-    transform: translateX(0);
-}
-.animate-on-scroll.active.fade-in-right {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 /* アニメーション遅延 */
@@ -385,7 +395,7 @@ footer {
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
     
-    body { padding-top: 60px; } /* スマホでのヘッダー高さ */
+    body { padding-top: 60px; } 
     .py-20 { padding-top: 4rem; padding-bottom: 4rem; } 
     .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
 
@@ -396,7 +406,7 @@ footer {
     
     header { min-height: 60px; padding: 0.8rem 0; }
     .logo-text { font-size: 1.8rem; }
-    .nav-links { display: none; } /* スマホでナビは非表示 */
+    .nav-links { display: none; } 
     .cta-button { padding: 0.5rem 1rem; font-size: 0.8rem; }
 
     .cta-button-hero, .cta-button-contact {
@@ -421,7 +431,7 @@ footer {
         padding: 1.5rem;
         display: flex;
         align-items: flex-start;
-        border-left: 4px solid #D4AF37; /* 縦のラインを追加 */
+        border-left: 4px solid #D4AF37; 
         background-color: #0D0D0D;
     }
     .process-number {
@@ -436,7 +446,7 @@ footer {
         font-size: 0.85rem;
     }
     .process-arrow {
-        display: none; /* 矢印を非表示 */
+        display: none; 
     }
 
     /* Priceカードも縦積みでゆとりを確保 */
@@ -446,7 +456,7 @@ footer {
     .price-card h3 {
         font-size: 1.2rem;
     }
-    .price-card p:nth-of-type(2) { /* 料金 */
+    .price-card p:nth-of-type(2) { 
         font-size: 3rem;
     }
 
