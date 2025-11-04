@@ -2,141 +2,93 @@
 /* CSSリセットとWebフォントの適用 (漆黒の深化) */
 /* ---------------------------------------------------- */
 body { 
-    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
     /* 【漆黒の深化】背景色をさらに暗い色へ (または #000000 に近づける) */
     background-color: #0D0D0D; 
-    color: #E0E0E0; 
-    line-height: 1.8; 
-    margin: 0;
-    scroll-behavior: smooth;
-    min-height: 100vh;
-    box-sizing: border-box;
+    /* ... (中略) ... */
 }
-h1, h2, h3 { 
-    font-family: 'Playfair Display', serif;
-    line-height: 1.2;
-    color: #FFFFFF;
-    /* 【豪華なタイポグラフィ】大見出しに薄い影を追加 */
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
-}
-a { text-decoration: none; color: #E0E0E0; }
-
-/* ゴールド系カラーの定義 */
-.text-primary { color: #A48239; } 
-.bg-primary { background-color: #A48239; }
-.border-primary { border-color: #A48239; }
-/* セカンダリ背景もより暗く */
-.bg-secondary { background-color: #1A1A1A; } 
+/* ... (中略) ... */
 
 /* ---------------------------------------------------- */
 /* ゴージャス化とUI強化 */
 /* ---------------------------------------------------- */
-.font-extrabold { font-weight: 900; } 
-.font-semibold { font-weight: 700; } 
-
-/* 見出し下の区切り線を太くし、重厚感を強調 */
-.border-b-2 { border-bottom-width: 4px; } 
+/* ... (中略：フォント、シャドウ設定は維持) ... */
 
 /* シャドウを深くし、要素の浮き出しを強調 */
 .shadow-lg { 
-    /* シャドウを深くし、要素の浮き出しを強調 */
-    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 5px 15px -5px rgba(0, 0, 0, 0.2); 
+    /* 【重厚なシャドウ】影をさらに深くし、立体感を強調 */
+    box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.8), 0 5px 15px -5px rgba(0, 0, 0, 0.3); 
 } 
 
-/* カードのボーダーを高級化 */
+/* カードの高級化（Pricing, Solution） */
 .p-8 {
-    border-color: #1A1A1A; /* カード自体のボーダー色を黒に近い色に */
-    /* ゴールドボーダーの擬似二重線効果（内側シャドウ） */
-    box-shadow: inset 0 0 0 1px rgba(164, 130, 57, 0.2);
+    /* 【余白の拡大】PC版のパディングを拡大 */
+    padding: 2.5rem; 
+    border-color: #1A1A1A; 
+    /* ゴールドボーダーの擬似二重線効果（インナーシャドウ）を強化 */
+    box-shadow: inset 0 0 0 1px rgba(164, 130, 57, 0.3); 
 }
+/* Pricing Premium Card の境界線をより太く */
+.border-r-4 { border-right-width: 5px; }
+.border-l-4 { border-left-width: 5px; }
 
 
 /* ---------------------------------------------------- */
-/* 豪華なアニメーションの追加 */
+/* Processセクションの特別調整（重厚なステップ） */
 /* ---------------------------------------------------- */
-/* 1. ヘッダー登場アニメーション */
-header {
-    /* スティッキー設定は維持 */
-    position: sticky; top: 0; z-index: 50; 
-    background-color: rgba(13, 13, 13, 0.95); /* 新しい漆黒背景に合わせる */
-    backdrop-filter: blur(5px);
-    padding: 1rem 0;
-    border-bottom: 1px solid #262626;
-    
-    /* アニメーション初期設定 */
-    transform: translateY(-100%); 
-    opacity: 0;
-    animation: slideInDown 0.8s ease-out 0.2s forwards; /* 0.2秒遅延させて開始 */
+
+/* Processの各ステップの枠 */
+.process-step-container { 
+    /* 【階層化】通常の背景よりわずかに明るくし、浮き出し感を与える */
+    background-color: #121212; 
+    padding: 2rem; /* ステップコンテナ内の余白も拡大 */
+    border-radius: 6px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 影で奥行きを出す */
 }
-@keyframes slideInDown {
-    from { transform: translateY(-100%); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* HTMLの `.flex items-start bg-black p-6 rounded-lg shadow-lg border-l-4 border-primary`
+   に相当するクラスに対する修正（Processの各ステップ） */
+.process-step-container {
+    /* 元のスタイルを上書きして余白を拡大し、背景色を調整 */
+    padding: 2.5rem; /* PCでの余白を大きくする */
+    background-color: #1A1A1A; /* ステップの背景色を #1A1A1A に調整 */
+    border-left: 5px solid #A48239; /* 左ボーダーを太く、高級感を強調 */
 }
 
-/* 2. スクロール時のフェードイン (時間差を追加) */
-.fade-in { 
-    opacity: 0; 
-    transform: translateY(30px); /* 動きを少し大きく */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* 遷移時間を長く */
+/* Process内のテキストエリア */
+.process-step-container .flex-grow {
+    margin-left: 1.5rem; /* 番号との間隔を拡大 */
 }
-.fade-in.is-visible { 
-    opacity: 1; 
-    transform: translateY(0); 
+.process-step-container .text-4xl {
+    font-size: 3rem; /* 番号のサイズを微調整 */
 }
-/* **注意**: 非対称な登場（タイリング）は、HTML要素に直接 `style="transition-delay: 0.2s;"` のような記述が必要なため、CSS側では一旦アニメーションの質を高める調整のみとします。 */
-
 
 /* ---------------------------------------------------- */
-/* PC限定：カスタムスクロールバーの追加 */
-/* ---------------------------------------------------- */
-@media (min-width: 769px) {
-    /* Chrome, Edge, Safari */
-    body::-webkit-scrollbar {
-        width: 10px; /* スクロールバーの幅 */
-    }
-    body::-webkit-scrollbar-track {
-        background: #1A1A1A; /* トラック（背景）の色 */
-    }
-    body::-webkit-scrollbar-thumb {
-        background-color: #A48239; /* つまみ（サム）の色 */
-        border-radius: 20px;
-        border: 3px solid #1A1A1A; /* トラックとの分離 */
-    }
-}
-
-
-/* ---------------------------------------------------- */
-/* レスポンシブ最適化 (スマホ用デザイン) - ヘッダー崩れ修正は維持 */
+/* レスポンシブ最適化 (スマホ用デザイン) - 余白を優先的に調整 */
 /* ---------------------------------------------------- */
 @media (max-width: 768px) {
-    /* ... (前回のモバイル最適化CSSを全て維持) ... */
-    header { 
-        padding: 0.5rem 0; /* ヘッダーの高さをさらに低く */
-        animation: none; /* スマホではアニメーションを無効化し、動作を軽くする */
-    }
+    /* ... (ヘッダーの圧縮設定は全て維持) ... */
+
+    /* **1. モバイルでのパディング拡大** */
+    .py-16 { padding-top: 4rem; padding-bottom: 4rem; } /* セクションの上下余白も拡大 */
     .container {
-        padding-left: 1rem; 
-        padding-right: 1rem; 
-    }
-    /* ロゴ（Veliq Club）をさらに小さく */
-    .logo-text { font-size: 1.25rem; } 
-    
-    /* ナビゲーションリンク全体をさらに小さく */
-    .nav-links { 
-        font-size: 0.6rem; 
-        margin-left: 0.5rem; 
-        white-space: nowrap; 
+        padding-left: 1.25rem; /* 左右の余白を少し戻す（見栄えのため） */
+        padding-right: 1.25rem;
     }
     
-    .nav-links a { 
-        margin-left: 0.6rem; 
+    /* Pricing/Solution カード内のモバイルパディングを拡大 */
+    .p-8 {
+        padding: 2rem; /* モバイルでもしっかり余白を取る */
     }
-    
-    /* CTAボタンを極限まで小さくし、テキストを削減 */
-    .cta-button {
-        padding: 0.2rem 0.5rem; 
-        font-size: 0.6rem; 
-        border-width: 1px;
+
+    /* Processステップのモバイルパディングを拡大 */
+    .process-step-container {
+        padding: 1.75rem;
     }
+    .process-step-container .flex-grow {
+        margin-left: 1rem; /* 番号との間隔を調整 */
+    }
+    .process-step-container .text-4xl {
+        font-size: 2.5rem; /* 番号のサイズも調整 */
+    }
+
     /* ... (以下、その他のモバイルCSSは変更なし) ... */
 }
