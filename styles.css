@@ -17,7 +17,7 @@ h1, h2, h3 {
     color: #FFFFFF;
     font-weight: 700; 
 }
-/* 🔥【紫文字の解消とリンクの統一】 */
+/* 🔥【リンクの統一】 */
 a { 
     text-decoration: none; 
     color: #CCCCCC; 
@@ -31,7 +31,7 @@ a:hover {
 .text-primary { color: #A48239; } 
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
-.bg-secondary { background-color: #0D0D0D; } /* セクションの背景色を僅かに調整 */
+.bg-secondary { background-color: #0D0D0D; } 
 .font-bold { font-weight: 700; }
 .font-extrabold { font-weight: 900; } 
 
@@ -52,14 +52,14 @@ a:hover {
 
 
 /* ---------------------------------------------------- */
-/* ヘッダーとナビゲーション (安定性の確保) */
+/* ヘッダーとナビゲーション (最終安定版) */
 /* ---------------------------------------------------- */
 header { 
+    /* PCアニメーション */
     transform: translateY(-100%); 
     opacity: 0;
     animation: slideInDown 0.8s ease-out 0.2s forwards; 
     
-    /* 🔥【最終安定化】stickyに戻し、z-indexを確保 */
     position: sticky; top: 0; z-index: 50; 
     background-color: rgba(0, 0, 0, 0.98); 
     backdrop-filter: blur(5px);
@@ -82,7 +82,7 @@ header {
     border: 2px solid #A48239; 
     color: #A48239;
     padding: 0.5rem 1rem;
-    border-radius: 2px; /* シャープな角 */
+    border-radius: 2px; 
     font-size: 0.95rem; 
     transition: background-color 0.3s, color 0.3s;
     font-weight: 700;
@@ -105,7 +105,7 @@ header {
     opacity: 0.9;
 }
 .cta-button-contact {
-    background-color: #FFFFFF; /* Contactセクションのボタンはコントラストを高める */
+    background-color: #FFFFFF; 
     color: #000000;
     padding: 1rem 2rem;
     border-radius: 2px;
@@ -125,9 +125,6 @@ header {
     border-bottom-width: 3px; 
     border-color: #A48239; 
 } 
-.shadow-lg { 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-} 
 
 /* Pricing/Solution カード (シャープな額縁) */
 .p-8 {
@@ -136,6 +133,9 @@ header {
     background-color: #0D0D0D; 
     box-shadow: none;
     border: 1px solid #1A1A1A; 
+}
+.border-l-4 {
+    border-left-width: 4px; 
 }
 
 
@@ -157,6 +157,7 @@ header {
     font-weight: 700;
 }
 
+
 /* ---------------------------------------------------- */
 /* リストアイコンの調整 */
 /* ---------------------------------------------------- */
@@ -167,13 +168,6 @@ header {
     font-weight: bold; 
     position: absolute; left: 0; 
     font-size: 1.2em; 
-}
-.list-caution li::before {
-    content: '△';
-    color: #FFC300; 
-    font-weight: bold; 
-    position: absolute; left: 0; 
-    font-size: 1.2em;
 }
 
 
@@ -244,7 +238,7 @@ footer {
     }
 
     .py-16 { padding-top: 3rem; padding-bottom: 3rem; } 
-
+    
     /* CTAボタンの圧縮 */
     .cta-button {
         padding: 0.3rem 0.6rem; 
