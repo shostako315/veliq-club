@@ -3,11 +3,13 @@
 /* ---------------------------------------------------- */
 body { 
     font-family: 'Georgia', 'Times New Roman', serif;
-    background-color: #1A1A1A; /* ダークな背景色 */
-    color: #E0E0E0; /* 明るいテキスト色 (一般的な本文) */
+    background-color: #1A1A1A; 
+    color: #E0E0E0; 
     line-height: 1.8; 
     margin: 0;
     scroll-behavior: smooth;
+    /* 【重要】ページ全体の最小高さを確保し、スクロールを可能にする */
+    min-height: 100vh; 
 }
 h1, h2, h3 { 
     font-family: 'Georgia', 'Times New Roman', serif;
@@ -20,94 +22,50 @@ a { text-decoration: none; color: #E0E0E0; }
 .text-primary { color: #A48239; } 
 .bg-primary { background-color: #A48239; }
 .border-primary { border-color: #A48239; }
-.bg-secondary { background-color: #262626; } /* セクションの濃淡用 */
+.bg-secondary { background-color: #262626; } 
 
 /* 【視認性強化】低コントラスト文字を明るく調整 */
-.text-gray-300 { color: #CCCCCC; } /* リスト項目などに使用 */
-.text-gray-400 { color: #AAAAAA; } /* サブヘッダーや本文の補足情報に使用 */
-.text-gray-500 { color: #888888; } /* 注釈や細かな情報に使用 */
-.text-gray-600 { color: #666666; } /* 枠線や区切り線などに使用 */
+.text-gray-300 { color: #CCCCCC; } 
+.text-gray-400 { color: #AAAAAA; } 
+.text-gray-500 { color: #888888; } 
+.text-gray-600 { color: #666666; } 
 
 
 /* ---------------------------------------------------- */
 /* ユーティリティとレイアウト */
 /* ---------------------------------------------------- */
-.container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+.container { 
+    max-width: 1200px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem; 
+    /* 【重要】paddingやmarginが相殺されるのを防ぎ、表示を安定させる */
+    box-sizing: border-box; 
+}
+section {
+    /* 【重要】セクションが意図せず消えるのを防ぐ */
+    min-height: 100px; 
+    display: block; /* 念のためブロック要素であることを明示 */
+}
+
+/* 他のユーティリティは省略 */
 .py-16 { padding-top: 5rem; padding-bottom: 5rem; }
 .text-4xl { font-size: 2.5rem; }
-.text-2xl { font-size: 1.75rem; }
-.font-extrabold { font-weight: 800; }
-.font-semibold { font-weight: 600; }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.header-content { display: flex; justify-content: space-between; align-items: center; }
-.grid-cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
-
-/* ---------------------------------------------------- */
-/* レスポンシブ対応 */
-/* ---------------------------------------------------- */
-@media (max-width: 768px) {
-    .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
-    .nav-links { display: none; } /* モバイルでナビゲーションを非表示 */
-    .grid-cols-2 { grid-template-columns: 1fr; gap: 2rem; }
-}
-
-/* ---------------------------------------------------- */
-/* ヘッダーとナビゲーションの改善 */
-/* ---------------------------------------------------- */
-header { 
-    position: sticky; top: 0; z-index: 50; 
-    background-color: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(5px);
-    padding: 1rem 0;
-    border-bottom: 1px solid #262626;
-}
-.nav-links a { margin-left: 1.5rem; transition: color 0.3s; }
-.nav-links a:hover { color: #A48239; }
-
-/* CTAボタン: ゴールドボーダー */
-.cta-button {
-    border: 1px solid #A48239;
-    color: #A48239;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-}
-.cta-button:hover { background-color: #A48239; color: #1A1A1A; }
-
-/* メインビジュアル内のCTAボタン: ゴールド背景 */
-.cta-button-main {
-    background-color: #A48239;
-    color: #1A1A1A;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-.cta-button-main:hover {
-    background-color: rgba(164, 130, 57, 0.9);
-    color: #1A1A1A;
-}
-
-
-/* ---------------------------------------------------- */
-/* リストアイコンの調整 */
-/* ---------------------------------------------------- */
-.list-style-none { list-style: none; padding-left: 0; }
-.list-style-none li { position: relative; padding-left: 1.8em; }
-
-.list-included li::before { content: '✓'; color: #A48239; font-weight: bold; position: absolute; left: 0; }
-.list-excluded li::before { content: '×'; color: #CC0000; font-weight: bold; position: absolute; left: 0; }
-
+/* ... (以下、前回提供したCSSが続く) ... */
 
 /* ---------------------------------------------------- */
 /* スクロールアニメーションの模擬 */
 /* ---------------------------------------------------- */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-/* 実際はJavaScriptで付与 */
-.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+/* 【重要】アニメーション初期設定の透明度(opacity: 0)が原因で要素が見えない場合を想定し、
+   一旦「is-visible」クラスを削除するか、JavaScriptの導入を推奨します。
+   ここではCSSのみで対応するため、一旦このアニメーションを削除して問題を切り分けます。 */
+
+/* .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in.is-visible { opacity: 1; transform: translateY(0); } */
+
+/* 上記をコメントアウトし、HTMLの「fade-in」クラスも一時的に削除してみてください。 */
+
+/* ---------------------------------------------------- */
+/* ヘッダー、ナビゲーション、リストなどのCSS定義... */
+/* ...（前回のファイルと同じ内容を続けて記述してください）... */
