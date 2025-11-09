@@ -218,3 +218,88 @@ details p{margin-top:8px;color:#3a4a5c}
   /* 不要な横スクロールを抑止 */
   html, body { overflow-x: hidden; }
 }
+
+
+/* ====== FAQセクション改良（プルダウン付き） ====== */
+.faq details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 0; /* ← 全体padding削除（中身に持たせる） */
+  overflow: hidden;
+  transition: all .3s ease;
+}
+
+.faq details + details {
+  margin-top: 10px;
+}
+
+/* summaryボタン */
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: var(--ink);
+  background: #fdfdfd;
+  transition: background .25s ease;
+}
+
+.faq summary:hover {
+  background: #f8f8f8;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 開閉ボタン（＋ → −にアニメーション） */
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background: var(--brand);
+  transition: transform .2s ease;
+}
+
+.toggle-icon::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+details[open] .toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* 展開部分の中身 */
+.faq details p {
+  padding: 0 18px 14px 18px;
+  color: #3a4a5c;
+  line-height: 1.7;
+  background: #fff;
+}
+
+/* スマホで押しやすく */
+@media (max-width: 480px) {
+  .faq summary { padding: 16px; font-size: .95rem; }
+  .faq details p { padding: 0 16px 16px; }
+}
