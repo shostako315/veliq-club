@@ -151,24 +151,59 @@ a{color:inherit;text-decoration:none}
 }
 
 /* FAQ（プルダウン付き） */
-.faq{display:grid;gap:10px}
-.faq details{
-  background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
-  padding:0;overflow:hidden;transition:all .3s ease;
-}
-.faq details + details{ margin-top:10px; }
-.faq summary{
-  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
-  padding:14px 18px;font-weight:700;color:var(--ink);background:#fdfdfd;transition:background .25s ease;
-}
-.faq summary:hover{ background:#f8f8f8; }
-.faq summary::-webkit-details-marker{ display:none; }
-.faq details p{ padding:0 18px 14px 18px; color:#3a4a5c; line-height:1.7; background:#fff; }
+/* FAQコンテナ */
+.faq{ display:grid; gap:10px; }
 
-/* 下向き矢印（svg回転） */
-.toggle-icon{ width:28px; height:28px; border:none; background:none; color:var(--brand); display:grid; place-items:center; border-radius:50%; transition:background .25s, transform .25s; }
-.toggle-icon:hover{ background: rgba(184,154,63,0.12); }
-details[open] .toggle-icon svg{ transform: rotate(180deg); transition: transform .25s ease; }
+/* detailsカード */
+.faq details{
+  background:#fff;
+  border:1px solid var(--line, #e6e9ee);
+  border-radius:12px;
+  box-shadow:0 10px 28px rgba(17,24,39,.08);
+  overflow:hidden;
+  transition:box-shadow .25s ease, border-color .25s ease;
+}
+.faq details[open]{ box-shadow:0 12px 30px rgba(17,24,39,.12); }
+
+/* summary行 */
+.faq summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+  padding:14px 18px;
+  font-weight:700; color:var(--ink, #0f1720);
+  background:#fdfdfd;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary:hover{ background:#f8f8f8; }
+
+/* 矢印ボタン */
+.toggle-icon{
+  width:28px; height:28px;
+  display:grid; place-items:center;
+  border:none; background:none;
+  color:var(--brand, #b89a3f);
+  border-radius:50%;
+  transition:background .25s ease;
+}
+.toggle-icon:hover{ background:rgba(184,154,63,.12); }
+
+/* 開いたときに▼を180度回転（＝▲） */
+details[open] .toggle-icon svg{ transform:rotate(180deg); transition:transform .25s ease; }
+
+/* 本文 */
+.faq details p{
+  padding:0 18px 14px 18px;
+  color:#3a4a5c; line-height:1.7; background:#fff;
+}
+
+/* モバイル微調整 */
+@media (max-width: 480px){
+  .faq summary{ padding:16px; font-size:.95rem; }
+  .faq details p{ padding:0 16px 16px; }
+}
+
 
 /* Contact（埋め込みフォームの枠） */
 .iframe-wrapper {
