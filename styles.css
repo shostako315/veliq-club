@@ -160,6 +160,13 @@ summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none}
 summary::-webkit-details-marker{display:none}
 details p{margin-top:8px;color:#3a4a5c}
 
+.toggle-icon{
+  width:28px; height:28px; border-radius:50%;
+  color:#6b5a26; background:rgba(205,181,116,.18);
+  box-shadow: inset 0 0 0 1px rgba(205,181,116,.35);
+}
+.toggle-icon:hover{ background:rgba(205,181,116,.28); }
+
 
 
 /* 下向き矢印ボタンデザイン */
