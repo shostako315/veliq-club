@@ -211,3 +211,15 @@ details p{margin-top:8px;color:#3a4a5c}
   list-style: none;
 }
 
+
+
+
+
+.iframe-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-width: 800px;
+  margin: 0 auto;
+}
