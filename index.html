@@ -1,223 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veliq Club | 特別な瞬間に、最高の音楽を</title>
-    <meta name="description" content="Veliq Clubは、国際的な実績を持つ指揮者監修のもと、企業の式典やVVIPイベントに最適な一流オーケストラの演奏を設計・提供するサービスブランドです。">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20251106"> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veliq Club | 特別な瞬間に、最高の音楽を</title>
+  <meta name="description" content="Veliq Clubは、国際的な実績を持つ指揮者監修のもと、企業の式典やVVIPイベントに最適な一流オーケストラの演奏を設計・提供するサービスブランドです。">
+
+  <!-- SEO / OGP -->
+  <meta property="og:title" content="Veliq Club | 特別な瞬間に、最高の音楽を">
+  <meta property="og:description" content="式典・VVIPイベントで“絶対に失敗できない”音楽体験を、目的から設計して提供。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shostako315.github.io/veliq-club/">
+  <meta property="og:image" content="https://shostako315.github.io/veliq-club/ogp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=20251109" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='8' y='48' font-size='48'%3EV%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"PerformingGroup",
+    "name":"Veliq Club",
+    "url":"https://shostako315.github.io/veliq-club/",
+    "description":"企業式典・VVIPイベント向けのオーケストラ演奏設計・提供",
+    "sameAs":["https://variorchestra.com/"],
+    "founder":{"@type":"Person","name":"Eigo Sato"},
+    "brand":{"@type":"Brand","name":"Veliq Club"}
+  }
+  </script>
 </head>
 <body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">本文へスキップ</a>
 
-    <header class="animate-header">
-        <div class="container header-content">
-            <div class="logo-text">Veliq Club</div>
-            <nav class="nav-links">
-                <a href="#service">サービス設計</a>
-                <a href="#pricing">料金</a>
-                <a href="#process">流れ</a>
-                <a href="#about">About</a>
-            </nav>
-            <a href="#contact" class="cta-button">お問い合わせ</a>
+  <!-- Header -->
+  <header class="site-header animate-header" role="banner">
+    <div class="container header-content">
+      <a href="#" class="logo-text" aria-label="Veliq Club ホーム">Veliq Club</a>
+
+      <button class="nav-toggle" aria-label="メニューを開閉" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links" role="navigation" aria-label="主要">
+        <a href="#service">サービス設計</a>
+        <a href="#pricing">料金</a>
+        <a href="#process">流れ</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta-button" data-cta="header">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero-section py-16">
+      <div class="container animate-on-scroll fade-in-up delay-200">
+        <p class="pre-heading">特別な瞬間に、最高の音楽を</p>
+        <h1>
+          音楽を、<span class="text-primary font-extrabold">ビジネスゴール</span>から
+          <br class="mobile-break">設計する。<br>
+          唯一無二の演出で、<span class="text-gold-gradient">格式</span>と<span class="text-gold-gradient">信頼</span>を。
+        </h1>
+
+        <p class="mt-4 text-lg max-w-4xl text-gray-300 animate-on-scroll fade-in-right delay-300">
+          企業の式典、VVIPレセプション、重要な発表会など、
+          <span class="text-primary font-bold">「絶対に失敗できない」</span>場面で求められるのは、最高の格式と信頼です。<br>
+          Veliq Clubは、国際的な実績を持つ指揮者監修のもと、目的に合わせた最適な編成と、感動的な演奏体験を一貫して提供します。
+        </p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="cta-button-hero mt-12 animate-on-scroll fade-in-up delay-500">無料ヒアリングを申し込む</a>
+          <a href="#service" class="link-ghost">まずはサービスを見る</a>
         </div>
-    </header>
 
-    <main>
-        <section class="hero-section py-16">
-            <div class="container animate-on-scroll fade-in-up delay-200">
-                <p class="pre-heading">特別な瞬間に、最高の音楽を</p>
-                <h1>
-                    音楽を、<span class="text-primary font-extrabold">ビジネスゴール</span>から<br class="mobile-break">設計する。<br>
-                    唯一無二の演出で、<span class="text-gold-gradient">格式</span>と<span class="text-gold-gradient">信頼</span>を。<br>
-                </h1>
-                <p class="mt-4 text-lg max-w-4xl text-gray-300 animate-on-scroll fade-in-right delay-300">
-                    企業の式典、VVIPレセプション、重要な発表会など、<span class="text-primary font-bold">「絶対に失敗できない」</span> 場面で求められるのは、最高の格式と信頼です。<br>
-                    Veliq Clubは、国際的な実績を持つ指揮者監修のもと、お客様の目的に合わせた最適な編成と、感動的な演奏体験を一貫して提供いたします。
-                </p>
-                
-                <a href="#contact" class="cta-button-hero mt-12 animate-on-scroll fade-in-up delay-500">無料ヒアリングを申し込む</a>
-
-                <div class="achievement-bar mt-20 pt-6 border-t border-gold-subtle text-sm text-gray-400 animate-on-scroll fade-in delay-700">
-                    <p class="font-semibold text-primary">主な実績</p>
-                    <p class="mt-1">
-                        大手コンサルティングファーム、パレスホテル、病院の創立50周年記念イベント（帝国ホテル）、長野などの地方への出張演奏など
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="service" class="py-20 bg-dark-gradient">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll fade-in-up">Service | 演奏の<span class="text-primary">「設計」</span>と実行</h2>
-                <p class="section-description animate-on-scroll fade-in-up delay-100">プロフェッショナルな音楽体験を、企業の目的達成という企画の核心からデザインします。</p>
-
-                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="p-8 bg-black-gradient border border-gold-subtle animate-on-scroll fade-in-left">
-                        <h3 class="sub-heading text-primary">提供内容：設計から実行まで</h3>
-                        <ul class="list-style-none list-included space-y-5 text-gray-200 text-lg mt-6">
-                            <li>**ヒアリング・演奏設計提案**（目的を文書化したPDFを含む）</li>
-                            <li>編成/曲目の決定と必要な**編曲**</li>
-                            <li>当日の**演奏提供**（サービス実行）</li>
-                            <li>進行サポート（現場ディレクションを含む）</li>
-                        </ul>
-                    </div>
-
-                    <div class="p-8 bg-black-gradient border border-gold-subtle animate-on-scroll fade-in-right delay-100">
-                        <h3 class="sub-heading text-primary">Veliq Clubの品質保証</h3>
-                        <ul class="list-style-none list-included space-y-5 text-gray-200 text-lg mt-6">
-                            <li>世界的な巨匠の元で学んだ指揮者・ヴァイオリニストによる**全工程の監修**。</li>
-                            <li>大手コンサルティングファーム出身の知見による、イベント**目的への深い理解と最適化**。</li>
-                            <li>オーケストラ自体がプロとして運営されており、**厳選された実力者**で編成。</li>
-                        </ul>
-                        <p class="text-gray-400 mt-6 text-sm">
-                            <span class="text-primary">信頼の証明：</span>少人数編成のご依頼時、演奏家個々のキャリア実績を公開し、その高い信頼性と品質を証明します。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-8 bg-black border-2 border-gold-subtle animate-on-scroll fade-in-up delay-200">
-                    <h3 class="sub-heading text-gold-gradient">提供外業務（提携業者を通じて手配可能）</h3>
-                    <ul class="list-style-none list-excluded space-y-3 text-gray-400 text-base mt-4">
-                        <li>会場・音響の手配や常設運用</li>
-                        <li>レコーディング納品、映像演出・撮影</li>
-                        <li>大型打楽器のレンタル・使用調整。（別途費用と調整が必要です。）</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="pricing" class="py-20 bg-darker-gradient">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll fade-in-up">Pricing | 料金目安（税別）</h2>
-                <p class="section-description animate-on-scroll fade-in-up delay-100">全て演奏設計サービスと演奏が基本セットです。明確な価値を、適正な価格で提供します。</p>
-
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="price-card border-l-4 border-primary p-6 bg-black-gradient animate-on-scroll fade-in-up">
-                        <h3 class="text-xl font-bold text-primary">室内楽・小編成</h3>
-                        <p class="text-gray-400 mt-2 text-sm">弦楽四重奏～少人数イベント向け</p>
-                        <p class="text-5xl font-extrabold mt-6 text-white">40万～</p>
-                    </div>
-                    
-                    <div class="price-card border-l-4 border-primary p-6 bg-black-gradient animate-on-scroll fade-in-up delay-100">
-                        <h3 class="text-xl font-bold text-primary">中～フル編成</h3>
-                        <p class="text-gray-400 mt-2 text-sm">式典・発表会・企業イベント向け（15名～20名超）</p>
-                        <p class="text-5xl font-extrabold mt-6 text-white">200万～</p>
-                    </div>
-
-                    <div class="price-card border-l-4 border-white p-6 bg-gold-gradient text-black shadow-xl animate-on-scroll fade-in-up delay-200">
-                        <h3 class="text-xl font-bold text-black">プレミアム・エディション</h3>
-                        <p class="text-gray-800 mt-2 text-sm">大規模イベント、VVIPレセプションなど</p>
-                        <p class="text-5xl font-extrabold mt-6 text-black">応相談</p>
-                    </div>
-                </div>
-                
-                <div class="mt-12 text-center text-gray-500 text-sm animate-on-scroll fade-in delay-300">
-                    <p>※一般的なフルオーケストラ編成の派遣（数百万円～）と比較しても、ご検討いただきやすい価格帯です。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="process" class="py-20 bg-dark-gradient">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll fade-in-up">Process | ご依頼から演奏までの流れ</h2>
-                <p class="section-description animate-on-scroll fade-in-up delay-100">最高の演奏サービスを提供するための、綿密なプロセスをご紹介します。</p>
-
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-5 gap-6 process-flow">
-                    <div class="process-step animate-on-scroll fade-in-up">
-                        <div class="process-number">01</div>
-                        <h3 class="process-heading">無料ヒアリング</h3>
-                        <p class="process-detail">目的・会場・ターゲット層を伺い、輪郭を確定。</p>
-                    </div>
-                    <div class="process-arrow animate-on-scroll fade-in delay-100">→</div>
-                    <div class="process-step animate-on-scroll fade-in-up delay-100">
-                        <div class="process-number">02</div>
-                        <h3 class="process-heading">演奏設計・提案</h3>
-                        <p class="process-detail">最適な編成、曲目、進行案を文書で提示。</p>
-                    </div>
-                    <div class="process-arrow animate-on-scroll fade-in delay-200">→</div>
-                    <div class="process-step animate-on-scroll fade-in-up delay-200">
-                        <div class="process-number">03</div>
-                        <h3 class="process-heading">確定・準備</h3>
-                        <p class="process-detail">契約に基づき、リハ計画を含めた準備を開始。</p>
-                    </div>
-                    <div class="process-arrow animate-on-scroll fade-in delay-300">→</div>
-                    <div class="process-step animate-on-scroll fade-in-up delay-300">
-                        <div class="process-number">04</div>
-                        <h3 class="process-heading">演奏提供（本番）</h3>
-                        <p class="process-detail">現場調整は主催と連携。最高の音をお届け。</p>
-                    </div>
-                    <div class="process-arrow animate-on-scroll fade-in delay-400">→</div>
-                    <div class="process-step animate-on-scroll fade-in-up delay-400">
-                        <div class="process-number">05</div>
-                        <h3 class="process-heading">フォローアップ</h3>
-                        <p class="process-detail">改善メモ共有で、継続的な品質向上に繋げる。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-20 bg-darker-gradient border-t border-b border-gold-subtle">
-            <div class="container animate-on-scroll fade-in-up">
-                <h2 class="section-title">About Veliq Club | サービスへの信頼</h2>
-
-                <div class="mt-8 max-w-4xl mx-auto text-center">
-                    <p class="text-lg text-white">
-                        Veliq Clubは、**一般社団法人 VariOrchestra**が運営するプロフェッショナルオーケストラのサービスブランドです。
-                        クラシック音楽の定期公演を主催する確かな基盤を持つプロオーケストラが、企業イベントの成功を支えます。
-                    </p>
-                    <p class="mt-4 text-gray-300">
-                        * 指揮者・ヴァイオリニストによる全工程の監修と、厳選されたプロの演奏家で構成。
-                        * <span class="text-gold-gradient">国際的なコンクール受賞歴</span>と<span class="text-gold-gradient">大手コンサルティングファーム出身の知見</span>が、サービスの品質と目的に対する理解を裏付けます。
-                    </p>
-                    <p class="mt-6 text-gray-400 text-sm">
-                        <span class="text-primary">詳細な経歴：</span>監修者やオーケストラの詳細な活動内容については、<a href="https://shostako315.github.io/satoeigo.github.io/" target="_blank" class="text-white hover:text-primary underline">公式サイト</a>をご参照ください。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-gold-gradient-dark text-gray-900">
-            <div class="container animate-on-scroll fade-in-up">
-                <div class="p-8 bg-gold-subtle rounded-none text-black text-center border-2 border-gold-darker">
-                    <h2 class="text-4xl font-bold text-black">お問い合わせ | 特別なイベントの第一歩を</h2>
-                    <p class="mt-4 text-xl font-semibold text-gray-900">
-                        貴社の「絶対に失敗できない」特別な瞬間を、Veliq Clubが最高の音楽で演出します。
-                    </p>
-                    
-                    <a href="予約システムURL" class="cta-button-contact mt-8">無料ヒアリングを申し込む（予約システムへ）</a>
-                    
-                    <p class="mt-4 text-sm text-gray-700">フォームから企業名、役職、イベント概要を優先的に伺います。数営業日以内に担当者よりご連絡いたします。</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container text-center animate-on-scroll fade-in">
-            <p class="text-sm font-semibold text-primary">Veliq Club | 特別な瞬間に、最高の音楽を</p>
-            <div class="footer-links">
-                <a href="#service">サービス設計</a>
-                <span class="text-gray-600">|</span>
-                <a href="#pricing">料金</a>
-                <span class="text-gray-600">|</span>
-                <a href="#process">流れ</a>
-                <span class="text-gray-600">|</span>
-                <a href="#about">About</a>
-                <span class="text-gray-600">|</span>
-                <a href="#">プライバシーポリシー</a>
-            </div>
-            <p class="mt-2 text-xs text-gray-600">&copy; 2025 Veliq Club. All rights reserved.</p>
+        <div class="achievement-bar mt-20 pt-6 border-t border-gold-subtle text-sm text-gray-400 animate-on-scroll fade-in delay-700" aria-label="主な実績">
+          <p class="font-semibold text-primary">主な実績</p>
+          <p class="mt-1">
+            大手コンサルティングファーム／パレスホテル／病院 創立50周年記念（帝国ホテル）／各地の出張演奏 ほか
+          </p>
         </div>
-    </footer>
-    
-    <a href="#contact" class="fixed-contact-button animate-on-scroll bounce-in">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-        </svg>
-    </a>
-    <script src="scroll-animations.js?v=20251106"></script>
+      </div>
+    </section>
+
+    <!-- Service -->
+    <section id="service" class="py-20 bg-dark-gradient">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll fade-in-up">
+          Service | 演奏の<span class="text-primary">「設計」</span>と実行
+        </h2>
+        <p class="section-description animate-on-scroll fade-in-up delay-100">
+          プロフェッショナルな音楽体験を、企業の目的達成という企画の核心からデザインします。
+        </p>
+
+        <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <article class="card p-8 bg-black-gradient border border-gold-subtle animate-on-scroll fade-in-left">
+            <h3 class="sub-heading text-primary">提供内容：設計から実行まで</h3>
+            <ul class="list-included space-y-5 text-gray-200 text-lg mt-6">
+              <li><strong>ヒアリング・演奏設計提案</strong>（目的を文書化したPDFを含む）</li>
+              <li>編成／曲目の決定と必要な<strong>編曲</strong></li>
+              <li>当日の<strong>演奏提供</strong>（サービス実行）</li>
+              <li>進行サポート（現場ディレクションを含む）</li>
+            </ul>
+          </article>
+
+          <article class="card p-8 bg-black-gradient border border-gold-subtle animate-on-scroll fade-in-right delay-100">
+            <h3 class="sub-heading text-primary">Veliq Clubの品質保証</h3>
+            <ul class="list-included space-y-5 text-gray-200 text-lg mt-6">
+              <li>巨匠のもとで学んだ指揮者・ヴァイオリニストによる<strong>全工程監修</strong></li>
+              <li>コンサル出身の知見に基づく<strong>目的最適化</strong></li>
+              <li>プロによる運営・選抜された<strong>実力者編成</strong></li>
+            </ul>
+            <p class="text-gray-400 mt-6 text-sm">
+              <span class="text-primary">信頼の証明：</span>少人数編成時は奏者の実績を開示し、品質を可視化します。
+            </p>
+          </article>
+        </div>
+
+        <div class="mt-12 p-8 bg-black border-2 border-gold-subtle animate-on-scroll fade-in-up delay-200">
+          <h3 class="sub-heading text-gold-gradient">提供外業務（提携手配可）</h3>
+          <ul class="list-excluded space-y-3 text-gray-400 text-base mt-4">
+            <li>会場・音響の手配や常設運用</li>
+            <li>レコーディング納品、映像演出・撮影</li>
+            <li>大型打楽器のレンタル・使用調整（別途費用・事前調整）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-darker-gradient">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll fade-in-up">Pricing | 料金目安（税別）</h2>
+        <p class="section-description animate-on-scroll fade-in-up delay-100">
+          すべて「演奏設計＋演奏」が基本セット。明確な価値を、適正な価格で。
+        </p>
+
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="price-card border-l-4 border-primary p-6 bg-black-gradient animate-on-scroll fade-in-up">
+            <h3 class="text-xl font-bold text-primary">室内楽・小編成</h3>
+            <p class="text-gray-400 mt-2 text-sm">弦楽四重奏～少人数イベント向け</p>
+            <p class="price text-white">40万～</p>
+          </div>
+
+          <div class="price-card border-l-4 border-primary p-6 bg-black-gradient animate-on-scroll fade-in-up delay-100">
+            <h3 class="text-xl font-bold text-primary">中～フル編成</h3>
+            <p class="text-gray-400 mt-2 text-sm">式典・発表会・企業イベント（15名～20名超）</p>
+            <p class="price text-white">200万～</p>
+          </div>
+
+          <div class="price-card featured p-6 bg-gold-gradient text-black shadow-xl animate-on-scroll fade-in-up delay-200" aria-label="プレミアム・エディション">
+            <h3 class="text-xl font-bold text-black">プレミアム・エディション</h3>
+            <p class="text-gray-800 mt-2 text-sm">大規模イベント／VVIPレセプション</p>
+            <p class="price text-black">応相談</p>
+          </div>
+        </div>
+
+        <p class="mt-12 note text-center text-gray-500 text-sm animate-on-scroll fade-in delay-300">
+          ※一般的なフルオーケストラ派遣（数百万円～）と比較しても、ご検討いただきやすい価格帯です。
+        </p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-20 bg-dark-gradient">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll fade-in-up">Process | ご依頼から演奏までの流れ</h2>
+        <p class="section-description animate-on-scroll fade-in-up delay-100">
+          最高の演奏サービスを実現するための、綿密なプロセス。
+        </p>
+
+        <ol class="mt-16 grid grid-cols-1 md:grid-cols-5 gap-6 process-flow" role="list">
+          <li class="process-step animate-on-scroll fade-in-up">
+            <div class="process-number" aria-hidden="true">01</div>
+            <h3 class="process-heading">無料ヒアリング</h3>
+            <p class="process-detail">目的・会場・対象を伺い、要件を確定。</p>
+          </li>
+          <li class="process-arrow animate-on-scroll fade-in delay-100" aria-hidden="true">→</li>
+          <li class="process-step animate-on-scroll fade-in-up delay-100">
+            <div class="process-number" aria-hidden="true">02</div>
+            <h3 class="process-heading">演奏設計・提案</h3>
+            <p class="process-detail">最適な編成・曲目・進行を文書提示。</p>
+          </li>
+          <li class="process-arrow animate-on-scroll fade-in delay-200" aria-hidden="true">→</li>
+          <li class="process-step animate-on-scroll fade-in-up delay-200">
+            <div class="process-number" aria-hidden="true">03</div>
+            <h3 class="process-heading">確定・準備</h3>
+            <p class="process-detail">契約後、リハ計画含め準備開始。</p>
+          </li>
+          <li class="process-arrow animate-on-scroll fade-in delay-300" aria-hidden="true">→</li>
+          <li class="process-step animate-on-scroll fade-in-up delay-300">
+            <div class="process-number" aria-hidden="true">04</div>
+            <h3 class="process-heading">演奏提供（本番）</h3>
+            <p class="process-detail">現場調整は主催と連携し、最高の音を。</p>
+          </li>
+          <li class="process-arrow animate-on-scroll fade-in delay-400" aria-hidden="true">→</li>
+          <li class="process-step animate-on-scroll fade-in-up delay-400">
+            <div class="process-number" aria-hidden="true">05</div>
+            <h3 class="process-heading">フォローアップ</h3>
+            <p class="process-detail">改善メモ共有で継続的品質向上。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-darker-gradient border-t border-b border-gold-subtle">
+      <div class="container animate-on-scroll fade-in-up">
+        <h2 class="section-title">About Veliq Club | サービスへの信頼</h2>
+
+        <div class="mt-8 max-w-4xl mx-auto text-center">
+          <p class="text-lg text-white">
+            Veliq Clubは、<strong>一般社団法人 VariOrchestra</strong>が運営するプロフェッショナル・オーケストラのサービスブランドです。
+            定期公演を主催する確かな基盤を持つ組織が、企業イベントの成功を支えます。
+          </p>
+          <p class="mt-4 text-gray-300">
+            ・ 指揮者／ヴァイオリニストの監修、厳選プロ奏者で構成<br>
+            ・ <span class="text-gold-gradient">国際コンクール受賞歴</span> × <span class="text-gold-gradient">コンサル知見</span>＝目的整合性の高い価値提供
+          </p>
+          <p class="mt-6 text-gray-400 text-sm">
+            <span class="text-primary">詳細な経歴：</span>
+            監修者やオーケストラの活動は
+            <a href="https://shostako315.github.io/satoeigo.github.io/" target="_blank" class="text-white hover:text-primary underline" rel="noopener">公式サイト</a>をご参照ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gold-gradient-dark text-gray-900">
+      <div class="container animate-on-scroll fade-in-up">
+        <div class="p-8 bg-gold-subtle text-black text-center border-2 border-gold-darker">
+          <h2 class="text-4xl font-bold text-black">お問い合わせ | 特別なイベントの第一歩を</h2>
+          <p class="mt-4 text-xl font-semibold text-gray-900">
+            「絶対に失敗できない」特別な瞬間を、Veliq Clubが最高の音楽で演出します。
+          </p>
+
+          <!-- 予約システムURL を差し替え -->
+          <a href="予約システムURL" class="cta-button-contact mt-8" data-cta="contact">無料ヒアリングを申し込む（予約へ）</a>
+
+          <p class="mt-4 text-sm text-gray-700">
+            フォームで企業名／役職／イベント概要を伺います。数営業日以内にご連絡します。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container text-center animate-on-scroll fade-in">
+      <p class="text-sm font-semibold text-primary">Veliq Club | 特別な瞬間に、最高の音楽を</p>
+      <nav class="footer-links" aria-label="フッター">
+        <a href="#service">サービス設計</a><span class="sep">|</span>
+        <a href="#pricing">料金</a><span class="sep">|</span>
+        <a href="#process">流れ</a><span class="sep">|</span>
+        <a href="#about">About</a><span class="sep">|</span>
+        <a href="#" aria-disabled="true">プライバシーポリシー</a>
+      </nav>
+      <p class="mt-2 text-xs text-gray-600">&copy; 2025 Veliq Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <a href="#contact" class="fixed-contact-button animate-on-scroll bounce-in" aria-label="お問い合わせへ移動">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="scroll-animations.js?v=20251109" defer></script>
 </body>
 </html>
