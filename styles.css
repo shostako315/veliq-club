@@ -205,3 +205,9 @@ details p{margin-top:8px;color:#3a4a5c}
   margin-bottom: 12px;
 }
 
+/* ブレット（黒い点）を非表示にする */
+.list,
+.list li {
+  list-style: none;
+}
+
