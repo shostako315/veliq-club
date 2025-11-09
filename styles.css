@@ -160,6 +160,31 @@ summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none}
 summary::-webkit-details-marker{display:none}
 details p{margin-top:8px;color:#3a4a5c}
 
+
+
+/* 下向き矢印ボタンデザイン */
+.toggle-icon {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  color: var(--brand);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.toggle-icon:hover {
+  background: rgba(184,154,63,0.12);
+}
+
+details[open] .toggle-icon svg {
+  transform: rotate(180deg);
+  transition: transform 0.25s ease;
+}
+
+
 /* Contact（埋め込みフォームの枠） */
 .iframe-wrapper {
   background: #fff;
