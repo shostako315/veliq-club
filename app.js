@@ -33,3 +33,16 @@ document.querySelectorAll('.faq details summary').forEach(sum => {
     // デフォルト挙動でOK（details開閉）。バブルで二重にならないように調整のみ。
   });
 });
+
+
+// FAQのaria-expanded同期（ 任意 ）
+document.querySelectorAll('.faq details').forEach(d => {
+  const btn = d.querySelector('.toggle-icon');
+  const sum = d.querySelector('summary');
+  const sync = () => btn && btn.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+  sum?.addEventListener('click', () => setTimeout(sync)); // details開閉後に同期
+  sync();
+});
+
+
+
