@@ -349,3 +349,8 @@ details[open] .toggle-icon::after {
 }
 @media(max-width:780px){ .sticky-cta{ display:block; } }
 
+
+#use, #plans, #flow, #faq, #contact { scroll-margin-top: calc(var(--header) + 16px); }
+
+
+
