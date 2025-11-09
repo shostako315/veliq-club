@@ -328,3 +328,14 @@ details[open] .toggle-icon::after {
   .faq summary { padding: 16px; font-size: .95rem; }
   .faq details p { padding: 0 16px 16px; }
 }
+
+
+
+
+/* 「編成と料金」のサブ説明文（.sub）のサイズを小さく */
+.sub {
+  font-size: 0.85rem;   /* ←ここで調整。0.8〜0.9くらいがバランス良い */
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.6;
+}
