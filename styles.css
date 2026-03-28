@@ -185,81 +185,136 @@ a{color:inherit;text-decoration:none}
 .price-button:active{ transform:translateY(0); }
 
 /* ====== VariOrchestra ====== */
-.orchestra-block{
-  display:grid;
-  gap:32px;
-  grid-template-columns:1fr;
+.vo-section{
+  background:linear-gradient(180deg, #111014 0%, #18161e 100%);
+  padding:72px 0;
+  color:#f6f4ee;
+  position:relative;
+  overflow:hidden;
 }
-@media(min-width:760px){
-  .orchestra-block{grid-template-columns:1fr 280px;align-items:start}
+.vo-section::before{
+  content:'';
+  position:absolute;
+  top:-40%; left:-20%;
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(184,154,63,.1) 0%, transparent 70%);
+  pointer-events:none;
 }
-.orchestra-text p{
-  color:var(--text);
+.vo-kicker{
+  font-family:'Playfair Display',serif;
+  font-size:.9rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--brand);
+  margin-bottom:6px;
+}
+.vo-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem, 5vw, 3.2rem);
+  font-weight:800;
+  color:#f6f4ee;
+  line-height:1.15;
+  margin-bottom:16px;
+  letter-spacing:.02em;
+}
+.vo-lead{
+  color:#a8a8a8;
+  font-size:1rem;
   line-height:1.8;
-  margin-bottom:12px;
+  max-width:640px;
 }
-.orchestra-tagline{
-  font-family:'Playfair Display',serif;
-  font-size:1.15rem;
-  font-weight:700;
-  color:var(--ink);
-  margin-bottom:8px;
-}
-.orchestra-points{
-  list-style:none;
-  padding:0;
-  margin:16px 0 0;
-  display:grid;
-  gap:10px;
-}
-.orchestra-points li{
+
+/* Stats row */
+.vo-stats{
   display:flex;
-  align-items:flex-start;
-  gap:8px;
-  color:var(--text);
-  line-height:1.65;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  margin:40px 0;
+  padding:28px 0;
+  border-top:1px solid rgba(201,162,74,.2);
+  border-bottom:1px solid rgba(201,162,74,.2);
 }
-.orchestra-points li svg{
-  flex-shrink:0;
-  margin-top:3px;
-}
-.orchestra-stats{
-  display:grid;
-  gap:12px;
-  grid-template-columns:1fr;
-}
-@media(min-width:760px){
-  .orchestra-stats{grid-template-columns:1fr}
-}
-@media(max-width:759px){
-  .orchestra-stats{grid-template-columns:repeat(3,1fr)}
-}
-.stat-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:20px 16px;
+.vo-stat{
+  flex:1;
   text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:4px;
+  padding:0 12px;
 }
-.stat-number{
+.vo-stat-divider{
+  width:1px;
+  height:48px;
+  background:rgba(201,162,74,.3);
+  flex-shrink:0;
+}
+.vo-stat-num{
+  display:block;
   font-family:'Playfair Display',serif;
-  font-size:1.6rem;
+  font-size:clamp(1.6rem, 4vw, 2.2rem);
   font-weight:800;
   color:var(--brand);
   line-height:1.2;
 }
-.stat-number small{
-  font-size:.9rem;
+.vo-stat-num small{
+  font-size:.7em;
   font-weight:700;
 }
-.stat-label{
-  font-size:.82rem;
-  color:var(--muted);
-  font-weight:600;
+.vo-stat-lbl{
+  display:block;
+  font-size:.78rem;
+  color:#8a8a8a;
+  margin-top:4px;
+  font-weight:500;
+}
+
+/* Feature cards */
+.vo-features{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
+}
+.vo-feature{
+  padding:24px 20px;
+  border:1px solid rgba(201,162,74,.18);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.03);
+  transition:transform .25s, border-color .25s, background .25s;
+}
+.vo-feature:hover{
+  transform:translateY(-3px);
+  border-color:rgba(201,162,74,.5);
+  background:rgba(255,255,255,.05);
+}
+.vo-feature-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px; height:44px;
+  border-radius:50%;
+  background:rgba(201,162,74,.12);
+  color:var(--brand);
+  margin-bottom:14px;
+}
+.vo-feature h3{
+  font-size:1rem;
+  font-weight:700;
+  color:#f6f4ee;
+  margin-bottom:6px;
+}
+.vo-feature p{
+  font-size:.9rem;
+  color:#8a8a8a;
+  line-height:1.65;
+}
+
+@media(max-width:760px){
+  .vo-features{grid-template-columns:1fr}
+  .vo-section{padding:56px 0}
+  .vo-stats{gap:0}
+}
+@media(max-width:430px){
+  .vo-section{padding:48px 0}
+  .vo-stat-num{font-size:1.4rem}
+  .vo-feature{padding:20px 16px}
 }
 
 /* ====== Flow ====== */
