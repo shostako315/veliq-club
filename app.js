@@ -27,22 +27,8 @@ const onScroll = () => {
 window.addEventListener('scroll', onScroll);
 window.addEventListener('load', onScroll);
 
-// FAQ：summaryクリック範囲の拡張（ボタン以外でも開閉）
-document.querySelectorAll('.faq details summary').forEach(sum => {
-  sum.addEventListener('click', (e) => {
-    // デフォルト挙動でOK（details開閉）。バブルで二重にならないように調整のみ。
-  });
-});
-
-
-// FAQのaria-expanded同期（ 任意 ）
-document.querySelectorAll('.faq details').forEach(d => {
-  const btn = d.querySelector('.toggle-icon');
-  const sum = d.querySelector('summary');
-  const sync = () => btn && btn.setAttribute('aria-expanded', d.open ? 'true' : 'false');
-  sum?.addEventListener('click', () => setTimeout(sync)); // details開閉後に同期
-  sync();
-});
+// FAQ：summary全体をクリック可能に（矢印含む）
+// <details>のネイティブ開閉に任せるだけでOK
 
 
 
