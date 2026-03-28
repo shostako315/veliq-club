@@ -13,7 +13,7 @@ if (toggle) {
 }
 
 // スクロールで現在セクションをハイライト
-const sectionIds = ['use','orchestra','plans','flow','faq','contact'];
+const sectionIds = ['record','orchestra','plans','director','faq','contact'];
 const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 const links = [...document.querySelectorAll('.nav a')].filter(a => a.hash && sectionIds.includes(a.hash.slice(1)));
 
