@@ -186,36 +186,34 @@ a{color:inherit;text-decoration:none}
 
 /* ====== VariOrchestra ====== */
 .vo-section{
-  background:#111014;
-  padding:80px 0;
-  color:#f6f4ee;
+  background:var(--bg-alt);
+  padding:72px 0;
 }
 .vo-container{
   max-width:800px;
 }
 .vo-header{
-  margin-bottom:20px;
+  margin-bottom:16px;
 }
 .vo-kicker{
-  font-size:.8rem;
-  letter-spacing:.18em;
+  font-size:.78rem;
+  letter-spacing:.15em;
   text-transform:uppercase;
-  color:rgba(201,162,74,.7);
-  margin-bottom:4px;
+  color:var(--brand);
+  margin-bottom:2px;
 }
 .vo-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem, 6vw, 3.6rem);
+  font-size:clamp(1.8rem, 5vw, 2.8rem);
   font-weight:800;
-  color:#f6f4ee;
-  line-height:1.1;
-  letter-spacing:.01em;
+  color:var(--ink);
+  line-height:1.15;
 }
 .vo-lead{
-  color:#9a9a9a;
+  color:var(--muted);
   font-size:.95rem;
-  line-height:1.85;
-  margin-bottom:40px;
+  line-height:1.8;
+  margin-bottom:32px;
 }
 
 /* 4-cell grid */
@@ -223,46 +221,46 @@ a{color:inherit;text-decoration:none}
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1px;
-  background:rgba(201,162,74,.15);
-  border:1px solid rgba(201,162,74,.15);
+  background:var(--line);
+  border:1px solid var(--line);
   border-radius:12px;
   overflow:hidden;
 }
 .vo-item{
-  background:#111014;
-  padding:28px 24px;
+  background:#fff;
+  padding:24px 22px;
   display:flex;
   flex-direction:column;
   gap:4px;
 }
 .vo-num{
   font-family:'Playfair Display',serif;
-  font-size:1.8rem;
+  font-size:1.7rem;
   font-weight:800;
   color:var(--brand);
   line-height:1.2;
 }
 .vo-num small{
-  font-size:.65em;
+  font-size:.6em;
 }
 .vo-detail{
-  font-size:.95rem;
-  color:#d4d0c8;
-  font-weight:500;
+  font-size:.92rem;
+  color:var(--ink);
+  font-weight:600;
   line-height:1.4;
 }
 .vo-lbl{
   font-size:.75rem;
-  color:#666;
-  letter-spacing:.04em;
+  color:var(--muted);
+  letter-spacing:.02em;
   margin-top:2px;
 }
 
 @media(max-width:430px){
-  .vo-section{padding:56px 0}
-  .vo-item{padding:22px 18px}
-  .vo-num{font-size:1.5rem}
-  .vo-detail{font-size:.88rem}
+  .vo-section{padding:48px 0}
+  .vo-item{padding:20px 16px}
+  .vo-num{font-size:1.4rem}
+  .vo-detail{font-size:.85rem}
 }
 
 /* ====== Flow ====== */
